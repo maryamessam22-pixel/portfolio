@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from '../components/Header';
 import Navbar from './../components/Navbar';
 import Arrow from '../components/Arrow';
-
+import Footer from '../components/Footer';
 import "./Home.css";
 const Home = () => {
     return ( 
@@ -11,7 +11,7 @@ const Home = () => {
 <>
  <Navbar/>
      <Header/>
-
+     <Footer/>
      <Arrow/>
 </>
 
