@@ -12,7 +12,7 @@
 
   .hero-text {
     position: absolute;
-    top: 5%;
+    /* top: 5%; */
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
@@ -25,15 +25,16 @@
     width: 500px;
     margin: 0 auto 1rem auto;
     text-align: center;
+    margin-bottom: 0;
   }
 
   .hero-designer {
     position: absolute;
-    top: 50%;
+    top: 52%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 3rem;
-    font-weight: 400;
+    font-size: 5rem;
+    font-weight: 200;
     color: #855cff;
     font-family: 'Georgia', serif;
     font-style: italic;
