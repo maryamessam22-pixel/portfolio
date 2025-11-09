@@ -19,13 +19,14 @@ const CursorTrail = () => {
         y: e.clientY,
       };
 
+
       setBubbles((prev) => {
         // Limit to 15 bubbles max for performance
         const updated = [...prev, newBubble];
         return updated.slice(-15);
       });
 
-      // Remove bubble after animation
+     
       setTimeout(() => {
         setBubbles((prev) => prev.filter((bubble) => bubble.id !== newBubble.id));
       }, 1000);
