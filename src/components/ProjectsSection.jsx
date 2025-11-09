@@ -59,6 +59,8 @@ const ProjectsSection = () => {
   return (
     <section className="projects-section-container">
       <div className={`projects-wrapper ${isHovered ? 'hovered' : ''}`}>
+
+
         {/* Category Labels */}
         {categories.map((category) => (
           <div key={category.id} className={`category-item ${category.position}`}>
@@ -83,21 +85,6 @@ const ProjectsSection = () => {
           ))}
 
           <div className="folder-top">
-            {/* <div className="folder-logo">
-              <div className="logo-icon">F</div>
-              <div className="logo-birds">
-                <span className="bird-left">🐦</span>
-                <span className="bird-right">🐦</span>
-              </div>
-            </div>
-            <div className="folder-banner">Welcome to EUI</div>
-          </div>
-          
-          <div className="folder-content">
-            <div className="folder-about">
-              <h3>About EUI</h3>
-              <p>At the heart of the Knowledge Administrative Capital, the Egypt University of Informatics (EUI) stands as a beacon of innovation...</p>
-            </div> */}
             
             <div className="folder-projects-text">
               <h2 className="projects-title"> My<br></br>Projects</h2>
