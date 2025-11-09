@@ -1,0 +1,84 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+padding: 40px;
+  color: #ff0000;
+  position: relative;
+  z-index: 100;
+}
+
+/* Logo */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Nav Links hidden by default */
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100px;
+  right: 50px;
+background: linear-gradient(90deg, #f497e1, #e33bd8);
+  width: 200px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  border-radius: 8px 8px  8px 8px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+.nav-links.open {
+  max-height: 500px; /* enough for all links */
+}
+
+.nav-links a {
+  color: #1F0D37;
+  text-decoration: none;
+  padding: 1.3rem;
+  font-size: 24px;
+  transition: background 0.3s;
+  font-family: 'Roboto', sans-serif;
+}
+
+.nav-links a:hover {
+  background-color: #c3c5ff;
+  border-radius: 3px;
+}
+
+/* Burger Menu */
+.burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 35px;
+
+  height: 30px;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.burger .line {
+
+  height: 5px;
+  width: 100%;
+  background-color: #1F0D37;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Burger Animation */
+.burger .line1.rotate1 {
+  transform: rotate(45deg) translate(10px, 10px);
+}
+
+.burger .line2.fade {
+  opacity: 0;
+}
+
+.burger .line3.rotate2 {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
