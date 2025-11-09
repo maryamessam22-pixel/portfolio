@@ -1,0 +1,23 @@
+.BTN{
+    font-size: 18px;
+     font-family: 'Roboto', sans-serif;
+     color: white;
+     font-weight: 400;
+     background-color: #6f00ff47;
+     display: flex;
+     text-align: center;
+     align-items: center;
+     justify-content: center;
+     border-radius: 100px;
+     border-color: aliceblue;
+     width: 260px;
+     height: 55px;
+}
+
+.BTN:hover{
+
+     background-color: rgb(60, 26, 91);
+     animation-duration: 1s;
+     cursor: pointer;
+
+}
