@@ -6,6 +6,7 @@ import arImage from '../assets/AR.png';
 import photographyImage from '../assets/PH.png';
 import modeling3dImage from '../assets/LAPTOP.png';
 import graphicDesignImage from '../assets/RABSO.png';
+import patternImage from '../assets/pattern.png';
 
 const ProjectsSection = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -103,7 +104,9 @@ const ProjectsSection = () => {
             </div>
           </div>
 
-          <div className="folder-pattern"></div>
+          <div className="folder-pattern">
+            <img src={patternImage} alt="Pattern" />
+          </div>
         </div>
       </div>
     </section>

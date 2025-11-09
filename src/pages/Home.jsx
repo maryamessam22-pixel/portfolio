@@ -9,6 +9,7 @@ import TextParagraph from './../components/TextParagraph';
 
 import mariamImg from '../assets/ME.png';
 import BTN from '../components/BTN';
+import SkillsSection from './../components/SkillsSection';
 const Home = () => {
     return ( 
 
@@ -46,7 +47,12 @@ const Home = () => {
 
 <ProjectsSection/> 
 
-
+<SkillsSection 
+  title="Skills"
+  subtitle="A Comprehensive Overview of My UI/UX Designer Skills"
+  txt1="My core expertise lies in UI/UX design, encompassing both User Experience and User Interface methodologies. This deep understanding forms the backbone of my design process, ensuring usability, creativity, and impact in every project."
+  txt2="Using digital tools and techniques, I create multifunctional products, tailored to the needs of the target audience, always keeping the focus on usability and creativity as a UI/UX design."
+/>
 
 
 
