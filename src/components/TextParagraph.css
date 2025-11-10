@@ -4,7 +4,7 @@
      font-weight: 900;
      font-size: 64px;
      margin-top: 1%;
-
+     text-align: center;
 }
 
 .TXT{
@@ -13,7 +13,53 @@
      font-weight: 400;
      font-size: 24px;
      width: 650px;
+     text-align: left;
+     /* margin: 0 auto; */
+}
 
-    
-     
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .ABOUT {
+        font-size: 48px;
+        text-align: center;
+    }
+
+    .TXT {
+        width: 100%;
+        max-width: 600px;
+        font-size: 20px;
+        text-align: center;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .ABOUT {
+        font-size: 36px;
+        margin-top: 2%;
+        text-align: center;
+    }
+
+    .TXT {
+        width: 100%;
+        max-width: 90%;
+        font-size: 18px;
+        padding: 0 20px;
+        text-align: center;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .ABOUT {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .TXT {
+        font-size: 16px;
+        text-align: center;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
 }

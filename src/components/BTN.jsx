@@ -10,4 +10,4 @@ const BTN = (props) => {
     </> );
 }
  
-export default BTN;
+export default BTN;  

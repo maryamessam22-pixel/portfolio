@@ -19,7 +19,7 @@
 }
 
 .navbar.scrolled {
-  /* height: 60px; */
+  height: 40px;
   padding: 10px 20px;
   max-width: 95%;
   left: 50%;
@@ -74,10 +74,11 @@
 }
 
 .nav-links.open {
-  max-height: 500px; /* enough for all links */
+  max-height: 400px; /* enough for all links */
 }
 
-.nav-links a {
+.nav-links a,
+.nav-links Link {
   color: #1F0D37;
   text-decoration: none;
   padding: 1rem 1.5rem;
@@ -87,17 +88,19 @@
   font-family: 'Roboto', sans-serif;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
+  display: block;
 }
 
 .nav-links a:last-child {
   border-bottom: none;
 }
 
-.nav-links a:hover {
-  background: rgba(167, 139, 250, 0.2);
-  color: #6B46C1;
-  padding-left: 2rem;
-}
+  .nav-links a:hover,
+  .nav-links Link:hover {
+    background: rgba(167, 139, 250, 0.2);
+    color: #6B46C1;
+    padding-left: 2rem;
+  }
 
 .nav-links a::before {
   content: '';
@@ -161,4 +164,102 @@
 
 .burger .line3.rotate2 {
   transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 15px 30px;
+  }
+
+  .navbar.scrolled {
+    max-width: 98%;
+    padding: 8px 15px;
+  }
+
+  .nav-links {
+    width: 200px;
+    right: 30px;
+  }
+
+  .navbar.scrolled .nav-links {
+    right: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0px 20px;
+    height: 70px;
+  }
+
+  .navbar.scrolled {
+    height: 35px;
+    max-width: 98%;
+    padding: 5px 15px;
+  }
+
+  .logo img {
+    height: 40px;
+  }
+
+  .navbar.scrolled .logo img {
+    height: 30px;
+  }
+
+  .nav-links {
+    width: 180px;
+    right: 20px;
+    top: 80px;
+    font-size: 0.95rem;
+  }
+
+  .navbar.scrolled .nav-links {
+    top: 80px;
+    right: 15px;
+    width: 160px;
+     background: linear-gradient(180deg, #a78bfa93 0%, #6B46C1 100%);
+  }
+
+  .nav-links a {
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+  }
+
+  .nav-links a:hover {
+    padding-left: 1.5rem;
+  }
+
+  .burger {
+    width: 30px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0px 15px;
+  }
+
+  .logo img {
+    height: 35px;
+  }
+
+  .navbar.scrolled .logo img {
+    height: 25px;
+  }
+
+  .nav-links {
+    width: 160px;
+    right: 15px;
+  }
+
+  .nav-links a {
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .nav-links a:hover {
+    padding-left: 1.2rem;
+  }
 }

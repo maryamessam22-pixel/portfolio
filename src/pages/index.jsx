@@ -4,7 +4,7 @@ import Navbar from './../components/Navbar';
 import Arrow from '../components/Arrow';
 import Footer from '../components/Footer';
 import ProjectsSection from '../components/ProjectsSection';
-import "./Home.css";
+import "./index.css";
 import TextParagraph from './../components/TextParagraph';
 
 import mariamImg from '../assets/ME.png';
@@ -27,7 +27,7 @@ const Home = () => {
       skills through diverse courses, creative projects, and collaborative 
       teamwork. I also gained huge knowledge in UI/UX Designer fundamentals
        and their applications in real projects. and how to use them to make
-        people’s lives easier when interacting with designs."/>
+        people's lives easier when interacting with designs."/>
  </div> 
 
       <img src={mariamImg} alt="Mariam Essam" className="about-img" />  
@@ -58,20 +58,9 @@ const Home = () => {
 
 
 
-
-
-
-
-
      <Footer/>
      <Arrow/>
 </>
-
-
-
-
-
-
 
 
 
@@ -80,3 +69,4 @@ const Home = () => {
 }
  
 export default Home;
+

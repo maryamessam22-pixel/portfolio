@@ -1,59 +1,69 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { Component } from 'react';
 import './CursorTrail.css';
 
-const CursorTrail = () => {
-  const [bubbles, setBubbles] = useState([]);
-  const lastTimeRef = useRef(0);
+class CursorTrail extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      bubbles: []
+    };
+    this.lastTime = 0;
+  }
 
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      const now = Date.now();
-      // Throttle to create bubbles every 50ms for better performance
-      if (now - lastTimeRef.current < 50) return;
-      lastTimeRef.current = now;
+  componentDidMount() {
+    window.addEventListener('mousemove', this.handleMouseMove);
+  }
 
-      // Create a new bubble at mouse position
-      const newBubble = {
-        id: Date.now() + Math.random(),
-        x: e.clientX,
-        y: e.clientY,
-      };
+  componentWillUnmount() {
+    window.removeEventListener('mousemove', this.handleMouseMove);
+  }
 
+  handleMouseMove = (e) => {
+    const now = Date.now();
+    // Throttle to create bubbles every 50ms for better performance
+    if (now - this.lastTime < 50) return;
+    this.lastTime = now;
 
-      setBubbles((prev) => {
-        // Limit to 15 bubbles max for performance
-        const updated = [...prev, newBubble];
-        return updated.slice(-15);
-      });
-
-     
-      setTimeout(() => {
-        setBubbles((prev) => prev.filter((bubble) => bubble.id !== newBubble.id));
-      }, 1000);
+    // Create a new bubble at mouse position
+    const newBubble = {
+      id: Date.now() + Math.random(),
+      x: e.clientX,
+      y: e.clientY,
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    // Limit to 15 bubbles max for performance
+    this.setState((prevState) => {
+      const updated = [...prevState.bubbles, newBubble];
+      return { bubbles: updated.slice(-15) };
+    });
 
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
+    // Remove bubble after 1 second
+    setTimeout(() => {
+      this.setState((prevState) => ({
+        bubbles: prevState.bubbles.filter((bubble) => bubble.id !== newBubble.id)
+      }));
+    }, 1000);
+  }
 
-  return (
-    <div className="cursor-trail-container">
-      {bubbles.map((bubble) => (
-        <div
-          key={bubble.id}
-          className="cursor-bubble"
-          style={{
-            left: `${bubble.x}px`,
-            top: `${bubble.y}px`,
-          }}
-        />
-      ))}
-    </div>
-  );
-};
+  render() {
+    const { bubbles } = this.state;
+    
+    return (
+      <div className="cursor-trail-container">
+        {bubbles.map((bubble) => (
+          <div
+            key={bubble.id}
+            className="cursor-bubble"
+            style={{
+              left: `${bubble.x}px`,
+              top: `${bubble.y}px`,
+            }}
+          />
+        ))}
+      </div>
+    );
+  }
+}
 
 export default CursorTrail;
 

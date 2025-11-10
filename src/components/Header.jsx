@@ -31,7 +31,7 @@
 
 // export default Header;
 
-import React, { Component, useRef, useEffect } from "react";
+import React, { Component } from "react";
 import "./Header.css";
 
 const iconData = [
@@ -61,17 +61,21 @@ function randomInRange(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-function Header() {
-  const bubbleRefs = useRef([]);
-  const velocitiesRef = useRef([]);
-  const hoveredRef = useRef(new Set());
+class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.bubbleRefs = [];
+    this.velocitiesRef = [];
+    this.hoveredRef = new Set();
+    this.animationFrameId = null;
+  }
 
-  useEffect(() => {
+  componentDidMount() {
     // Initialize velocities for each bubble
     const initVelocities = () => {
-      bubbleRefs.current.forEach((ref, idx) => {
-        if (ref && !velocitiesRef.current[idx]) {
-          velocitiesRef.current[idx] = {
+      this.bubbleRefs.forEach((ref, idx) => {
+        if (ref && !this.velocitiesRef[idx]) {
+          this.velocitiesRef[idx] = {
             vx: randomInRange(-0.03, 0.03),
             vy: randomInRange(-0.025, 0.025),
           };
@@ -87,10 +91,10 @@ function Header() {
       frameCount++;
       // Update less frequently for smoother movement
       if (frameCount % 2 === 0) {
-        bubbleRefs.current.forEach((ref, idx) => {
-          if (ref && velocitiesRef.current[idx]) {
-            const vel = velocitiesRef.current[idx];
-            const isHovered = hoveredRef.current.has(idx);
+        this.bubbleRefs.forEach((ref, idx) => {
+          if (ref && this.velocitiesRef[idx]) {
+            const vel = this.velocitiesRef[idx];
+            const isHovered = this.hoveredRef.has(idx);
             
             // Add slight random variation to velocity for organic movement
             const variation = isHovered ? 0.005 : 0.002;
@@ -125,58 +129,66 @@ function Header() {
           }
         });
       }
-      requestAnimationFrame(animate);
+      this.animationFrameId = requestAnimationFrame(animate);
     };
     animate();
-  }, []);
+  }
 
-  return (
-    <div className="hero-bubbles-bg">
-      <div className="hero-text">
-        <div className="hero-title">
-          <span className="title-main">UI/UX PORTFOLIO</span>
-          <span className="hero-designer">Designer</span>
-        </div>
-        <div className="hero-name">Mariam Farid</div>
-      </div>
-      {iconData.map((icon, idx) => {
-        const size = randomInRange(150, 280);
-        const x = randomInRange(5, 95);
-        const y = randomInRange(5, 95);
+  componentWillUnmount() {
+    if (this.animationFrameId) {
+      cancelAnimationFrame(this.animationFrameId);
+    }
+  }
 
-        const pastelColors = [
-          "rgba(156, 158, 238, 0.27)",
-          "rgba(201, 120, 255, 0.37)",
-          "rgba(238, 86, 162, 0.33)",
-          "rgba(169, 239, 248, 0.22)",
-          "rgba(113, 52, 131, 0.31)",
-          "rgba(208, 239, 212, 0.33)",
-        ];
-        const color = pastelColors[idx % pastelColors.length];
-
-        return (
-          <div
-            key={icon.name}
-            ref={el => (bubbleRefs.current[idx] = el)}
-            className="bubble"
-            style={{
-              width: `${size}px`,
-              height: `${size}px`,
-              background: color,
-              left: `${x}%`,
-              top: `${y}%`,
-            }}
-            data-x={x}
-            data-y={y}
-            onMouseEnter={() => hoveredRef.current.add(idx)}
-            onMouseLeave={() => hoveredRef.current.delete(idx)}
-          >
-            <img src={icon.icon} alt={icon.name} className="bubble-icon" />
+  render() {
+    return (
+      <div className="hero-bubbles-bg">
+        <div className="hero-text">
+          <div className="hero-title">
+            <span className="title-main">UI/UX PORTFOLIO</span>
+            <span className="hero-designer">Designer</span>
           </div>
-        );
-      })}
-    </div>
-  );
+          <div className="hero-name">Mariam Farid</div>
+        </div>
+        {iconData.map((icon, idx) => {
+          const size = randomInRange(150, 280);
+          const x = randomInRange(5, 95);
+          const y = randomInRange(5, 95);
+
+          const pastelColors = [
+            "rgba(156, 158, 238, 0.27)",
+            "rgba(201, 120, 255, 0.37)",
+            "rgba(238, 86, 162, 0.33)",
+            "rgba(169, 239, 248, 0.22)",
+            "rgba(113, 52, 131, 0.31)",
+            "rgba(208, 239, 212, 0.33)",
+          ];
+          const color = pastelColors[idx % pastelColors.length];
+
+          return (
+            <div
+              key={icon.name}
+              ref={el => (this.bubbleRefs[idx] = el)}
+              className="bubble"
+              style={{
+                width: `${size}px`,
+                height: `${size}px`,
+                background: color,
+                left: `${x}%`,
+                top: `${y}%`,
+              }}
+              data-x={x}
+              data-y={y}
+              onMouseEnter={() => this.hoveredRef.add(idx)}
+              onMouseLeave={() => this.hoveredRef.delete(idx)}
+            >
+              <img src={icon.icon} alt={icon.name} className="bubble-icon" />
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
 }
 
 export default Header;

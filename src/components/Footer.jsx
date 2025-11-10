@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import "./Footer.css";
+import footerImage from '../assets/footerimg.png';
 // import wpIcon from '../assets/wp.png';
 // import gmailIcon from '../assets/gmail.png';
 // import linkedinIcon from '../assets/linkedin.png';
@@ -17,6 +18,9 @@ const Footer = () => {
       </div>
       
       <div className="footer-content">
+        <div className="footer-image-container">
+          <img src={footerImage} alt="Footer" className="footer-image" />
+        </div>
         <h1 className="footer-heading">Let's Connect</h1>
         <p className="footer-subtitle">UI/UX Designer</p>
         
