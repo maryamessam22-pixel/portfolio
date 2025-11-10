@@ -3,6 +3,8 @@ import Navbar from '../components/Navbar';
 import Arrow from '../components/Arrow';
 import Footer from '../components/Footer';
 import AboutSection from '../components/AboutSection';
+import EducationSection from '../components/EducationSection';
+import WorkExperienceSection from '../components/WorkExperienceSection';
 // import TextParagraph from './../components/TextParagraph';
 import "./About.css"
 
@@ -13,10 +15,10 @@ const About = () => {
     <>
       <Navbar />
       <AboutSection />
-
-      
-      <Footer />
       <Arrow />
+      <EducationSection />
+      <WorkExperienceSection />
+      <Footer />
     </>
   );
 };

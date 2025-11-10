@@ -95,14 +95,22 @@
   border-bottom: none;
 }
 
-  .nav-links a:hover,
-  .nav-links Link:hover {
-    background: rgba(167, 139, 250, 0.2);
-    color: #6B46C1;
-    padding-left: 2rem;
-  }
+.nav-links a:hover,
+.nav-links Link:hover,
+.nav-links a.active {
+  background: rgba(167, 139, 250, 0.2);
+  color: #6B46C1;
+  padding-left: 2rem;
+  font-weight: 700;
+}
 
-.nav-links a::before {
+.nav-links a.active {
+  background: rgba(167, 139, 250, 0.3);
+  color: #6B46C1;
+}
+
+.nav-links a::before,
+.nav-links a.active::before {
   content: '';
   position: absolute;
   left: 0;
@@ -114,7 +122,8 @@
   transition: opacity 0.3s ease;
 }
 
-.nav-links a:hover::before {
+.nav-links a:hover::before,
+.nav-links a.active::before {
   opacity: 1;
 }
 

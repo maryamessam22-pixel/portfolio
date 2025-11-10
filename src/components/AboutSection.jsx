@@ -1,6 +1,8 @@
 import React from 'react';
 import './AboutSection.css';
 import TextParagraph from './TextParagraph';
+// import EducationSection from './EducationSection';
+// import WorkExperienceSection from './WorkExperienceSection';
 import mariamImg from '../assets/ME2.png';
 
 const AboutSection = () => {
@@ -61,10 +63,9 @@ const AboutSection = () => {
         </div>
       </div>
 
-      <TextParagraph title="About Me" />
-    
+      {/* <EducationSection />
+      <WorkExperienceSection /> */}
     </div>
-
   );
 };
 

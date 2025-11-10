@@ -1,0 +1,50 @@
+.education-section {
+  width: 100%;
+padding: 60px 90px;
+  /* background: linear-gradient(-90deg, #F0E8FB, #B58EE6); */
+}
+
+.education-section .ABOUT {
+  
+  text-align: left;
+  margin-bottom: 30px;
+  color: #330066;
+}
+
+.education-section .TXT {
+  text-align: left;
+  color: #330066;
+  font-size: 20px;
+  line-height: 1.8;
+  white-space: pre-line;
+  max-width: 100%;
+  width: 900px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .education-section {
+    padding: 40px 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .education-section {
+    padding: 30px 30px;
+  }
+
+  .education-section .TXT {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .education-section {
+    padding: 20px 20px;
+  }
+
+  .education-section .TXT {
+    font-size: 14px;
+  }
+}
+

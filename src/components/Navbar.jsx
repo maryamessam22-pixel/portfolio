@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
  
 import "./Navbar.css";
@@ -51,8 +51,21 @@ class Navbar extends Component {
         </div>
 
         <div className={`nav-links ${isOpen ? "open" : ""}`}>
-          <Link to="/" onClick={this.handleLinkClick}>Home</Link>
-          <Link to="/about" onClick={this.handleLinkClick}>About</Link>
+          <NavLink 
+            to="/" 
+            onClick={this.handleLinkClick}
+            className={({ isActive }) => isActive ? "active" : ""}
+            end
+          >
+            Home
+          </NavLink>
+          <NavLink 
+            to="/about" 
+            onClick={this.handleLinkClick}
+            className={({ isActive }) => isActive ? "active" : ""}
+          >
+            About
+          </NavLink>
           <a href="#projects" onClick={this.handleLinkClick}>Projects</a>
           <a href="#articles" onClick={this.handleLinkClick}>Articles</a>
           <a href="#contact" onClick={this.handleLinkClick}>Contact</a>
