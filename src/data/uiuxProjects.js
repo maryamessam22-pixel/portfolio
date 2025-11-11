@@ -1,4 +1,4 @@
-import ui1 from '../assets/zoobig.png';
+import ui1 from '../assets/zoobi.png';
 import ui2 from '../assets/horrorbig.png';
 import ui3 from '../assets/tvbig.png';
 import ui4 from '../assets/gorideapp.png';
