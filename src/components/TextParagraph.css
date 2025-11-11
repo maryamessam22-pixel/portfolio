@@ -14,7 +14,8 @@
      font-size: 24px;
      width: 650px;
      text-align: left;
-     /* margin: 0 auto; */
+     /* margin: 0 auto  ; */
+     line-height: 1.8;
 }
 
 /* Responsive Design */
