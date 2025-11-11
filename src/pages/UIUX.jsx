@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import './UIUX.css';
-import '../components/Projects.css';
+import '../components/ProjectCard.css';
 import SEO from '../components/SEO';
 import GlassyCircles from '../components/GlassyCircles';
 import BTN from '../components/BTN';
