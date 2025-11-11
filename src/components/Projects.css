@@ -63,6 +63,14 @@
   font-family: 'Arial', sans-serif;
   text-align: center;
 }
+.project-card-text {
+  color: rgba(255, 255, 255, 0.78);
+  text-align: center;
+  font-size: 0.95rem;
+  margin: 0 24px 24px;
+  line-height: 1.6;
+  font-family: 'Arial', sans-serif;
+}
 .project-button {
   background-color: #6B46C1;
   color: white;

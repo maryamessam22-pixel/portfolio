@@ -16,7 +16,11 @@ class Navbar extends Component {
 
   isActive = (path) => {
     try {
-      return window.location && window.location.pathname === path;
+      const currentPath = window.location ? window.location.pathname : '';
+      if (path === '/') {
+        return currentPath === '/';
+      }
+      return currentPath.startsWith(path);
     } catch (e) {
       return false;
     }
@@ -62,9 +66,8 @@ class Navbar extends Component {
           <Link to="/" onClick={this.handleLinkClick} className={this.isActive('/') ? 'active' : ''}>Home</Link>
           <Link to="/about" onClick={this.handleLinkClick} className={this.isActive('/about') ? 'active' : ''}>About</Link>
           <Link to="/uiux" onClick={this.handleLinkClick} className={this.isActive('/uiux') ? 'active' : ''}>Projects</Link>
-
-          <Link to="/articles" onClick={this.handleLinkClick} className={this.isActive('/uiux') ? 'active' : ''}>Articles</Link>
-          <a href="#contact" onClick={this.handleLinkClick}>Contact</a>
+          <Link to="/articles" onClick={this.handleLinkClick} className={this.isActive('/articles') ? 'active' : ''}>Articles</Link>
+          <Link to="/contact" onClick={this.handleLinkClick} className={this.isActive('/contact') ? 'active' : ''}>Contact</Link>
         </div>
 
         <div className="burger" onClick={this.toggleMenu}>

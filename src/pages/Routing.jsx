@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './index';
 import About from './About';
 import UIUX from './UIUX';
+import ProjectDetailsUIUX from './ProjectDetailsUIUX';
 import Errorpage from './Errorpage';
 import CursorTrail from '../components/CursorTrail';
 import Articles from './Articles';
@@ -18,6 +19,7 @@ const Routing = () => {
       <Route path='/' element={<Home />} />
       <Route path='/about' element={<About />} />
       <Route path='/uiux' element={<UIUX />} />
+      <Route path='/uiux/:projectId' element={<ProjectDetailsUIUX />} />
       <Route path='/articles' element={<Articles/>} />
       <Route path='/contact' element={<Contact/>} />
       <Route path='*' element={<Errorpage/>} />
