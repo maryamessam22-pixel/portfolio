@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import "./ProjectsSection.css";
 import uiuxImage from '../assets/CS.png';
 import motionGraphicsImage from '../assets/MA.png';
@@ -70,11 +71,22 @@ class ProjectsSection extends Component {
 
 
           {/* Category Labels */}
-          {categories.map((category) => (
-            <div key={category.id} className={`category-item ${category.position}`}>
-              <div className="category-label">{category.label}</div>
-            </div>
-          ))}
+          {categories.map((category) => {
+            const content = <div className="category-label">{category.label}</div>;
+            const wrapperClass = `category-item ${category.position}`;
+            if (category.label === 'UI/UX') {
+              return (
+                <div key={category.id} className={wrapperClass}>
+                  <Link to="/uiux">{content}</Link>
+                </div>
+              );
+            }
+            return (
+              <div key={category.id} className={wrapperClass}>
+                {content}
+              </div>
+            );
+          })}
 
           {/* Central Folder/Banner with Images Inside */}
           <div 
@@ -83,14 +95,17 @@ class ProjectsSection extends Component {
             onMouseLeave={() => this.setState({ isHovered: false })}
           >
             {/* Images inside folder - will move out on hover */}
-            {categories.map((category) => (
-              <div 
-                key={category.id} 
-                className={`folder-image folder-image-${category.position} ${isHovered ? 'moved-out' : ''}`}
-              >
-                <img src={category.image} alt={category.imageAlt} />
-              </div>
-            ))}
+            {categories.map((category) => {
+              const imageEl = (
+                <div 
+                  key={category.id} 
+                  className={`folder-image folder-image-${category.position} ${isHovered ? 'moved-out' : ''}`}
+                >
+                  <img src={category.image} alt={category.imageAlt} />
+                </div>
+              );
+              return category.label === 'UI/UX' ? <Link key={category.id} to="/uiux">{imageEl}</Link> : imageEl;
+            })}
 
             <div className="folder-top">
               

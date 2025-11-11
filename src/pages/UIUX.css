@@ -1,0 +1,56 @@
+.uiux-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 160px 20px 0px 20px;
+}
+
+.uiux-foreground {
+  position: relative;
+  z-index: 1;
+}
+
+.uiux-hero-content {
+  max-width: 720px;
+}
+
+.uiux-title {
+  font-size: 3rem;
+  color: #24113f;
+  margin-bottom: 12px;
+  font-family: 'Arial', sans-serif;
+}
+
+.uiux-subtitle {
+  font-size: 1.25rem;
+  color: #4b2c78;
+  opacity: 0.85;
+  font-family: 'Arial', sans-serif;
+}
+
+@media (max-width: 768px) {
+  .uiux-title {
+    font-size: 2.4rem;
+  }
+
+  .uiux-subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+body{
+    background: linear-gradient(-90deg, #F0E8FB, #B58EE6);
+    overflow-x: hidden;
+
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+}

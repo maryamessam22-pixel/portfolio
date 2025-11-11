@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
  
 import "./Navbar.css";
@@ -12,6 +12,14 @@ class Navbar extends Component {
       isOpen: false,
       isScrolled: false
     };
+  }
+
+  isActive = (path) => {
+    try {
+      return window.location && window.location.pathname === path;
+    } catch (e) {
+      return false;
+    }
   }
 
   componentDidMount() {
@@ -51,23 +59,11 @@ class Navbar extends Component {
         </div>
 
         <div className={`nav-links ${isOpen ? "open" : ""}`}>
-          <NavLink 
-            to="/" 
-            onClick={this.handleLinkClick}
-            className={({ isActive }) => isActive ? "active" : ""}
-            end
-          >
-            Home
-          </NavLink>
-          <NavLink 
-            to="/about" 
-            onClick={this.handleLinkClick}
-            className={({ isActive }) => isActive ? "active" : ""}
-          >
-            About
-          </NavLink>
-          <a href="#projects" onClick={this.handleLinkClick}>Projects</a>
-          <a href="#articles" onClick={this.handleLinkClick}>Articles</a>
+          <Link to="/" onClick={this.handleLinkClick} className={this.isActive('/') ? 'active' : ''}>Home</Link>
+          <Link to="/about" onClick={this.handleLinkClick} className={this.isActive('/about') ? 'active' : ''}>About</Link>
+          <Link to="/uiux" onClick={this.handleLinkClick} className={this.isActive('/uiux') ? 'active' : ''}>Projects</Link>
+
+          <Link to="/articles" onClick={this.handleLinkClick} className={this.isActive('/uiux') ? 'active' : ''}>Articles</Link>
           <a href="#contact" onClick={this.handleLinkClick}>Contact</a>
         </div>
 

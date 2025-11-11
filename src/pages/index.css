@@ -10,6 +10,9 @@ body{
     padding: 0;
 }
 
+a{
+    text-decoration: none;
+}
 
 .both{
     display: flex;
