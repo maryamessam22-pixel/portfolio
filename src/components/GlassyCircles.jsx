@@ -2,23 +2,23 @@ import React, { useMemo } from 'react';
 import './GlassyCircles.css';
 
 const DEFAULT_COLORS = [
-	'rgba(167, 139, 250, 0.35)',   // purple
-	'rgba(236, 201, 75, 0.25)',    // yellow
-	'rgba(129, 230, 217, 0.25)',   // teal
-	'rgba(251, 182, 206, 0.3)',    // pink
-	'rgba(196, 181, 253, 0.28)',   // light purple
-	'rgba(167, 243, 208, 0.28)'    // mint
+	'rgba(167, 139, 250, 0.35)',   
+	'rgba(236, 201, 75, 0.25)',   
+	'rgba(129, 230, 217, 0.25)',  
+	'rgba(251, 182, 206, 0.3)',   
+	'rgba(196, 181, 253, 0.28)',  
+	'rgba(167, 243, 208, 0.28)'  
 ];
 
 function generateCircles(count, colors) {
 	const circles = [];
 	for (let i = 0; i < count; i++) {
-		const size = Math.floor(Math.random() * 180) + 80; // 80 - 260
-		const top = Math.floor(Math.random() * 85); // viewport %
+		const size = Math.floor(Math.random() * 180) + 80; 
+		const top = Math.floor(Math.random() * 85); 
 		const left = Math.floor(Math.random() * 85);
-		const duration = Math.random() * 20 + 18; // 18 - 38s
-		const delay = Math.random() * -15; // negative delay to desync
-		const blur = Math.random() * 8 + 6; // 6 - 14px
+		const duration = Math.random() * 20 + 18; 
+		const delay = Math.random() * -15; 
+		const blur = Math.random() * 8 + 6; 
 		const color = colors[i % colors.length];
 		circles.push({ id: i, size, top, left, duration, delay, blur, color });
 	}

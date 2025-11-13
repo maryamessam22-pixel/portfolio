@@ -181,6 +181,7 @@
   text-decoration: none;
 }
 
+
 @media (max-width: 768px) {
   .project-details-wrapper {
     padding-top: 120px;

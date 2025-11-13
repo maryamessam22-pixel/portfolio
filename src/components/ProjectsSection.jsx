@@ -70,7 +70,7 @@ class ProjectsSection extends Component {
         <div className={`projects-wrapper ${isHovered ? 'hovered' : ''}`}>
 
 
-          {/* Category Labels */}
+
           {categories.map((category) => {
             const content = <div className="category-label">{category.label}</div>;
             const wrapperClass = `category-item ${category.position}`;
@@ -88,13 +88,13 @@ class ProjectsSection extends Component {
             );
           })}
 
-          {/* Central Folder/Banner with Images Inside */}
-          <div 
+  
+       <div 
             className="central-folder"
             onMouseEnter={() => this.setState({ isHovered: true })}
             onMouseLeave={() => this.setState({ isHovered: false })}
           >
-            {/* Images inside folder - will move out on hover */}
+           
             {categories.map((category) => {
               const imageEl = (
                 <div 

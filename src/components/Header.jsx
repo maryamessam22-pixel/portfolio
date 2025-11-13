@@ -1,36 +1,3 @@
-// import React, { useState } from "react";
-// import "./Header.css";
-// import { Menu, X, Figma, Zap, Code } from "lucide-react";
-
-// function Header() {
-//   const [isOpen, setIsOpen] = useState(false);
-
-//   return (
-//     <header className="header">
-//       <div className="logo">Mariam’s Portfolio</div>
-
-//       <nav className={`nav ${isOpen ? "open" : ""}`}>
-//         <a href="#home">Home</a>
-//         <a href="#projects">Projects</a>
-//         <a href="#skills">Skills</a>
-//         <a href="#contact">Contact</a>
-//       </nav>
-
-//       <button className="menu-btn" onClick={() => setIsOpen(!isOpen)}>
-//         {isOpen ? <X size={28} /> : <Menu size={28} />}
-//       </button>
-
-//       <div className="icons">
-//         <Figma className="float-icon" />
-//         <Zap className="float-icon" />
-//         <Code className="float-icon" />
-//       </div>
-//     </header>
-//   );
-// }
-
-// export default Header;
-
 import React, { Component } from "react";
 import "./Header.css";
 
@@ -194,3 +161,35 @@ class Header extends Component {
 export default Header;
 
 
+// import React, { useState } from "react";
+// import "./Header.css";
+// import { Menu, X, Figma, Zap, Code } from "lucide-react";
+
+// function Header() {
+//   const [isOpen, setIsOpen] = useState(false);
+
+//   return (
+//     <header className="header">
+//       <div className="logo">Mariam’s Portfolio</div>
+
+//       <nav className={`nav ${isOpen ? "open" : ""}`}>
+//         <a href="#home">Home</a>
+//         <a href="#projects">Projects</a>
+//         <a href="#skills">Skills</a>
+//         <a href="#contact">Contact</a>
+//       </nav>
+
+//       <button className="menu-btn" onClick={() => setIsOpen(!isOpen)}>
+//         {isOpen ? <X size={28} /> : <Menu size={28} />}
+//       </button>
+
+//       <div className="icons">
+//         <Figma className="float-icon" />
+//         <Zap className="float-icon" />
+//         <Code className="float-icon" />
+//       </div>
+//     </header>
+//   );
+// }
+
+// export default Header;

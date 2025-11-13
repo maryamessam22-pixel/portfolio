@@ -20,24 +20,22 @@ class CursorTrail extends Component {
 
   handleMouseMove = (e) => {
     const now = Date.now();
-    // Throttle to create bubbles every 50ms for better performance
+   
     if (now - this.lastTime < 50) return;
     this.lastTime = now;
 
-    // Create a new bubble at mouse position
+
     const newBubble = {
       id: Date.now() + Math.random(),
       x: e.clientX,
       y: e.clientY,
     };
 
-    // Limit to 15 bubbles max for performance
     this.setState((prevState) => {
       const updated = [...prevState.bubbles, newBubble];
       return { bubbles: updated.slice(-15) };
     });
 
-    // Remove bubble after 1 second
     setTimeout(() => {
       this.setState((prevState) => ({
         bubbles: prevState.bubbles.filter((bubble) => bubble.id !== newBubble.id)
@@ -65,5 +63,5 @@ class CursorTrail extends Component {
   }
 }
 
-export default CursorTrail;
+export default CursorTrail; 
 

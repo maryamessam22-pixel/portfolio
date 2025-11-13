@@ -48,7 +48,8 @@ a{
     text-align: center;
 }
 
-/* Responsive Design */
+
+
 @media (max-width: 1024px) {
     .ALL {
         gap: 60px;

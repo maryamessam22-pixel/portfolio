@@ -18,7 +18,8 @@
      line-height: 1.8;
 }
 
-/* Responsive Design */
+
+
 @media (max-width: 1024px) {
     .ABOUT {
         font-size: 48px;

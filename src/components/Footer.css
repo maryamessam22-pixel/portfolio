@@ -98,7 +98,7 @@
   50% { opacity: 0.9; }
 }
 
-/* Glowing blue arc */
+
 .blue-arc {
   position: absolute;
   top: 50%;
@@ -112,7 +112,7 @@
   z-index: 1;
 }
 
-/* 3D Spiral shapes */
+
 .spiral-left,
 .spiral-right {
   position: absolute;
@@ -297,7 +297,7 @@
   margin-top: 20px;
 }
 
-/* Responsive design */
+
 @media (max-width: 1024px) {
   .footer {
     padding: 50px 20px 30px;
