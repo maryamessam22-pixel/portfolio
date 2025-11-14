@@ -16,7 +16,7 @@ const UIUX = () => {
 	return (
 		<>
 			<SEO 
-				title="Mariam Farid | UI/UX Designer" 
+				title="Mariam-Farid-UI/UX-Designer" 
 				description="Explore UI/UX projects: mobile apps and websites with research-driven UX and clean UI." 
 			/>
 			<GlassyCircles count={14} />

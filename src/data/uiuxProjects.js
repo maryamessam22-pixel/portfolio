@@ -8,7 +8,7 @@ import ui6 from '../assets/eventapp.png';
 export const uiuxProjects = [
 	{
 		id: 'giza-zoo-website',
-		title: 'Giza zoo website',
+		title: 'Giza-zoo-website',
 		cardDescription: 'A modern website design for the zoo, mixing wildlife storytelling with practical ticket flows.',
 		overview: [
 			'The Giza Zoo Website is a modern, interactive platform that shares details about animals, events, and tickets. Smooth navigation and responsive layouts help visitors find what they need quickly.',
@@ -24,7 +24,7 @@ export const uiuxProjects = [
 	},
 	{
 		id: 'horror-ar-website',
-		title: 'Horror AR Website',
+		title: 'Horror-AR-Website',
 		cardDescription: 'Immersive horror AR landing page with layered storytelling and eerie micro-interactions.',
 		overview: [
 			'The Horror AR Website brings a story-driven experience to life online. It combines audio cues, dark visuals, and AR previews to set the mood instantly.',
@@ -40,7 +40,7 @@ export const uiuxProjects = [
 	},
 	{
 		id: 'tv-operating-system',
-		title: 'TV Operating System',
+		title: 'TV-Operating-System',
 		cardDescription: 'Smart TV hub with quick navigation, profile switching, and streamlined content discovery.',
 		overview: [
 			'The TV Operating System UI focuses on a clean home screen anchored by personalized recommendations. Each widget uses large typography and easily readable controls for couch distance.',
@@ -56,7 +56,7 @@ export const uiuxProjects = [
 	},
 	{
 		id: 'go-ride-app',
-		title: 'Go Ride App',
+		title: 'Go-Ride-App',
 		cardDescription: 'Ride sharing mobile app with real-time tracking and an intuitive booking timeline.',
 		overview: [
 			'Go Ride streamlines booking by outlining the entire trip in one view. Riders can track drivers live, tip inside the flow, and access safety tools with a single tap.',
@@ -72,7 +72,7 @@ export const uiuxProjects = [
 	},
 	{
 		id: 'mini-cooper-smart-screen',
-		title: 'Mini Cooper Smart screen',
+		title: 'Mini-Cooper-Smart-screen',
 		cardDescription: 'In-car dashboard concept balancing driver focus with rich infotainment feedback.',
 		overview: [
 			'The Mini Cooper Smart Screen explores a two-layer layout: primary driver data in the center, secondary interactions grouped on the right.',
@@ -88,7 +88,7 @@ export const uiuxProjects = [
 	},
 	{
 		id: 'event-planner-app',
-		title: 'Event planner App',
+		title: 'Event-planner-App',
 		cardDescription: 'Plan, organize, and track events with ready-made templates and collaborative notes.',
 		overview: [
 			'The Event Planner App helps teams plan gatherings by combining reminders, vendor management, and attendee feedback in one place.',

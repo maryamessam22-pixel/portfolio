@@ -15,7 +15,7 @@ const About = () => {
   return (
     <>
       <SEO 
-        title="Mariam Farid | About UI/UX Designer" 
+        title="Mariam-Farid-About-UI/UX-Designer" 
         description="Learn about Mariam Farid: education, experience, and skills in UI/UX design." 
       />
       <Navbar />

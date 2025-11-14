@@ -31,7 +31,7 @@ const ProjectDetailsUIUX = () => {
 	return (
 		<>
 			<SEO 
-				title={`${project.title} | UI/UX Project`} 
+				title={`${project.title}-UI/UX-Project`} 
 				description={project.cardDescription || 'Explore project details, process, and outcomes.'} 
 			/>
 			<GlassyCircles count={10} />
