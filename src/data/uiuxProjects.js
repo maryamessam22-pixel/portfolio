@@ -50,7 +50,7 @@ export const uiuxProjects = [
 		startDate: '08/01/2024',
 		endDate: '29/01/2024',
 		toolsUsed: ['Figma', 'Illustrator'],
-		processSteps: ['Audit', 'Information Architecture', 'Wireframe', 'Prototype', 'Design QA'],
+		processSteps: ['Audit', 'Information', 'Wireframe', 'Prototype', 'Design'],
 		coverImage: ui3,
 		thumbnail: ui3
 	},
@@ -82,7 +82,7 @@ export const uiuxProjects = [
 		startDate: '05/05/2024',
 		endDate: '20/05/2024',
 		toolsUsed: ['Figma'],
-		processSteps: ['Benchmark', 'Journey Map', 'Wireframe', 'Visual Design', 'Prototype'],
+		processSteps: ['Research', 'Journey Map', 'Wireframe', 'Visual Design', 'Prototype'],
 		coverImage: ui5,
 		thumbnail: ui5
 	},
