@@ -9,7 +9,6 @@ const ArticleData = [
         cardDescription: "Understanding what UI/UX designers really do in the digital world.",
         image: Artc_1,
 
-        // --- هيكل البيانات الجديد للمقالة الأولى ---
         tableOfContents: [
             "What is User Interface (UI) Design?",
             "What is User Experience (UX) Design?",
@@ -21,7 +20,7 @@ const ArticleData = [
             title: "Introduction: The Architects of Digital Interaction",
             text: "In the digital world, UI/UX design is the unseen force behind every app you love and every website you find easy to use. These designers are the architects of your digital experience, blending psychology, art, and technology. We'll break down what this dynamic field is all about."
         },
-        // استخدمنا اسم 'mainSections' ليكون اسم عام
+  
         mainSections: [ 
             {
                 name: "1. What is User Interface (UI) Design?",
@@ -65,7 +64,7 @@ const ArticleData = [
             title: "My Creative Friends",
             text: "Creativity connects us and in this article, I’m highlighting six inspiring creative designers, each with a unique talent and identity that make them stand out in Egypt’s design scene."
         },
-        //  (friendsList) تم تغيير الاسم هنا أيضاً من
+   
         mainSections: [ 
             {
                 name: "1. Mariam Farid",
@@ -85,7 +84,8 @@ const ArticleData = [
                 keyword: "connect design and development",
                 description: "Hesham Abozaid is the rare creative who bridges the gap between beautiful design and functional code. He doesn't just design a screen; he understands how it's built, leading to seamless, practical, and powerful digital products."
             },
-            // ... (Add the rest of the friends here following the same structure)
+         
+
             {
                 name: "4. Samaa Suod",
                 link: "www.samaasuod.design",
