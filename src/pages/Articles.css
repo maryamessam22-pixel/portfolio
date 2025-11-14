@@ -1,0 +1,178 @@
+body{
+    background: linear-gradient(-90deg, #F0E8FB, #B58EE6);
+    overflow-x: hidden;
+
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+.articles-section {
+
+    
+    width: 100%;
+    padding: 100px 5%; 
+    box-sizing: border-box; 
+    text-align: center;
+    color: #ffffff;
+}
+
+.articles-title {
+      font-family: "Neonderthaw", cursive;
+    
+    font-size: 128px; 
+    font-weight: 900;
+    color: #9071ff;
+    position: relative;
+    z-index: 999;
+
+    -webkit-text-stroke: 1px #1F0D37;
+    text-stroke: 2px #1F0D37;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+    
+    margin-top: 5%;
+    line-height: 1.1;
+}
+
+.articles-subtitle {
+       position: relative;
+    z-index: 999;
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: #1F0D37;
+    letter-spacing: 1px;
+    margin-top: 45px;
+    margin-bottom: 60px; 
+}
+
+.articles-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; 
+    gap: 45px;
+    flex-wrap: wrap; 
+}
+
+.article-card {
+    width: 550px; 
+    min-height: 350px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+       position: relative;
+    z-index: 999;
+    padding: 30px;
+    box-sizing: border-box;
+    text-align: left;
+    
+    box-shadow: 0 10px 25px rgba(136, 13, 198, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article-card:hover {
+    transform: translateY(-10px);
+    position: relative;
+    z-index: 999;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.4);
+}
+
+
+.article-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, 
+        rgba(46, 1, 71, 0.1) 0%, 
+        rgba(30, 3, 45, 0.325) 100%);
+    z-index: 1;
+}
+
+
+.article-content {
+    position: relative;
+    z-index: 2;
+}
+
+.article-card-title {
+    font-size: 28px;
+    font-weight: 200;
+    color: #ffffff;
+    margin-bottom: 20px;
+    line-height: 1.3;
+     font-family: 'Roboto', sans-serif;
+}
+
+.article-card-button {
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 100;
+    font-size: 18px;
+     font-family: 'Roboto', sans-serif;
+    background: linear-gradient(90deg, #aa6cff, #d78fff);
+    padding: 12px 24px;
+    border-radius: 50px; /* Pill shape */
+    transition: all 0.3s ease;
+}
+
+.article-card-button:hover {
+    background: linear-gradient(90deg, #d78fff, #aa6cff);
+    box-shadow: 0 4px 15px rgba(170, 108, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+
+
+
+
+@media (max-width: 900px) {
+    .articles-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .article-card {
+        width: 100%; 
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 600px) {
+    .articles-title {
+        font-size:80px; 
+    }
+
+    .articles-subtitle {
+        font-size: 16px;
+        margin-bottom: 40px;
+    }
+
+    .article-card-title {
+        font-size: 20px;
+    }
+}
+
+.article-image {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
