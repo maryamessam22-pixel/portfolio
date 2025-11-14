@@ -21,7 +21,6 @@ const Articles = () => {
 
                 <div className="articles-container">
 
-                    {/* Card 1 */}
                     <div className="article-card" id="article-card-1">
                         <img src={Artc_1} alt="Article 1" className="article-image" />
                         <div className="article-content">
@@ -34,7 +33,7 @@ const Articles = () => {
                         </div>
                     </div>
 
-                    {/* Card 2 */}
+
                     <div className="article-card" id="article-card-2">
                         <img src={Artc_2} alt="Article 2" className="article-image" />
                         <div className="article-content">

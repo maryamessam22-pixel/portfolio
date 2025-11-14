@@ -111,7 +111,7 @@ a{
 }
 
 .article-card-title {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 200;
     color: #ffffff;
     margin-bottom: 20px;
@@ -128,7 +128,7 @@ a{
      font-family: 'Roboto', sans-serif;
     background: linear-gradient(90deg, #aa6cff, #d78fff);
     padding: 12px 24px;
-    border-radius: 50px; /* Pill shape */
+    border-radius: 50px; 
     transition: all 0.3s ease;
 }
 
@@ -137,8 +137,6 @@ a{
     box-shadow: 0 4px 15px rgba(170, 108, 255, 0.4);
     transform: translateY(-2px);
 }
-
-
 
 
 
