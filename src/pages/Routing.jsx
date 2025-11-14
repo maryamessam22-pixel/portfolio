@@ -7,7 +7,7 @@ import ProjectDetailsUIUX from './ProjectDetailsUIUX';
 import Errorpage from './Errorpage';
 import CursorTrail from '../components/CursorTrail';
 import Articles from './Articles';
-import ArticleDetails from "./pages/ArticleDetails";
+import ArticleDetails from './ArticleDetails';
 import Contact from './Contact';
 
 const Routing = () => {
@@ -21,8 +21,8 @@ const Routing = () => {
       <Route path='/about' element={<About />} />
       <Route path='/uiux' element={<UIUX />} />
       <Route path='/uiux/:projectId' element={<ProjectDetailsUIUX />} />
-      <Route path='/articles' element={<Articles/>} />
-      <Route path="/articles/:id" element={<ArticleDetails />} />
+      <Route path="/articles" element={<Articles />} />
+      <Route path="/articles/:articleId" element={<ArticleDetails />} />
       <Route path='/contact' element={<Contact/>} />
       <Route path='*' element={<Errorpage/>} />
   </Routes>

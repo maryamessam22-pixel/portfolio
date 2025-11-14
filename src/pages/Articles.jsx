@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Navbar from '../components/Navbar';
 import GlassyCircles from './../components/GlassyCircles';
 import "./Articles.css";
 import Arrow from '../components/Arrow';
 import Footer from '../components/Footer';
-import Artc_1 from '../assets/Artc_1.png'; 
-import Artc_2 from '../assets/Artc_2.png';
+import { useNavigate } from "react-router-dom";
+import ArticleData from "../data/ArticleData";
 
 const Articles = () => {
+    const navigate = useNavigate();
+
     return (
         <>
             <Navbar />
@@ -20,32 +22,24 @@ const Articles = () => {
                 </p>
 
                 <div className="articles-container">
+                    {ArticleData.map((article) => (
+                        <div className="article-card" key={article.id}>
+                            <img src={article.image} alt={article.title} className="article-image" />
 
-                    <div className="article-card" id="article-card-1">
-                        <img src={Artc_1} alt="Article 1" className="article-image" />
-                        <div className="article-content">
-                            <h3 className="article-card-title">
-                                What Does a UI/UX Designer Do? Roles, Skills, and Essential Tasks
-                            </h3>
-                            <a href="#" className="article-card-button">
-                                View article details
-                            </a>
+                            <div className="article-content">
+                                <h3 className="article-card-title">
+                                    {article.title}
+                                </h3>
+
+                                <button 
+                                    className="article-card-button"
+                                    onClick={() => navigate(`/articles/${article.id}`)}
+                                >
+                                    View article details
+                                </button>
+                            </div>
                         </div>
-                    </div>
-
-
-                    <div className="article-card" id="article-card-2">
-                        <img src={Artc_2} alt="Article 2" className="article-image" />
-                        <div className="article-content">
-                            <h3 className="article-card-title">
-                                My creative friends
-                            </h3>
-                            <a href="#" className="article-card-button">
-                                View article details
-                            </a>
-                        </div>
-                    </div>
-
+                    ))}
                 </div>
             </section>
 
