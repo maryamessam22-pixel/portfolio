@@ -13,12 +13,15 @@ const Contact = () => {
     "Video Editing",
     "Graphic Design",
     "UI/UX Design",
+     "01112866320",
     "Branding",
     "Logo Design",
     "Video Editing",
+     "maryamessam22@gmail.com",
     "Graphic Design",
     "UI/UX Design",
     "Branding",
+     "www.mariamfarid.com",
     "Logo Design"
   ];
 
