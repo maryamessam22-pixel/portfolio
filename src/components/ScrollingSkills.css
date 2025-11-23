@@ -1,32 +1,32 @@
-/* Container full width */
+
 .scrolling-skills-container {
-  width: 100vw;          /* Full viewport width */
-  max-width: 100%;       /* Prevent overflow */
+  width: 100vw;         
+  max-width: 100%;       
   background: #330066;
   padding: 30px 0;
   overflow: hidden;
   position: relative;
-  margin: 60px 0 0 0;    /* Top margin only */
+  margin: 60px 0 0 0;  
   box-sizing: border-box;
 }
 
-/* Wrapper that scrolls */
+
 .scrolling-skills-wrapper {
   display: flex;
-  width: max-content;     /* Fit content width */
+  width: max-content;  
   animation: scroll 30s linear infinite;
 }
 
-/* Content inside the wrapper */
+
 .scrolling-skills-content {
   display: flex;
   gap: 60px;
   white-space: nowrap;
   flex-shrink: 0;
-  padding-right: 60px;   /* Space for smooth looping */
+  padding-right: 60px; 
 }
 
-/* Skills text style */
+
 .scrolling-skills-content span {
   color: white;
   font-size: 24px;
@@ -37,7 +37,7 @@
   flex-shrink: 0;
 }
 
-/* Scroll animation */
+
 @keyframes scroll {
   0% {
     transform: translateX(0);
