@@ -1,4 +1,5 @@
 .navbar {
+  z-index: 999;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -135,7 +136,7 @@
   width: 35px;
   height: 30px;
   cursor: pointer;
-  z-index: 1001;
+  z-index: 9999;
   padding: 5px;
   transition: transform 0.3s ease;
   position: relative;

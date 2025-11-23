@@ -1,14 +1,30 @@
 import React from 'react';
 import './AboutSection.css';
 import TextParagraph from './TextParagraph';
-// import EducationSection from './EducationSection';
-// import WorkExperienceSection from './WorkExperienceSection';
 import mariamImg from '../assets/ME2.png';
+import ScrollingSkills from './ScrollingSkills'; 
 
 const AboutSection = () => {
+  
+
+  const skillsList = [
+    "Video Editing",
+    "Graphic Design",
+    "UI/UX Design",
+    "Branding",
+    "Logo Design",
+    "Video Editing",
+    "Graphic Design",
+    "UI/UX Design",
+    "Branding",
+    "Logo Design"
+  ];
+
   return (
     <div className="about-section-container">
       <div className="about-content-wrapper">
+        
+      
         <div className="about-text-section">
           <TextParagraph title="About Me" />
           <div className="about-text-content">
@@ -27,6 +43,7 @@ const AboutSection = () => {
           </div>
         </div>
 
+        
         <div className="about-image-section">
           <div className="image-container">
             <img src={mariamImg} alt="Mariam Farid" className="about-profile-img" />
@@ -34,37 +51,8 @@ const AboutSection = () => {
         </div>
       </div>
 
-      <div className="scrolling-skills-container">
-        <div className="scrolling-skills-wrapper">
-          <div className="scrolling-skills-content">
-            <span>Video Editing</span>
-            <span>Graphic Design</span>
-            <span>UI/UX Design</span>
-            <span>Branding</span>
-            <span>Logo Design</span>
-            <span>Video Editing</span>
-            <span>Graphic Design</span>
-            <span>UI/UX Design</span>
-            <span>Branding</span>
-            <span>Logo Design</span>
-          </div>
-          <div className="scrolling-skills-content" aria-hidden="true">
-            <span>Video Editing</span>
-            <span>Graphic Design</span>
-            <span>UI/UX Design</span>
-            <span>Branding</span>
-            <span>Logo Design</span>
-            <span>Video Editing</span>
-            <span>Graphic Design</span>
-            <span>UI/UX Design</span>
-            <span>Branding</span>
-            <span>Logo Design</span>
-          </div>
-        </div>
-      </div>
+      <ScrollingSkills skills={skillsList} />
 
-      {/* <EducationSection />
-      <WorkExperienceSection /> */}
     </div>
   );
 };

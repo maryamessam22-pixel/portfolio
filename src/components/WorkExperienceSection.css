@@ -69,7 +69,7 @@
 
 @media (max-width: 1024px) {
   .work-experience-section {
-    padding: 40px 60px;
+    /* padding: 40px 60px; */
   }
 
   .experience-details {
@@ -79,11 +79,18 @@
 
 @media (max-width: 768px) {
   .work-experience-section {
-    padding: 30px 30px;
+    display: flex;
+        flex-direction: column;
+        justify-content: center;
+    
   }
 
   .experience-details {
-    grid-template-columns: 1fr;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   width: 200px;
     gap: 20px;
   }
 
