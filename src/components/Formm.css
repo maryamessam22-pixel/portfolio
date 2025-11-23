@@ -101,7 +101,6 @@
   box-shadow: 0 2px 8px rgba(124, 77, 255, 0.3);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .form-container {
     padding: 1.5rem;
