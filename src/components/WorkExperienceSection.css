@@ -1,127 +1,145 @@
+
+* {
+  box-sizing: border-box; 
+}
+
 .work-experience-section {
   width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 60px 0px;
+  padding: 80px 5%; 
   background: linear-gradient(-90deg, #F0E8FB, #B58EE6);
+  overflow-x: hidden; 
 }
 
+
 .work-experience-section .ABOUT {
-  padding: 0px 90px;
+
   text-align: left;
   margin-bottom: 30px;
-   color: #330066;
+  color: #1F0D37;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 .work-experience-section .TXT {
- padding: 0px 90px;
   text-align: left;
-   color: #330066;
+  color: #1F0D37;
   font-size: 20px;
   line-height: 1.8;
   margin-bottom: 40px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 1200px; 
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .experience-details {
   display: grid;
-  padding: 0px 90px;
-  justify-items: center;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr); 
   gap: 40px;
   margin-bottom: 40px;
+  max-width: 1200px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .experience-column {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  width: 100%;
 }
 
+
 .experience-item {
-  padding: 20px;
+  padding: 30px;
   background: rgba(255, 255, 255, 0.3);
-  border-radius: 10px;
+  border-radius: 15px;
   backdrop-filter: blur(10px);
-  width: 600px;
+  width: 100%; 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
 }
 
 .experience-text {
-  color: #330066;
-  font-size:20px;
-  line-height: 1.8;
+  color: #1F0D37;
+  font-size: 18px;
+  line-height: 1.6;
   margin: 0;
   font-family: 'Roboto', sans-serif;
 }
 
+
 .experience-conclusion {
-  color: #330066;
+  color: #1F0D37;
   font-size: 20px;
   line-height: 1.8;
   text-align: left;
   margin-top: 30px;
   font-family: 'Roboto', sans-serif;
-  padding: 0px 90px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
-
 
 
 @media (max-width: 1024px) {
   .work-experience-section {
-    /* padding: 40px 60px; */
+    padding: 60px 40px;
   }
 
   .experience-details {
     gap: 30px;
+
+  }
+  
+  .experience-item {
+     padding: 25px;
   }
 }
 
+
 @media (max-width: 768px) {
   .work-experience-section {
-    display: flex;
-        flex-direction: column;
-        justify-content: center;
-    
+    padding: 40px 20px; 
   }
 
   .experience-details {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   width: 200px;
+    grid-template-columns: 1fr; 
     gap: 20px;
   }
 
   .work-experience-section .TXT {
     font-size: 16px;
+    margin-bottom: 30px;
   }
 
   .experience-text {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .experience-conclusion {
     font-size: 16px;
+    margin-top: 20px;
   }
 }
 
 @media (max-width: 480px) {
   .work-experience-section {
-    padding: 20px 20px;
+    padding: 30px 15px;
   }
 
   .experience-item {
-    padding: 15px;
+    padding: 20px;
   }
 
   .experience-text {
     font-size: 14px;
-  }
-
-  .experience-conclusion {
-    font-size: 14px;
+    line-height: 1.5;
   }
 }
-

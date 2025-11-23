@@ -6,6 +6,7 @@ import SEO from '../components/SEO';
 import ScrollingSkills from './../components/ScrollingSkills';
 import Formm from '../components/Formm';
 import Footer from '../components/Footer';
+import "../components/Formm.css"
 
 const Contact = () => {
   const skillsList = [
@@ -23,6 +24,7 @@ const Contact = () => {
 
   return (
     <>
+    <div className="form-page">
       <Navbar />
       <Arrow />
       <SEO 
@@ -31,7 +33,7 @@ const Contact = () => {
       />
       
       <div className="contact-page">
-        <ScrollingSkills skills={skillsList} />
+
         
         <div className="contact-content">
           <div className="contact-info">
@@ -43,7 +45,7 @@ const Contact = () => {
                 <i className="fas fa-envelope"></i>
                 <div>
                   <h4>Email Me</h4>
-                  <a href="mailto:your.email@example.com">your.email@example.com</a>
+                  <a href="Mariam Essamm maryamessam22@gmail.com">maryamessam22@gmail.com</a>
                 </div>
               </div>
               
@@ -51,7 +53,7 @@ const Contact = () => {
                 <i className="fas fa-phone"></i>
                 <div>
                   <h4>Call Me</h4>
-                  <a href="tel:+201234567890">+20 123 456 7890</a>
+                  <a href="tel:01112866320">+01112866320</a>
                 </div>
               </div>
               
@@ -64,12 +66,12 @@ const Contact = () => {
               </div>
             </div>
             
-            <div className="social-links">
+            {/* <div className="social-links">
               <a href="#" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
               <a href="#" aria-label="Behance"><i className="fab fa-behance"></i></a>
               <a href="#" aria-label="Dribbble"><i className="fab fa-dribbble"></i></a>
               <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
-            </div>
+            </div> */}
           </div>
           
           <div className="contact-form-wrapper">
@@ -77,7 +79,10 @@ const Contact = () => {
           </div>
         </div>
       </div>
+   <ScrollingSkills skills={skillsList} />
+   </div>
       <Footer/>
+ 
     </>
   );
 }
