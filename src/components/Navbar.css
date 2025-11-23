@@ -20,7 +20,7 @@
 }
 
 .navbar.scrolled {
-  height: 40px;
+  height: 60px;
   padding: 10px 20px;
   max-width: 95%;
   left: 50%;
@@ -44,7 +44,7 @@
   transition: height 0.3s ease;
 }
 
-.navbar.scrolled .logo img {
+.logo img {
   height: 40px;
 }
 
@@ -133,8 +133,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 35px;
-  height: 30px;
+  width: 40px;
+  height: 35px;
   cursor: pointer;
   z-index: 9999;
   padding: 5px;
@@ -173,7 +173,7 @@
 }
 
 .burger .line3.rotate2 {
-  transform: rotate(-45deg) translate(5px, -5px);
+  transform: rotate(-45deg) translate(10px, -10px);
 }
 
 @media (max-width: 1024px) {
@@ -183,6 +183,7 @@
 
   .navbar.scrolled {
     max-width: 98%;
+   
     padding: 8px 15px;
   }
 
@@ -203,7 +204,7 @@
   }
 
   .navbar.scrolled {
-    height: 35px;
+    height: 60px;
     max-width: 98%;
     padding: 5px 15px;
   }
@@ -212,9 +213,7 @@
     height: 40px;
   }
 
-  .navbar.scrolled .logo img {
-    height: 30px;
-  }
+ 
 
   .nav-links {
     width: 180px;
@@ -240,8 +239,8 @@
   }
 
   .burger {
-    width: 30px;
-    height: 25px;
+    width: 40px;
+    height: 35px;
   }
 }
 
@@ -250,11 +249,13 @@
     padding: 0px 15px;
   }
 
-  .logo img {
-    height: 35px;
+ 
+  
+  .navbar.scrolled{
+height: 40px;
+    
   }
-
-  .navbar.scrolled .logo img {
+ .logo img {
     height: 25px;
   }
 

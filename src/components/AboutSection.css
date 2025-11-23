@@ -124,6 +124,7 @@ align-items: center;
   }
 
   .about-text-section {
+    margin-top: 15%;
     min-width: 100%;
     max-width: 100%;
   }
