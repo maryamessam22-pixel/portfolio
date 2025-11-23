@@ -20,7 +20,7 @@ const AboutSection = () => {
     "Logo Design"
   ];
 
-  return (
+  return (<>
     <div className="about-section-container">
       <div className="about-content-wrapper">
         
@@ -51,9 +51,10 @@ const AboutSection = () => {
         </div>
       </div>
 
-      <ScrollingSkills skills={skillsList} />
 
     </div>
+    <ScrollingSkills skills={skillsList} />
+    </>
   );
 };
 
