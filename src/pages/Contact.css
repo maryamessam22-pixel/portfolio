@@ -1,15 +1,15 @@
-/* Contact page specific styles */
+
 .contact-page-wrapper {
     
     min-height: 100vh;
     width: 100%;
     overflow-x: hidden;
     color: #fff;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
 }
 
-/* Reset for contact page only */
+
 .contact-page-wrapper * {
     margin: 0;
     padding: 0;
@@ -145,7 +145,7 @@ a {
     z-index: 1;
 }
 
-/* Responsive Design */
+
 @media (max-width: 1024px) {
     .contact-content {
         grid-template-columns: 1fr;
@@ -195,7 +195,7 @@ a {
     }
 }
 
-/* Animation for form */
+/* Animat*/
 @keyframes fadeInUp {
     from {
         opacity: 0;
