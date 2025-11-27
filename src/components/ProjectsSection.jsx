@@ -141,6 +141,7 @@ class ProjectsSection extends Component {
         </div>
       </section>
     );
+    
   }
 }
 

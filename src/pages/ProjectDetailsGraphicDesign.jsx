@@ -22,7 +22,9 @@ const ProjectDetailsGraphicDesign = () => {
 
         <section className="project-details-empty">
           <h1>Project not found</h1>
-          <Link to="/graphic-design">Back to graphic design projects</Link>
+
+          {/* 🔥 FIXED PATH HERE */}
+          <Link to="/graphicdesign">Back to graphic design projects</Link>
         </section>
       </>
     );
@@ -32,7 +34,10 @@ const ProjectDetailsGraphicDesign = () => {
     <>
       <SEO
         title={`${project.title} - Graphic Design Project`}
-        description={project.cardDescription || "Explore details, concept, and design process."}
+        description={
+          project.cardDescription ||
+          "Explore details, concept, and design process."
+        }
       />
 
       <GlassyCircles count={10} />
@@ -42,9 +47,12 @@ const ProjectDetailsGraphicDesign = () => {
 
         <main className="project-details-wrapper">
           <header className="project-details-header">
-            <Link to="/graphic-design" className="project-details-back">
+
+          
+            <Link to="/graphicdesign" className="project-details-back">
               <span aria-hidden="true">←</span> Back
             </Link>
+
             <h1>{project.title}</h1>
           </header>
 
@@ -85,6 +93,7 @@ const ProjectDetailsGraphicDesign = () => {
           {project.processSteps && project.processSteps.length > 0 && (
             <section className="project-details-process">
               <h2>The process</h2>
+
               <div className="project-process-steps">
                 {project.processSteps.map((step, index) => (
                   <div key={step} className="project-process-step">
@@ -96,6 +105,7 @@ const ProjectDetailsGraphicDesign = () => {
             </section>
           )}
         </main>
+
         <Footer />
       </div>
     </>
@@ -103,3 +113,4 @@ const ProjectDetailsGraphicDesign = () => {
 };
 
 export default ProjectDetailsGraphicDesign;
+
