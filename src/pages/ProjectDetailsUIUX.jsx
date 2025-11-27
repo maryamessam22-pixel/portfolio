@@ -15,10 +15,14 @@ const ProjectDetailsUIUX = () => {
 	if (!project) {
 		return (
 			<>
-				<SEO 
+			<SEO 
+  title="Project Details | UI/UX Designs by Mariam Farid"
+  description="Explore detailed UI/UX design projects by Mariam Farid, including custom website interfaces, mobile app designs, user flows, wireframes, prototypes, and full product experiences. This section showcases my created websites and apps with a focus on usability, aesthetics, and design thinking."
+/>
+				{/* <SEO 
 					title="Project not found | Mariam Farid" 
 					description="The project you are looking for is not available." 
-				/>
+				/> */}
 				<Navbar />
 				<section className="project-details-empty">
 					<h1>Project not found</h1>
