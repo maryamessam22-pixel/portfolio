@@ -53,7 +53,7 @@ const GraphicDesign = () => {
                 <BTN
                   className="project-button"
                   btn="View details"
-                  onClick={() => navigate(`/graphic-design/${project.id}`)}
+                  onClick={() => navigate(`/graphicdesign/${project.id}`)}
                 />
               </div>
             ))}

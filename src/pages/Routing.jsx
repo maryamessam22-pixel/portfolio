@@ -10,6 +10,7 @@ import Articles from './Articles';
 import ArticleDetails from './ArticleDetails';
 import Contact from './Contact';
 import GraphicDesign from './GraphicDesign';
+import ProjectDetailsGraphicDesign from './ProjectDetailsGraphicDesign';
 
 const Routing = () => {
     return ( 
@@ -26,6 +27,7 @@ const Routing = () => {
       <Route path="/articles/:articleId" element={<ArticleDetails />} />
       <Route path='/contact' element={<Contact/>} />
       <Route path='/graphicdesign' element={<GraphicDesign/>} />
+      <Route path="/graphicdesign/:projectId" element={<ProjectDetailsGraphicDesign/>} />
       <Route path='*' element={<Errorpage/>} />
   </Routes>
 
