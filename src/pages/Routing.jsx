@@ -27,7 +27,7 @@ const Routing = () => {
       <Route path="/articles/:articleId" element={<ArticleDetails />} />
       <Route path='/contact' element={<Contact/>} />
       <Route path='/graphicdesign' element={<GraphicDesign/>} />
-      <Route path="/graphicdesign/:projectId" element={<ProjectDetailsGraphicDesign/>} />
+      <Route path="/graphicdesign/:projectId" element={<ProjectDetailsGraphicDesign />} />
       <Route path='*' element={<Errorpage/>} />
   </Routes>
 
