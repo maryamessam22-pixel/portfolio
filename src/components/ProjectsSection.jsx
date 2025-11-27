@@ -19,7 +19,7 @@ class ProjectsSection extends Component {
 
   render() {
     const { isHovered } = this.state;
-    
+
     const categories = [
       {
         id: 1,
@@ -69,11 +69,12 @@ class ProjectsSection extends Component {
       <section className="projects-section-container">
         <div className={`projects-wrapper ${isHovered ? 'hovered' : ''}`}>
 
-
-
+          {/* ---------------- LABELS ---------------- */}
           {categories.map((category) => {
             const content = <div className="category-label">{category.label}</div>;
             const wrapperClass = `category-item ${category.position}`;
+
+            // UI/UX link
             if (category.label === 'UI/UX') {
               return (
                 <div key={category.id} className={wrapperClass}>
@@ -81,6 +82,16 @@ class ProjectsSection extends Component {
                 </div>
               );
             }
+
+            // ⭐⭐ GRAPHIC DESIGN link (ADDED)
+            if (category.label === 'Graphic Design') {
+              return (
+                <div key={category.id} className={wrapperClass}>
+                  <Link to="/graphicdesign">{content}</Link>
+                </div>
+              );
+            }
+
             return (
               <div key={category.id} className={wrapperClass}>
                 {content}
@@ -88,29 +99,38 @@ class ProjectsSection extends Component {
             );
           })}
 
-  
-       <div 
+          {/* ---------------- FOLDER IMAGES ---------------- */}
+          <div
             className="central-folder"
             onMouseEnter={() => this.setState({ isHovered: true })}
             onMouseLeave={() => this.setState({ isHovered: false })}
           >
-           
             {categories.map((category) => {
               const imageEl = (
-                <div 
-                  key={category.id} 
+                <div
+                  key={category.id}
                   className={`folder-image folder-image-${category.position} ${isHovered ? 'moved-out' : ''}`}
                 >
                   <img src={category.image} alt={category.imageAlt} />
                 </div>
               );
-              return category.label === 'UI/UX' ? <Link key={category.id} to="/uiux">{imageEl}</Link> : imageEl;
+
+              // UI/UX
+              if (category.label === 'UI/UX') {
+                return <Link key={category.id} to="/uiux">{imageEl}</Link>;
+              }
+
+              // ⭐⭐ GRAPHIC DESIGN (ADDED)
+              if (category.label === 'Graphic Design') {
+                return <Link key={category.id} to="/graphicdesign">{imageEl}</Link>;
+              }
+
+              return imageEl;
             })}
 
             <div className="folder-top">
-              
               <div className="folder-projects-text">
-                <h2 className="projects-title"> My<br></br>Projects</h2>
+                <h2 className="projects-title"> My<br />Projects</h2>
               </div>
             </div>
 
@@ -125,4 +145,5 @@ class ProjectsSection extends Component {
 }
 
 export default ProjectsSection;
+
 
