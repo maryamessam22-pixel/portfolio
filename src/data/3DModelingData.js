@@ -3,8 +3,8 @@
 import mosque from "../assets/mosque.png";
 import Booth from "../assets/Booth.png";
 import chair from "../assets/chair.png";
-
 import mosque2 from "../assets/MohamedALI.png";
+
 
 
 const modelingProjects = [
