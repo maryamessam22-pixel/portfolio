@@ -89,7 +89,7 @@ class Navbar extends Component {
      <Link to="/motion" onClick={this.handleLinkClick} className={this.isActive('/motion') ? 'active' : ''}>Motion</Link>
      <Link to="/photography" onClick={this.handleLinkClick} className={this.isActive('/photography') ? 'active' : ''}>Photography</Link>
      <Link to="/3d" onClick={this.handleLinkClick} className={this.isActive('/3d') ? 'active' : ''}>3D Modeling</Link>
-     <Link to="/uiux" onClick={this.handleLinkClick} className={this.isActive('/uiux') ? 'active' : ''}>UI/UX</Link>
+   
     </div>
   )}
 </div>
