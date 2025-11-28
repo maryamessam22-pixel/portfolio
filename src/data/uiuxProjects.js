@@ -6,6 +6,7 @@ import ui5 from '../assets/minibig.png';
 import ui6 from '../assets/eventapp.png';
 
 import ui7 from '../assets/ui7.png';
+import ui8 from '../assets/ui8.png';
 export const uiuxProjects = [
 	{
 		id: 'giza-zoo-website',
@@ -21,7 +22,7 @@ export const uiuxProjects = [
 		toolsUsed: ['Figma', 'VS Code'],
 		processSteps: ['Empathize', 'Define', 'Ideate', 'Design', 'Test'],
 		coverImage: ui1,
-		thumbnail: ui1
+		thumbnail: ui8
 	},
 	{
 		id: 'horror-ar-website',
