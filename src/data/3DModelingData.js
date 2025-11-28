@@ -2,6 +2,7 @@
 
 import mosque from "../assets/mosque.png";
 import Booth from "../assets/Booth.png";
+import Booth2 from "../assets/BOOTHH.png";
 import chair from "../assets/chair.png";
 import mosque2 from "../assets/MohamedALI.png";
 
@@ -40,7 +41,7 @@ const modelingProjects = [
     endDate: "29/03/2024",
     toolsUsed: ["Blender", "Photoshop"],
     processSteps: ["Sketching", "3D Modeling", "Material Setup", "Rendering"],
-    coverImage:Booth,
+    coverImage:Booth2,
     thumbnail: Booth
   },
 
