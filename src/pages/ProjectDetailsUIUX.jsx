@@ -7,6 +7,7 @@ import GlassyCircles from '../components/GlassyCircles';
 import SEO from '../components/SEO';
 import uiuxProjects from '../data/uiuxProjects';
 import './ProjectDetailsUIUX.css';
+import Arrow from './../components/Arrow';
 
 const ProjectDetailsUIUX = () => {
 	const { projectId } = useParams();
@@ -41,6 +42,7 @@ const ProjectDetailsUIUX = () => {
 			<GlassyCircles count={10} />
 			<div className="project-details-foreground">
 				<Navbar />
+				<Arrow/>
 				<main className="project-details-wrapper">
 					<header className="project-details-header">
 						<Link to="/uiux" className="project-details-back">

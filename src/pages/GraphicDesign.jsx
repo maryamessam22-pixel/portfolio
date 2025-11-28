@@ -8,6 +8,7 @@ import GlassyCircles from "../components/GlassyCircles";
 import BTN from "../components/BTN";
 import { useNavigate } from "react-router-dom";
 import graphicProjects from "../data/GraphicDesignData";
+import Arrow from './../components/Arrow';
 
 const GraphicDesign = () => {
   const navigate = useNavigate();
@@ -24,6 +25,7 @@ const GraphicDesign = () => {
 
       <div className="graphic-foreground">
         <Navbar />
+        <Arrow/>
 
         <section className="graphic-hero">
           <div className="graphic-hero-content">

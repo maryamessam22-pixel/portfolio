@@ -6,6 +6,7 @@ import GlassyCircles from "../components/GlassyCircles";
 import SEO from "../components/SEO";
 import graphicProjects from "../data/GraphicDesignData";
 import "./ProjectDetailsGraphicDesign.css";
+import Arrow from './../components/Arrow';
 
 const ProjectDetailsGraphicDesign = () => {
   const { projectId } = useParams();
@@ -44,6 +45,7 @@ const ProjectDetailsGraphicDesign = () => {
 
       <div className="project-details-foreground">
         <Navbar />
+        <Arrow/>
 
         <main className="project-details-wrapper">
           <header className="project-details-header">

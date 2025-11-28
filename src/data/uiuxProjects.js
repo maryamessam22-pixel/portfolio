@@ -5,6 +5,7 @@ import ui4 from '../assets/gorideapp.png';
 import ui5 from '../assets/minibig.png';
 import ui6 from '../assets/eventapp.png';
 
+import ui7 from '../assets/ui7.png';
 export const uiuxProjects = [
 	{
 		id: 'giza-zoo-website',
@@ -36,7 +37,7 @@ export const uiuxProjects = [
 		toolsUsed: ['Figma', 'After Effects'],
 		processSteps: ['Research', 'Moodboard', 'Wireframe', 'Visual Design', 'Prototype'],
 		coverImage: ui2,
-		thumbnail: ui2
+		thumbnail: ui7
 	},
 	{
 		id: 'tv-operating-system',

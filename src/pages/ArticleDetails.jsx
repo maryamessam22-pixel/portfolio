@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 // import GlassyCircles from "../components/GlassyCircles"; 
 import "./ArticleDetails.css"; 
 import SEO from '../components/SEO';
+import Arrow from './../components/Arrow';
 
 const ArticleDetails = () => {
     const { articleId } = useParams();
@@ -23,6 +24,7 @@ const ArticleDetails = () => {
   description="Dive deep into professional UI/UX design insights by Mariam Farid. Explore detailed articles covering user experience, user interface design, usability, design thinking, wireframes, prototypes, UX research, personas, journey mapping, interaction design, visual design, product design, and case studies. Perfect for designers seeking inspiration, practical knowledge, and modern design practices. Keywords included: UI UX designer, UX case studies, UI design, usability testing, wireframes, prototypes, design thinking, user experience."
 />
             <Navbar />
+            <Arrow/>
             
             <div className="article-detail-page">
       
