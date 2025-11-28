@@ -95,13 +95,13 @@ class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: false,       // burger menu open
-      isScrolled: false,   // scroll effect
-      dropdownOpen: false  // Projects dropdown open
+      isOpen: false,       
+      isScrolled: false,   
+      dropdownOpen: false  
     };
   }
 
-  // Check active link
+ 
   isActive = (path) => {
     try {
       const currentPath = window.location ? window.location.pathname : '';
@@ -147,23 +147,21 @@ class Navbar extends Component {
 
     return (
       <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-        {/* Logo */}
+     
         <div className="logo">
           <Link to="/" onClick={this.handleLinkClick}>
             <img src={Logo} alt="MyLogo" />
           </Link>
         </div>
 
-        {/* Nav Links */}
         <div className={`nav-links ${isOpen ? "open" : ""}`}>
           <Link to="/" onClick={this.handleLinkClick} className={this.isActive('/') ? 'active' : ''}>Home</Link>
           <Link to="/about" onClick={this.handleLinkClick} className={this.isActive('/about') ? 'active' : ''}>About</Link>
 
-          {/* Projects Dropdown */}
-          {/* Projects Dropdown */}
+     
 <div className={`projects-dropdown ${dropdownOpen ? 'open' : ''}`}>
   <div 
-    className="projects-main nav-link"   // add nav-link class here
+    className="projects-main nav-link"   
     onClick={this.toggleDropdown}
   >
     Projects <span className="arrow">{dropdownOpen ? '▲' : '▼'}</span>
