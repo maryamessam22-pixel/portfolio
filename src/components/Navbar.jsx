@@ -83,7 +83,7 @@ class Navbar extends Component {
   {dropdownOpen && (
     <div className="dropdown-menu">
   
-     <Link to="/uiux" onClick={this.handleLinkClick} className={this.isActive('/uiux') ? 'active' : ''}>uiux</Link>
+     <Link to="/uiux" onClick={this.handleLinkClick} className={this.isActive('/uiux') ? 'active' : ''}>UI/UX</Link>
      <Link to="/graphicdesign" onClick={this.handleLinkClick} className={this.isActive('/graphicdesign') ? 'active' : ''}>Graphic Design</Link>
      <Link to="/ar" onClick={this.handleLinkClick} className={this.isActive('/ar') ? 'active' : ''}>AR</Link>
      <Link to="/motion" onClick={this.handleLinkClick} className={this.isActive('/motion') ? 'active' : ''}>Motion</Link>
