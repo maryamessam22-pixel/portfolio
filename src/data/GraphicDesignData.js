@@ -4,6 +4,12 @@ import gd3 from "../assets/threeAviels.png";
 import gd4 from "../assets/nodi.png";
 import gd5 from "../assets/lilo.png";
 
+import gd11 from "../assets/graphic1.png";
+import gd22 from "../assets/graphic2.png";
+import gd33 from "../assets/graphic3.png";
+import gd44 from "../assets/graphic4.png";
+import gd55 from "../assets/graphic5.png";
+
 const graphicProjects = [
   {
     id: "rabso-rebranding",
@@ -20,7 +26,7 @@ const graphicProjects = [
     toolsUsed: ["Photoshop", "Illustrator"],
     processSteps: ["Research", "Concept Sketching", "Color Study", "Final Design"],
     coverImage: gd1,
-    thumbnail: gd1
+    thumbnail: gd11
   },
 
   {
@@ -37,7 +43,7 @@ const graphicProjects = [
     toolsUsed: ["Illustrator", "InDesign"],
     processSteps: ["Sketching", "Layout", "Color Tests", "Final Print"],
     coverImage: gd2,
-    thumbnail: gd2
+    thumbnail: gd22
   },
 
   {
@@ -54,7 +60,7 @@ const graphicProjects = [
     toolsUsed: ["Illustrator"],
     processSteps: ["Research", "Sketches", "Vectoring", "Refinements"],
     coverImage: gd3,
-    thumbnail: gd3
+    thumbnail: gd33
   },
 
   {
@@ -71,7 +77,7 @@ const graphicProjects = [
     toolsUsed: ["Photoshop", "Illustrator"],
     processSteps: ["Character study", "Vector tracing", "Shading", "Coloring"],
     coverImage: gd4,
-    thumbnail: gd4
+    thumbnail: gd44
   },
 
   {
@@ -88,7 +94,7 @@ const graphicProjects = [
     toolsUsed: ["Illustrator"],
     processSteps: ["Shape Blocking", "Vector Paths", "Color Mapping", "Detailing"],
     coverImage: gd5,
-    thumbnail: gd5
+    thumbnail: gd55
   }
 ];
 

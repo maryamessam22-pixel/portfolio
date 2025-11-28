@@ -23,7 +23,7 @@ const ProjectDetailsGraphicDesign = () => {
         <section className="project-details-empty">
           <h1>Project not found</h1>
 
-          {/* 🔥 FIXED PATH HERE */}
+        
           <Link to="/graphicdesign">Back to graphic design projects</Link>
         </section>
       </>
