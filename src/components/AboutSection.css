@@ -185,5 +185,14 @@ align-items: center;
     font-size: 16px;
     gap: 30px;
   }
+  .about-profile-img {
+  right: 0;
+  width: 70%;
+  margin-left: 57%;
+  /* height: 100%; */
+  /* object-fit: cover; */
+
+
+}
 }
 
