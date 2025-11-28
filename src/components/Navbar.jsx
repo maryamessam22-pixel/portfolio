@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
@@ -9,13 +8,12 @@ class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: false,       
-      isScrolled: false,   
-      dropdownOpen: false  
+      isOpen: false,
+      isScrolled: false,
+      dropdownOpen: false
     };
   }
 
- 
   isActive = (path) => {
     try {
       const currentPath = window.location ? window.location.pathname : '';
@@ -61,7 +59,7 @@ class Navbar extends Component {
 
     return (
       <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-     
+        
         <div className="logo">
           <Link to="/" onClick={this.handleLinkClick}>
             <img src={Logo} alt="MyLogo" />
@@ -72,27 +70,56 @@ class Navbar extends Component {
           <Link to="/" onClick={this.handleLinkClick} className={this.isActive('/') ? 'active' : ''}>Home</Link>
           <Link to="/about" onClick={this.handleLinkClick} className={this.isActive('/about') ? 'active' : ''}>About</Link>
 
-     
-<div className={`projects-dropdown ${dropdownOpen ? 'open' : ''}`}>
-  <div 
-    className="projects-main nav-link"   
-    onClick={this.toggleDropdown}
-  >
-    Projects <span className="arrow">{dropdownOpen ? '▲' : '▼'}</span>
-  </div>
-  {dropdownOpen && (
-    <div className="dropdown-menu">
-  
-     <Link to="/uiux" onClick={this.handleLinkClick} className={this.isActive('/uiux') ? 'active' : ''}>UI/UX</Link>
-     <Link to="/graphicdesign" onClick={this.handleLinkClick} className={this.isActive('/graphicdesign') ? 'active' : ''}>Graphic Design</Link>
-     <Link to="/3d" onClick={this.handleLinkClick} className={this.isActive('/3d') ? 'active' : ''}>3D Modeling</Link>
-     <Link to="/ar" onClick={this.handleLinkClick} className={this.isActive('/ar') ? 'active' : ''}>AR</Link>
-     <Link to="/motion" onClick={this.handleLinkClick} className={this.isActive('/motion') ? 'active' : ''}>Motion Graphics</Link>
-     <Link to="/photography" onClick={this.handleLinkClick} className={this.isActive('/photography') ? 'active' : ''}>Photography</Link>
-   
-    </div>
-  )}
-</div>
+          {/* PROJECTS DROPDOWN */}
+          <div className={`projects-dropdown ${dropdownOpen ? 'open' : ''}`}>
+            <div 
+              className="projects-main nav-link"
+              onClick={this.toggleDropdown}
+            >
+              Projects <span className="arrow">{dropdownOpen ? '▲' : '▼'}</span>
+            </div>
+
+            {dropdownOpen && (
+              <div className="dropdown-menu">
+                <Link to="/uiux" 
+                  onClick={this.handleLinkClick}
+                  className={this.isActive('/uiux') ? 'active' : ''}>
+                  UI/UX
+                </Link>
+
+                <Link to="/graphicdesign" 
+                  onClick={this.handleLinkClick}
+                  className={this.isActive('/graphicdesign') ? 'active' : ''}>
+                  Graphic Design
+                </Link>
+
+                {/* FIXED — correct route */}
+                <Link to="/3dmodeling"
+                  onClick={this.handleLinkClick}
+                  className={this.isActive('/3dmodeling') ? 'active' : ''}>
+                  3D Modeling
+                </Link>
+
+                <Link to="/ar" 
+                  onClick={this.handleLinkClick}
+                  className={this.isActive('/ar') ? 'active' : ''}>
+                  AR
+                </Link>
+
+                <Link to="/motion" 
+                  onClick={this.handleLinkClick}
+                  className={this.isActive('/motion') ? 'active' : ''}>
+                  Motion Graphics
+                </Link>
+
+                <Link to="/photography"
+                  onClick={this.handleLinkClick}
+                  className={this.isActive('/photography') ? 'active' : ''}>
+                  Photography
+                </Link>
+              </div>
+            )}
+          </div>
 
           <Link to="/articles" onClick={this.handleLinkClick} className={this.isActive('/articles') ? 'active' : ''}>Articles</Link>
           <Link to="/contact" onClick={this.handleLinkClick} className={this.isActive('/contact') ? 'active' : ''}>Contact</Link>
@@ -104,12 +131,14 @@ class Navbar extends Component {
           <div className={`line line2 ${isOpen ? "fade" : ""}`}></div>
           <div className={`line line3 ${isOpen ? "rotate2" : ""}`}></div>
         </div>
+
       </nav>
     );
   }
 }
 
 export default Navbar;
+
 
 
 
