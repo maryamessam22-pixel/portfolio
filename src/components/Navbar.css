@@ -71,6 +71,7 @@
 
 .nav-links.open,
 .navbar.scrolled .nav-links {
+  
     scrollbar-width: thin;
     scrollbar-color: rgba(167, 139, 250, 0.6) rgba(255, 255, 255, 0.1);
 }
@@ -262,6 +263,7 @@
   }
 
   .navbar.scrolled .nav-links {
+    overflow-y: scroll;
     right: 15px;
   }
 }
@@ -292,6 +294,7 @@
   }
 
   .navbar.scrolled .nav-links {
+    overflow-y: scroll;
     top: 80px;
     right: 15px;
     width: 160px;
