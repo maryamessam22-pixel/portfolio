@@ -4,6 +4,7 @@ import mosque from "../assets/mosque.png";
 import Booth from "../assets/Booth.png";
 import Booth2 from "../assets/BOOTHH.png";
 import chair from "../assets/chair.png";
+import chair2 from "../assets/CHAIR2.png";
 import mosque2 from "../assets/MohamedALI.png";
 
 
@@ -58,7 +59,7 @@ const modelingProjects = [
     endDate: "10/04/2024",
     toolsUsed: ["Blender"],
     processSteps: ["Mesh Building", "Subdivision", "Material Node Setup", "Rendering"],
-    coverImage: chair,
+    coverImage: chair2,
     thumbnail: chair
   }
 ];
