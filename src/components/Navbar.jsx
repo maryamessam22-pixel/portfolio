@@ -85,10 +85,10 @@ class Navbar extends Component {
   
      <Link to="/uiux" onClick={this.handleLinkClick} className={this.isActive('/uiux') ? 'active' : ''}>UI/UX</Link>
      <Link to="/graphicdesign" onClick={this.handleLinkClick} className={this.isActive('/graphicdesign') ? 'active' : ''}>Graphic Design</Link>
+     <Link to="/3d" onClick={this.handleLinkClick} className={this.isActive('/3d') ? 'active' : ''}>3D Modeling</Link>
      <Link to="/ar" onClick={this.handleLinkClick} className={this.isActive('/ar') ? 'active' : ''}>AR</Link>
      <Link to="/motion" onClick={this.handleLinkClick} className={this.isActive('/motion') ? 'active' : ''}>Motion Graphics</Link>
      <Link to="/photography" onClick={this.handleLinkClick} className={this.isActive('/photography') ? 'active' : ''}>Photography</Link>
-     <Link to="/3d" onClick={this.handleLinkClick} className={this.isActive('/3d') ? 'active' : ''}>3D Modeling</Link>
    
     </div>
   )}
