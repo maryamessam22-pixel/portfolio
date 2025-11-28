@@ -19,6 +19,70 @@
   border-radius: 0;
 }
 
+
+
+
+
+
+.nav-link {
+    color: #1F0D37;
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    display: block;
+}
+
+.nav-link:hover {
+    background: rgba(167, 139, 250, 0.2);
+    color: #6B46C1;
+    padding-left: 2rem;
+    font-weight: 700;
+}
+
+
+
+
+.nav-links.open::-webkit-scrollbar,
+.navbar.scrolled .nav-links::-webkit-scrollbar {
+    width: 6px;           
+}
+
+.nav-links.open::-webkit-scrollbar-track,
+.navbar.scrolled .nav-links::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1); 
+    border-radius: 10px;
+}
+
+.nav-links.open::-webkit-scrollbar-thumb,
+.navbar.scrolled .nav-links::-webkit-scrollbar-thumb {
+    background: rgba(167, 139, 250, 0.6); 
+    border-radius: 10px;
+}
+
+.nav-links.open::-webkit-scrollbar-thumb:hover,
+.navbar.scrolled .nav-links::-webkit-scrollbar-thumb:hover {
+    background: rgba(167, 139, 250, 0.9); 
+}
+
+.nav-links.open,
+.navbar.scrolled .nav-links {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(167, 139, 250, 0.6) rgba(255, 255, 255, 0.1);
+}
+
+
+
+
+
+
+
+
+
 .navbar.scrolled {
   height: 60px;
   padding: 10px 20px;
@@ -27,6 +91,7 @@
   transform: translateX(-50%);
   border-radius: 30px;
   margin-top: 10px;
+  
 }
 
 /* Logo */
@@ -72,11 +137,15 @@
   top: 75px;
   right: 20px;
   border-radius: 12px;
+  overflow-y: scroll;
 }
 
 .nav-links.open {
+  overflow-y: scroll;
   max-height: 400px;
 }
+
+
 
 .nav-links a,
 .nav-links Link {
