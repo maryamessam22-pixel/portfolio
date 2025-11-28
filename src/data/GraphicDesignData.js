@@ -1,5 +1,5 @@
 import gd1 from "../assets/oneRABSO.png";
-import gd2 from "../assets/graphic2.png";
+import gd2 from "../assets/twoSTATIONARY.png";
 import gd3 from "../assets/graphic3.png";
 import gd4 from "../assets/graphic4.png";
 import gd5 from "../assets/graphic5.png";
