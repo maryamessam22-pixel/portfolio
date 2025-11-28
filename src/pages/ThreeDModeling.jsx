@@ -1,6 +1,4 @@
-// 3DModeling.jsx
-
-import React from "react";
+import React, { Component } from 'react';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "./ThreeDModeling.css";
