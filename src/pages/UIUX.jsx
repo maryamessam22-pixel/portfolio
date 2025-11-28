@@ -8,6 +8,7 @@ import GlassyCircles from '../components/GlassyCircles';
 import BTN from '../components/BTN';
 import { useNavigate } from 'react-router-dom';
 import uiuxProjects from '../data/uiuxProjects';
+import Arrow from '../components/Arrow';
 
 const UIUX = () => {
 	const projects = uiuxProjects;
@@ -22,6 +23,7 @@ const UIUX = () => {
 			<GlassyCircles count={14} />
 			<div className="uiux-foreground">
 			<Navbar />
+			<Arrow/>
 
 			<section className='uiux-hero'>
 				<div className='uiux-hero-content'>
