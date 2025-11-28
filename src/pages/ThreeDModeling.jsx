@@ -3,7 +3,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import "./3DModeling.css";
+import "./ThreeDModeling.css";
 import "../components/ProjectCard.css";
 import SEO from "../components/SEO";
 import GlassyCircles from "../components/GlassyCircles";
