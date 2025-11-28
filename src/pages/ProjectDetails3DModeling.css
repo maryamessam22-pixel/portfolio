@@ -85,6 +85,7 @@
 }
 
 .model-process-steps {
+   margin-top: 5%;
   display: flex;
   justify-content: center;
   gap: 28px;

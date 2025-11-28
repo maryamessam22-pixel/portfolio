@@ -4,6 +4,7 @@ import mosque from "../assets/mosque.png";
 import Booth from "../assets/Booth.png";
 import chair from "../assets/chair.png";
 
+import mosque2 from "../assets/MohamedALI.png";
 
 
 const modelingProjects = [
@@ -21,7 +22,7 @@ const modelingProjects = [
     endDate: "14/03/2024",
     toolsUsed: ["Blender", "3ds Max", "Substance Painter"],
     processSteps: ["Blocking", "Modeling", "UV Mapping", "Texturing", "Lighting"],
-    coverImage: mosque,
+    coverImage: mosque2,
     thumbnail: mosque
   },
 
