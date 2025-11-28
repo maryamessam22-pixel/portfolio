@@ -74,7 +74,7 @@ class ProjectsSection extends Component {
             const content = <div className="category-label">{category.label}</div>;
             const wrapperClass = `category-item ${category.position}`;
 
-            // UI/UX link
+            // UI/UX
             if (category.label === 'UI/UX') {
               return (
                 <div key={category.id} className={wrapperClass}>
@@ -83,11 +83,20 @@ class ProjectsSection extends Component {
               );
             }
 
-            // ⭐⭐ GRAPHIC DESIGN link (ADDED)
+            // Graphic Design
             if (category.label === 'Graphic Design') {
               return (
                 <div key={category.id} className={wrapperClass}>
                   <Link to="/graphicdesign">{content}</Link>
+                </div>
+              );
+            }
+
+            // ⭐ 3D Modeling CLICKABLE LABEL
+            if (category.label === '3D Modeling') {
+              return (
+                <div key={category.id} className={wrapperClass}>
+                  <Link to="/3dmodeling">{content}</Link>
                 </div>
               );
             }
@@ -120,9 +129,14 @@ class ProjectsSection extends Component {
                 return <Link key={category.id} to="/uiux">{imageEl}</Link>;
               }
 
-              // ⭐⭐ GRAPHIC DESIGN (ADDED)
+              // Graphic Design
               if (category.label === 'Graphic Design') {
                 return <Link key={category.id} to="/graphicdesign">{imageEl}</Link>;
+              }
+
+              // ⭐ 3D Modeling CLICKABLE IMAGE
+              if (category.label === '3D Modeling') {
+                return <Link key={category.id} to="/3dmodeling">{imageEl}</Link>;
               }
 
               return imageEl;
@@ -141,10 +155,11 @@ class ProjectsSection extends Component {
         </div>
       </section>
     );
-    
+
   }
 }
 
 export default ProjectsSection;
+
 
 

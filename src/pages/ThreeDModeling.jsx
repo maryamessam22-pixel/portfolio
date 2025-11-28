@@ -17,17 +17,18 @@ const ThreeDModeling = () => {
 
   return (
     <>
-      <SEO
-        title="3D Modeling - Mariam Farid"
-        description="Explore detailed 3D models including architecture, product modeling, and booth designs."
+      <SEO 
+        title="3D-Modeling-Mariam-Farid"
+        description="Explore 3D Modeling projects including architecture, furniture, and booth designs with professional lighting and materials."
       />
 
-      <GlassyCircles count={12} />
+      <GlassyCircles count={14} />
 
       <div className="modeling-foreground">
         <Navbar />
         <Arrow />
 
+        {/* HERO SECTION */}
         <section className="modeling-hero">
           <div className="modeling-hero-content">
             <h1 className="modeling-title">3D Modeling</h1>
@@ -37,6 +38,7 @@ const ThreeDModeling = () => {
           </div>
         </section>
 
+        {/* PROJECTS SECTION */}
         <section className="projects-section">
           <div className="projects-container">
             {modelingProjects.map((project) => (
@@ -51,9 +53,12 @@ const ThreeDModeling = () => {
 
                 <h3 className="project-title">{project.title}</h3>
 
-                <p className="project-card-text">{project.cardDescription}</p>
+                {project.cardDescription && (
+                  <p className="project-card-text">{project.cardDescription}</p>
+                )}
 
                 <BTN
+                  className="project-button"
                   btn="View details"
                   onClick={() => navigate(`/3dmodeling/${project.id}`)}
                 />

@@ -11,6 +11,8 @@ import ArticleDetails from './ArticleDetails';
 import Contact from './Contact';
 import GraphicDesign from './GraphicDesign';
 import ProjectDetailsGraphicDesign from './ProjectDetailsGraphicDesign';
+import ProjectDetails3DModeling from './ProjectDetails3DModeling';
+import ThreeDModeling from './ThreeDModeling';
 
 const Routing = () => {
     return ( 
@@ -28,6 +30,8 @@ const Routing = () => {
       <Route path='/contact' element={<Contact/>} />
       <Route path='/graphicdesign' element={<GraphicDesign/>} />
       <Route path="/graphicdesign/:projectId" element={<ProjectDetailsGraphicDesign />} />
+      <Route path="/3dmodeling" element={<ThreeDModeling />} />
+      <Route path="/3dmodeling/:projectId" element={<ProjectDetails3DModeling />} />
       <Route path='*' element={<Errorpage/>} />
   </Routes>
 

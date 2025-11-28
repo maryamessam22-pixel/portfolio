@@ -1,12 +1,10 @@
 // 3DModelingData.js
 
-import mosque from "../assets/3d-mosque.png";
+import mosque from "../assets/mosque.png";
 import Booth from "../assets/Booth.png";
-import chair from "../assets/3d-chair.png";
+import chair from "../assets/chair.png";
 
-// import mosqueThumb from "../assets/3d-mosque-thumb.png";
-// import boothThumb from "../assets/3d-booth-thumb.png";
-// import chairThumb from "../assets/3d-chair-thumb.png";
+
 
 const modelingProjects = [
   {
