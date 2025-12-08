@@ -33,6 +33,10 @@
         text-align: center;
         margin: 0 auto;
     }
+
+    .BIGDIV {
+    padding: 40px 60px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -50,7 +54,17 @@
         text-align: center;
         margin: 0 auto;
     }
+
+      .BIGDIV {
+    padding: 30px 30px;
+  }
+
+  .BIGDIV .TXT {
+    font-size: 16px;
+  }
 }
+
+
 
 @media (max-width: 480px) {
     .ABOUT {
@@ -64,4 +78,17 @@
         margin: 0 auto;
         padding: 0 15px;
     }
+
+     .BIGDIV  {
+    padding: 20px 20px;
+  }
+
+  .BIGDIV  .TXT {
+    font-size: 14px;
+  }
 }
+
+
+
+
+
