@@ -7,8 +7,9 @@ const WorkExperienceSection = () => {
     <div className="work-experience-section">
       <TextParagraph 
         title="Work Experience" 
-        txt="Over the years, I've worked across UI/UX design, graphic design, and media production bringing creativity and structure to every project.
-        This experience helped me grow as a multitalented designer, blending aesthetic design with user psychology and research based thinking."
+        txt="Over the years, I’ve worked across UI/UX design, graphic design, and media production — bringing creativity, structure, and strategic thinking to every project. My work spans designing mobile apps, websites, brand campaigns, motion graphics, and visual identities for a wide range of clients in industries like architecture, fitness, lifestyle, and digital media.
+These experiences strengthened my ability to translate ideas into functional and visually compelling solutions, always grounded in user behavior, accessibility, and research-driven design principles. I’ve learned to adapt quickly, communicate effectively, and deliver polished work under different creative directions.
+This journey shaped me into a multitalented designer with a balanced skill set — combining aesthetics, psychology, storytelling, and technology to create meaningful and memorable user experiences."
       />
       
 <p className="experience-conclusion">
