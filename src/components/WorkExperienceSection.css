@@ -112,4 +112,25 @@
   width: 100%;
 }
 
+.BIGDIV  {
+  width: 100%;
+padding: 60px 90px;
 
+}
+
+.BIGDIV  .ABOUT {
+  
+  text-align: left;
+  margin-bottom: 30px;
+  color: #1F0D37;
+}
+
+.BIGDIV .TXT {
+  text-align: left;
+  color: #1F0D37;
+  font-size: 20px;
+  line-height: 1.8;
+  white-space: pre-line;
+  max-width: 100%;
+  width: 1100px;
+}
