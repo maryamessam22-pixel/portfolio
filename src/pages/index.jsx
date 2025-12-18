@@ -14,12 +14,7 @@ import mariamImg from '../assets/ME.png';
 import "./index.css";
 
 const Home = () => {
-    const navigate = useNavigate();
-
-    // Function to handle navigation
-    const handleNavigate = (path) => {
-        navigate(path);
-    };
+  
 
     return (
         <>
