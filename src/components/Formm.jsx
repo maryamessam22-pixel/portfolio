@@ -61,10 +61,10 @@ async  function sendMsg(){
           />
         </div>
 
+
         <button onClick={sendMsg} type="button" className="submit-btn">
           Send Message
         </button>
-
       </form>
     </div>
   );

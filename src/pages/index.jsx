@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 import Header from '../components/Header';
 import Navbar from './../components/Navbar';
@@ -46,7 +46,10 @@ const Home = () => {
             <div className='buttons'>
                 {/* <BTN btn='Download my CV' onClick={() => handleNavigate('/about')} /> */}
                 <BTN btn='Download my CV'/>
-                <BTN btn='Read more' onClick={() => handleNavigate('/about')} />
+
+         <Link to="/about">
+                 <BTN btn="Read more" />
+         </Link>
             </div>
 
             {/* Projects Section */}
