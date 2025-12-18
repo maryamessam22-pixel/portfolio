@@ -35,8 +35,8 @@ async  function sendMsg(){
             
           />
         </div>
-                     {/* <button onClick={()=>{console.log(title)}}>test value</button> */}
-
+                     
+                 {/* <button onClick={()=>{console.log(title)}}>test value</button> */}
 
         <div className="form-group">
           <label>Email Address</label>
