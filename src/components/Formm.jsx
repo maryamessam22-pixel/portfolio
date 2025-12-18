@@ -1,80 +1,72 @@
 import React, { useState } from 'react';
 import './Formm.css';
+import {supabase} from "../Supabase";
 
 const Formm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value
-    }));
-  };
+  const [title, setTitle] = useState("");
+  const [email, setEmail] = useState("");
+  const [msg, setMsg] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-  };
+async  function sendMsg(){
+    const res = await supabase.from("contact_messages").insert({"name":title, "email":email, "message":msg});
+    //          await supabase.form("contact_messages").insert({"full_name":title})
+  }
 
   return (
+    <div className="form-container">
+      <h2 className="form-title">Get in Touch</h2>
+      <p className="form-subtitle">
+        Feel free to reach out for collaborations or just a friendly hello!
+      </p>
+
+      <form className="contact-form">
+
+     
+        {/* <div className="form-group" onSubmit={sendMsg}> */}
+
+         <div className="form-group">
+          <label>Full Name</label>
+          <input
+            type="text"
+            value={title}
+            onChange={(i) => { setTitle(i.target.value) }}
+            placeholder="Enter your name"
+            
+          />
+        </div>
+                     {/* <button onClick={()=>{console.log(title)}}>test value</button> */}
+
+
+        <div className="form-group">
+          <label>Email Address</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(i) => { setEmail(i.target.value) }}
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+
     
-      <div className="form-container">
-        <h2 className="form-title">Get in Touch</h2>
-        <p className="form-subtitle">
-          Feel free to reach out for collaborations or just a friendly hello!
-        </p>
+        <div className="form-group">
+          <label>Your Message</label>
+          <textarea
+            rows="5"
+            value={msg}
+            onChange={(i) => { setMsg(i.target.value) }}
+            placeholder="Type your message here..."
+           
+          />
+        </div>
 
-        <form onSubmit={handleSubmit} className="contact-form">
-          <div className="form-group">
-            <label htmlFor="name">Full Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="Enter your name"
-              required
-            />
-          </div>
+        <button onClick={sendMsg} type="button" className="submit-btn">
+          Send Message
+        </button>
 
-          <div className="form-group">
-            <label htmlFor="email">Email Address</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Enter your email"
-              required
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="message">Your Message</label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              placeholder="Type your message here..."
-              rows="5"
-              required
-            ></textarea>
-          </div>
-
-          <button type="submit" className="submit-btn">
-            Send Message
-          </button>
-        </form>
-      </div>
-   
+      </form>
+    </div>
   );
 };
 
