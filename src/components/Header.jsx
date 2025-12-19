@@ -10,7 +10,6 @@ const iconData = [
   { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
   { name: "Blender", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg" },
   { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
-  // { name: "Lightroom", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/lightroom/lightroom-plain.svg" },
   { name: "Flutter", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
   { name: "VSCode", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
   { name: "Photoshop", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" },
@@ -108,15 +107,21 @@ class Header extends Component {
   }
 
   render() {
+   
+    const { title, subtitle } = this.props;
+
     return (
       <div className="hero-bubbles-bg">
         <div className="hero-text">
           <div className="hero-title">
-            <span className="title-main">UI/UX PORTFOLIO</span>
+          
+            <span className="title-main">{title || "UI/UX PORTFOLIO"}</span>
             <span className="hero-designer">Designer</span>
           </div>
-          <div className="hero-name">Mariam Farid</div>
+         
+          <div className="hero-name">{subtitle || "Mariam Farid"}</div>
         </div>
+       
         {iconData.map((icon, idx) => {
           const size = randomInRange(150, 280);
           const x = randomInRange(5, 95);
@@ -134,7 +139,7 @@ class Header extends Component {
 
           return (
             <div
-              key={icon.name}
+              key={`${icon.name}-${idx}`}
               ref={el => (this.bubbleRefs[idx] = el)}
               className="bubble"
               style={{

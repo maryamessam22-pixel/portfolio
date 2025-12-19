@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Home from './index';
+import Home from './Home';
 import About from './About';
 import UIUX from './UIUX';
 import ProjectDetailsUIUX from './ProjectDetailsUIUX';
@@ -15,12 +15,14 @@ import ProjectDetailsGraphicDesign from './ProjectDetailsGraphicDesign';
 
 import ThreeDModeling from './ThreeDModeling';
 import ProjectDetails3DModeling from './ProjectDetails3DModeling';
+import ScrollToTop from '../components/ScrollToTop';
 
 const Routing = () => {
   return (
     <>
       <BrowserRouter>
         <CursorTrail />
+        <ScrollToTop/>
 
         <Routes>
           <Route path="/" element={<Home />} />

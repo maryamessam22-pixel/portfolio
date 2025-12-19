@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import "./ProjectsSection.css";
-import uiuxImage from '../assets/CS.png';
-import motionGraphicsImage from '../assets/MA.png';
-import arImage from '../assets/AR.png';
-import photographyImage from '../assets/PH.png';
-import modeling3dImage from '../assets/LAPTOP.png';
-import graphicDesignImage from '../assets/RABSO.png';
+// احتفظنا بصورة الباترن بس لأنها شكل جمالي ثابت
 import patternImage from '../assets/pattern.png';
 
 class ProjectsSection extends Component {
@@ -19,135 +14,78 @@ class ProjectsSection extends Component {
 
   render() {
     const { isHovered } = this.state;
+    
+    // بنستقبل البيانات من الـ Home.js
+    const { categories = [], images = [] } = this.props;
 
-    const categories = [
-      {
-        id: 1,
-        label: "UI/UX",
-        position: "top-left",
-        image: uiuxImage,
-        imageAlt: "UI/UX Project"
-      },
-      {
-        id: 2,
-        label: "Motion Graphics",
-        position: "mid-left",
-        image: modeling3dImage,
-        imageAlt: "Motion Graphics Project"
-      },
-      {
-        id: 3,
-        label: "Augmented Reality",
-        position: "bottom-left",
-        image: arImage,
-        imageAlt: "AR Project"
-      },
-      {
-        id: 4,
-        label: "Photography",
-        position: "top-right",
-        image: photographyImage,
-        imageAlt: "Photography Project"
-      },
-      {
-        id: 5,
-        label: "3D Modeling",
-        position: "mid-right",
-        image: motionGraphicsImage,
-        imageAlt: "3D Modeling Project"
-      },
-      {
-        id: 6,
-        label: "Graphic Design",
-        position: "bottom-right",
-        image: graphicDesignImage,
-        imageAlt: "Graphic Design Project"
-      }
+    // أماكن العناصر حوالين الفولدر (ثابتة للـ 6 عناصر)
+    const positions = [
+      "top-left",
+      "mid-left",
+      "bottom-left",
+      "top-right",
+      "mid-right",
+      "bottom-right"
     ];
+
+    // دمج البيانات (الاسم + الصورة + المكان + الرابط)
+    const data = categories.map((label, index) => {
+        // تحويل الاسم لرابط (مثال: "UI/UX" -> "uiux")
+        // بنشيل المسافات والعلامات الخاصة ونحول لحروف صغيرة
+        const slug = label.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+        return {
+            id: index,
+            label: label,
+            position: positions[index] || "mid-right", // مكان احتياطي
+            image: images[index] || null, // الصورة المقابلة
+            link: `/${slug}` // الرابط الديناميكي
+        };
+    });
+
+    // لو مفيش بيانات، منرسمش حاجة عشان الصفحة متبوظش
+    if (data.length === 0) return null;
 
     return (
       <section className="projects-section-container">
         <div className={`projects-wrapper ${isHovered ? 'hovered' : ''}`}>
 
-          {/* ---------------- LABELS ---------------- */}
-          {categories.map((category) => {
-            const content = <div className="category-label">{category.label}</div>;
-            const wrapperClass = `category-item ${category.position}`;
+          {/* ---------------- LABELS (الأسماء اللي برة) ---------------- */}
+          {data.map((item) => (
+            <div key={item.id} className={`category-item ${item.position}`}>
+              <Link to={item.link}>
+                 <div className="category-label">{item.label}</div>
+              </Link>
+            </div>
+          ))}
 
-            // UI/UX
-            if (category.label === 'UI/UX') {
-              return (
-                <div key={category.id} className={wrapperClass}>
-                  <Link to="/uiux">{content}</Link>
-                </div>
-              );
-            }
-
-            // Graphic Design
-            if (category.label === 'Graphic Design') {
-              return (
-                <div key={category.id} className={wrapperClass}>
-                  <Link to="/graphicdesign">{content}</Link>
-                </div>
-              );
-            }
-
-            // ⭐ 3D Modeling CLICKABLE LABEL
-            if (category.label === '3D Modeling') {
-              return (
-                <div key={category.id} className={wrapperClass}>
-                  <Link to="/3dmodeling">{content}</Link>
-                </div>
-              );
-            }
-
-            return (
-              <div key={category.id} className={wrapperClass}>
-                {content}
-              </div>
-            );
-          })}
-
-          {/* ---------------- FOLDER IMAGES ---------------- */}
+          {/* ---------------- FOLDER IMAGES (الصور اللي جوه) ---------------- */}
           <div
             className="central-folder"
             onMouseEnter={() => this.setState({ isHovered: true })}
             onMouseLeave={() => this.setState({ isHovered: false })}
           >
-            {categories.map((category) => {
-              const imageEl = (
-                <div
-                  key={category.id}
-                  className={`folder-image folder-image-${category.position} ${isHovered ? 'moved-out' : ''}`}
-                >
-                  <img src={category.image} alt={category.imageAlt} />
-                </div>
+            {data.map((item) => {
+              // لو العنصر ده ملوش صورة، منرسمش صورته
+              if (!item.image) return null;
+
+              return (
+                <Link key={item.id} to={item.link}>
+                  <div className={`folder-image folder-image-${item.position} ${isHovered ? 'moved-out' : ''}`}>
+                     <img src={item.image} alt={item.label} />
+                  </div>
+                </Link>
               );
-
-              // UI/UX
-              if (category.label === 'UI/UX') {
-                return <Link key={category.id} to="/uiux">{imageEl}</Link>;
-              }
-
-              // Graphic Design
-              if (category.label === 'Graphic Design') {
-                return <Link key={category.id} to="/graphicdesign">{imageEl}</Link>;
-              }
-
-              // ⭐ 3D Modeling CLICKABLE IMAGE
-              if (category.label === '3D Modeling') {
-                return <Link key={category.id} to="/3dmodeling">{imageEl}</Link>;
-              }
-
-              return imageEl;
             })}
 
+            {/* النص الثابت (My Projects) */}
             <div className="folder-top">
               <div className="folder-projects-text">
                 <h2 className="projects-title"> My<br />Projects</h2>
               </div>
             </div>
 
+            {/* الخلفية المزخرفة */}
             <div className="folder-pattern">
               <img src={patternImage} alt="Pattern" />
             </div>
@@ -155,7 +93,6 @@ class ProjectsSection extends Component {
         </div>
       </section>
     );
-
   }
 }
 
