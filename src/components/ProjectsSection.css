@@ -6,10 +6,9 @@
 
  
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   z-index: 999;
 }
-
 .projects-wrapper {
 margin-top: 10%;
   margin: 0 auto;
