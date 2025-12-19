@@ -52,13 +52,13 @@ const Home = () => {
 }, []);
 
 
-  if (loading) {
-    return (
-      <div className="loading-center">
-        <p>Loading...</p>
-      </div>
-    );
-  }
+if (loading) {
+  return (
+    <div className="loading-center">
+      <p>Loading...</p>
+    </div>
+  );
+}
 
 
   return (

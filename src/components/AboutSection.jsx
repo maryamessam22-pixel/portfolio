@@ -1,61 +1,82 @@
-import React from 'react';
-import './AboutSection.css';
-import TextParagraph from './TextParagraph';
-import mariamImg from '../assets/ME2.png';
-import ScrollingSkills from './ScrollingSkills'; 
+import React, { useState, useEffect } from "react";
+import "./AboutSection.css";
+import TextParagraph from "./TextParagraph";
+import ScrollingSkills from "./ScrollingSkills";
+import { supabase } from "../Supabase";
 
 const AboutSection = () => {
-  
+  const [loading, setLoading] = useState(true);
+  const [about, setAbout] = useState(null);
+  const [skillsList, setSkillsList] = useState([]);
 
-  const skillsList = [
-    "Video Editing",
-    "Graphic Design",
-    "UI/UX Design",
-    "Branding",
-    "Logo Design",
-    "Video Editing",
-    "Graphic Design",
-    "UI/UX Design",
-    "Branding",
-    "Logo Design"
-  ];
+  useEffect(() => {
+  async function getAboutData() {
+ 
+    const { data: aboutData } = await supabase
+      .from("about_sections")
+      .select("title, description, images")
+      .eq("id", 1)
+      .single();
 
-  return (<>
-    <div className="about-section-container">
-      <div className="about-content-wrapper">
-        
-      
-        <div className="about-text-section">
-          <TextParagraph title="About Me" />
-          <div className="about-text-content">
-            <p className="about-paragraph">
-              I'm a multitalented UI/UX Designer passionate about creating seamless digital experiences that balance aesthetics, usability, and innovation. My work bridges the gap between creative design and functional strategy, helping individuals and brands bring their visions to life through thoughtful, user-centered design solutions.
-            </p>
-            <p className="about-paragraph">
-              With a strong background in UX research, user interface design, prototyping, and branding, I design websites, mobile apps, and interactive experiences that not only look beautiful but also deliver intuitive and engaging user journeys.
-            </p>
-            <p className="about-paragraph">
-              Beyond digital design, I also work on 3D modeling, visual storytelling, and brand identity creation ensuring every project feels unique, authentic, and aligned with its purpose. My approach is rooted in consistency, creativity, and detail, aiming to deliver the best quality results with the most efficient and accessible solutions.
-            </p>
-            <p className="about-paragraph">
-              Every project I design is treated as a one-of-a-kind experience no repetition, no templates just design with intent and impact.
-            </p>
+    setAbout(aboutData);
+
+   
+    const { data: skillsData } = await supabase
+      .from("Skills")
+      .select("name")
+      .order("id", { ascending: true });
+
+    setSkillsList(skillsData ? skillsData.map(s => s.name) : []);
+    setLoading(false);
+  }
+
+  getAboutData();
+}, []);
+
+
+  if (loading) {
+    return (
+      <div className="loading-center">
+        <p>Loading...</p>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <div className="about-section-container">
+        <div className="about-content-wrapper">
+
+          <div className="about-text-section">
+            <TextParagraph title={about?.title} />
+
+            <div className="about-text-content">
+              <p className="about-paragraph">
+                {about?.description}
+              </p>
+            </div>
           </div>
-        </div>
 
-        
-        <div className="about-image-section">
-          <div className="image-container">
-            <img src={mariamImg} alt="Mariam Farid" className="about-profile-img" />
+          <div className="about-image-section">
+            {about?.images && (
+              <div className="image-container">
+                <img
+                  src={Array.isArray(about.images) ? about.images[0] : about.images}
+                  alt="About"
+                  className="about-profile-img"
+                />
+              </div>
+            )}
           </div>
+
         </div>
       </div>
 
-
-    </div>
-    <ScrollingSkills skills={skillsList} />
+    
+      <ScrollingSkills skills={skillsList} />
     </>
   );
 };
 
 export default AboutSection;
+
