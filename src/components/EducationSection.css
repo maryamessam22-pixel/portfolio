@@ -4,6 +4,18 @@ padding: 60px 90px;
   /* background: linear-gradient(-90deg, #F0E8FB, #B58EE6); */
 }
 
+.loading-center {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #260524;
+  font-size: 18px;
+}
+
+
+
 .education-section .ABOUT {
   
   text-align: left;

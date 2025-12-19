@@ -22,7 +22,7 @@ const iconData = [
   { name: "VSCode", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
 ];
 
-// helper to get random range
+
 function randomInRange(min, max) {
   return Math.random() * (max - min) + min;
 }
@@ -37,7 +37,7 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    // Initialize velocities for each bubble
+    
     const initVelocities = () => {
       this.bubbleRefs.forEach((ref, idx) => {
         if (ref && !this.velocitiesRef[idx]) {
@@ -49,25 +49,26 @@ class Header extends Component {
       });
     };
 
-    // Small delay to ensure refs are set
+  
     setTimeout(initVelocities, 100);
 
     let frameCount = 0;
     const animate = () => {
       frameCount++;
-      // Update less frequently for smoother movement
+      
+
       if (frameCount % 2 === 0) {
         this.bubbleRefs.forEach((ref, idx) => {
           if (ref && this.velocitiesRef[idx]) {
             const vel = this.velocitiesRef[idx];
             const isHovered = this.hoveredRef.has(idx);
             
-            // Add slight random variation to velocity for organic movement
+            
             const variation = isHovered ? 0.005 : 0.002;
             vel.vx += randomInRange(-variation, variation);
             vel.vy += randomInRange(-variation, variation);
             
-            // Clamp velocity - higher limits when hovered for faster movement
+            
             const maxVx = isHovered ? 0.08 : 0.04;
             const maxVy = isHovered ? 0.065 : 0.035;
             
@@ -77,7 +78,7 @@ class Header extends Component {
             let x = parseFloat(ref.dataset.x) + vel.vx;
             let y = parseFloat(ref.dataset.y) + vel.vy;
 
-            // Bounce off boundaries gently
+           
             if (x <= 5 || x >= 95) {
               vel.vx *= -0.8;
               x = Math.max(5, Math.min(95, x));

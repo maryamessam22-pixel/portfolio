@@ -4,7 +4,7 @@ import TextParagraph from "./TextParagraph";
 import ScrollingSkills from "./ScrollingSkills";
 import { supabase } from "../Supabase";
 
-const AboutSection = () => {
+  const AboutSection = () => {
   const [loading, setLoading] = useState(true);
   const [about, setAbout] = useState(null);
   const [skillsList, setSkillsList] = useState([]);
