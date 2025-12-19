@@ -11,12 +11,12 @@ import TextParagraph from './../components/TextParagraph';
 import BTN from '../components/BTN';
 import SkillsSection from './../components/SkillsSection';
 
-import mariamImg from '../assets/ME.png';
 import "./Home.css";
 
 const Home = () => {
+
   const [loading, setLoading] = useState(true);
-  
+
   const [sections, setSections] = useState({
     hero: null,
     about: null,
@@ -26,15 +26,14 @@ const Home = () => {
 
   const [skillsIcons, setSkillsIcons] = useState([]);
 
+  
   useEffect(() => {
     async function getHomeData() {
       try {
-        // console.log("Fetching Home Data...");
-
         const { data: homeData, error } = await supabase
           .from('page_sections')
           .select('*')
-          .eq('page', 'home'); 
+          .eq('page', 'home');
 
         if (error) throw error;
 
@@ -50,12 +49,12 @@ const Home = () => {
         const { data: icons } = await supabase
           .from('Skills')
           .select('*')
-          .eq('type', 'icon');
+        //   .eq('type', 'icon');
 
         if (icons) setSkillsIcons(icons);
 
       } catch (err) {
-        console.error("Error fetching data:", err);
+        console.error("Error fetching Home data:", err);
       } finally {
         setLoading(false);
       }
@@ -64,109 +63,114 @@ const Home = () => {
     getHomeData();
   }, []);
 
-  // 🔥 دالة سحرية لإصلاح الصور 🔥
-  // الوظيفة: بتشوف الداتا، لو جاية نص بتحولها لمصفوفة، ولو بايظة بترجع الصورة الافتراضية
-  const getSafeImage = (imgData) => {
-    if (!imgData) return mariamImg; // لو مفيش داتا رجع صورتك الافتراضية
 
-    let validData = imgData;
+  const getFirstImage = (imgData) => {
+    if (!imgData) return null;
 
-    // 1. لو الداتا جاية String، حولها لـ Array
+    if (Array.isArray(imgData) && imgData.length > 0) {
+      return imgData[0];
+    }
+
     if (typeof imgData === 'string') {
       try {
-        validData = JSON.parse(imgData);
-      } catch (e) {
-        console.error("Error parsing image JSON:", e);
-        return mariamImg;
+        const parsed = JSON.parse(imgData);
+        return Array.isArray(parsed) && parsed.length > 0 ? parsed[0] : null;
+      } catch {
+        return null;
       }
     }
 
-    // 2. لو هي Array وفيها لينك، رجع أول لينك
-    if (Array.isArray(validData) && validData.length > 0) {
-      return validData[0];
-    }
-
-    return mariamImg;
+    return null;
   };
 
-  // دالة مساعدة لزرار الـ CV والكاتيجوري (بترجع المصفوفة كاملة)
+
   const getSafeArray = (data) => {
-      if (!data) return [];
-      if (Array.isArray(data)) return data;
-      try { return JSON.parse(data); } catch { return []; }
+    if (!data) return [];
+    if (Array.isArray(data)) return data;
+    try {
+      return JSON.parse(data);
+    } catch {
+      return [];
+    }
   };
 
-  if (loading) return <div className="loading-center"><p>Loading...</p></div>;
+  if (loading) {
+    return (
+      <div className="loading-center">
+        <p>Loading...</p>
+      </div>
+    );
+  }
 
   return (
     <>
       <Navbar />
-      
-      {/* 1. HERO SECTION */}
-       <Header 
-             title={sections.hero?.title} 
-            subtitle={sections.hero?.subtitle}
+
+   
+      <Header
+        title={sections.hero?.title || ""}
+        subtitle={sections.hero?.subtitle || ""}
       />
 
-      
-      {/* 2. ABOUT SECTION */}
-      <section className='ALL'>
-        <div className='both'>
-          <TextParagraph title={sections.about?.title } />
-           <TextParagraph txt={sections.about?.description } />
-          
-       
+      <section className="ALL">
+        <div className="both">
+          <TextParagraph title={sections.about?.title || ""} />
+          <TextParagraph txt={sections.about?.description || ""} />
         </div>
 
-        {/* 👇 هنا استخدمنا الدالة الجديدة عشان الصورة تظهر غصب عنها */}
-        <img 
-          src={getSafeImage(sections.about?.images)} 
-          alt="About" 
-          className="about-img" 
-        />
+        {getFirstImage(sections.about?.images) && (
+          <img
+            src={getFirstImage(sections.about.images)}
+            alt="About"
+            className="about-img"
+          />
+        )}
       </section>
 
-      <div className='buttons'>
-         {/* استخدام الدالة للـ CV */}
-         {getSafeArray(sections.about?.images)[1] ? (
-            <a href={getSafeArray(sections.about.images)[1]} target="_blank" rel="noreferrer">
-                <BTN btn='Download my CV'/>
-            </a>
-         ) : (
-            <BTN btn='Download my CV'/>
-         )}
-         
-         <Link to="/about">
-            <BTN btn="Read more" />
-         </Link>
+    
+       <div className="buttons">
+        {getSafeArray(sections.about?.images)[1] ? (
+          <a
+            href={getSafeArray(sections.about.images)[1]}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <BTN btn="Download my CV" />
+          </a>
+        ) : (
+          <BTN btn="Download my CV" />
+        )}
+
+        <Link to="/about">
+          <BTN btn="Read more" />
+        </Link>
       </div>
 
-      {/* 3. CATEGORIES SECTION */}
-      <div className='both2'>
+
+      <div className="both2">
         <TextParagraph title={sections.category?.title || ""} />
         <TextParagraph txt={sections.category?.description || ""} />
       </div>
 
       {sections.category && (
-        <ProjectsSection 
-           // بنستخدم getSafeArray عشان نضمن ان اللي رايح مصفوفة مش نص
-           categories={getSafeArray(sections.category.tags)} 
-           images={getSafeArray(sections.category.images)}
+        <ProjectsSection
+          categories={getSafeArray(sections.category.tags)}
+          images={getSafeArray(sections.category.images)}
         />
       )}
 
-      {/* 4. SKILLS SECTION */}
-      <SkillsSection 
+ 
+      <SkillsSection
         title={sections.skillsInfo?.title || ""}
         subtitle={sections.skillsInfo?.subtitle || ""}
         description={sections.skillsInfo?.description || ""}
-        icons={skillsIcons} 
+        icons={skillsIcons}
       />
 
       <Footer />
       <Arrow />
     </>
   );
-}
+};
 
 export default Home;
