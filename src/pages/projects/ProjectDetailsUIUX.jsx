@@ -4,7 +4,7 @@ import Navbar from '../../components/layout/Navbar';
 import Footer from '../../components/layout/Footer';
 import SEO from '../../components/common/SEO';
 import uiuxProjects from '../../data/uiuxProjects';
-import Arrow from '../../components/common/Arrow'; // Assuming arrow component exists, or we can use text
+import Arrow from '../../components/common/Arrow'; 
 import './ProjectDetailsUIUX.css';
 
 const ProjectDetailsUIUX = () => {
@@ -12,7 +12,7 @@ const ProjectDetailsUIUX = () => {
 	const projectIndex = uiuxProjects.findIndex(item => item.id === projectId);
 	const project = uiuxProjects[projectIndex];
 
-	// Navigation Logic
+	// Navigation 
 	const nextIndex = (projectIndex + 1) % uiuxProjects.length;
 	const prevIndex = (projectIndex - 1 + uiuxProjects.length) % uiuxProjects.length;
 
@@ -41,7 +41,7 @@ const ProjectDetailsUIUX = () => {
 				description={project.cardDescription || "UI/UX Project Details"}
 			/>
 
-			<Navbar /> {/* keeping main navbar */}
+			<Navbar /> 
 			<Arrow />
 
 			<main className="portfolio-main">
