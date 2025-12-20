@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
-import Navbar from '../components/Navbar';
-import Arrow from '../components/Arrow';
-import Footer from '../components/Footer';
-import AboutSection from '../components/AboutSection';
-import EducationSection from '../components/EducationSection';
-import WorkExperienceSection from '../components/WorkExperienceSection';
-// import TextParagraph from './../components/TextParagraph';
-import "./About.css"
-import SEO from '../components/SEO'
-
-
+import React from 'react';
+import Navbar from '../components/layout/Navbar';
+import Arrow from '../components/common/Arrow';
+import Footer from '../components/layout/Footer';
+import AboutSection from '../components/sections/AboutSection';
+import EducationSection from '../components/sections/EducationSection';
+import WorkExperienceSection from '../components/sections/WorkExperienceSection';
+import "./About.css";
+import SEO from '../components/common/SEO';
 
 const About = () => {
   return (
@@ -29,4 +26,3 @@ const About = () => {
 };
 
 export default About;
-

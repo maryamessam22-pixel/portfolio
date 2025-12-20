@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { supabase } from "../Supabase";
+import { supabase } from "../config/Supabase"; // Corrected
 
-import Navbar from "../components/Navbar";
-import Header from "../components/Header";
-import TextParagraph from "../components/TextParagraph";
-import ProjectsSection from "../components/ProjectsSection";
-import SkillsSection from "../components/SkillsSection";
-import BTN from "../components/BTN";
-import Footer from "../components/Footer";
-import Arrow from "../components/Arrow";
+import Navbar from "../components/layout/Navbar";
+import Header from "../components/layout/Header";
+import TextParagraph from "../components/common/TextParagraph";
+import ProjectsSection from "../components/sections/ProjectsSection";
+import SkillsSection from "../components/sections/SkillsSection";
+import BTN from "../components/common/BTN";
+import Footer from "../components/layout/Footer";
+import Arrow from "../components/common/Arrow";
 
 import "./Home.css";
 
@@ -125,4 +125,3 @@ if (loading) {
 };
 
 export default Home;
-

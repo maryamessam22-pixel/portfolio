@@ -1,12 +1,12 @@
 import React from 'react';
 import { useParams, Link } from "react-router-dom";
 import ArticleData from "../data/ArticleData";
-import Navbar from "../components/Navbar"; 
-import Footer from "../components/Footer"; 
-// import GlassyCircles from "../components/GlassyCircles"; 
+import Navbar from "../components/layout/Navbar"; 
+import Footer from "../components/layout/Footer"; 
+// import GlassyCircles from "../components/ui/GlassyCircles"; 
 import "./ArticleDetails.css"; 
-import SEO from '../components/SEO';
-import Arrow from './../components/Arrow';
+import SEO from '../components/common/SEO';
+import Arrow from '../components/common/Arrow';
 
 const ArticleDetails = () => {
     const { articleId } = useParams();
@@ -104,4 +104,3 @@ const ArticleDetails = () => {
 };
 
 export default ArticleDetails;
-

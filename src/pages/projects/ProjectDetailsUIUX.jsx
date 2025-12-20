@@ -1,13 +1,12 @@
 import React from 'react';
-import {Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import GlassyCircles from '../components/GlassyCircles';
-import SEO from '../components/SEO';
-import uiuxProjects from '../data/uiuxProjects';
+import { Link, useParams } from 'react-router-dom';
+import Navbar from '../../components/layout/Navbar';
+import Footer from '../../components/layout/Footer';
+import GlassyCircles from '../../components/ui/GlassyCircles';
+import SEO from '../../components/common/SEO';
+import uiuxProjects from '../../data/uiuxProjects';
 import './ProjectDetailsUIUX.css';
-import Arrow from './../components/Arrow';
+import Arrow from '../../components/common/Arrow';
 
 const ProjectDetailsUIUX = () => {
 	const { projectId } = useParams();
@@ -102,4 +101,3 @@ const ProjectDetailsUIUX = () => {
 };
 
 export default ProjectDetailsUIUX;
-

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "./Footer.css";
-import footerImage from '../assets/footerimg.png';
+import footerImage from '../../assets/footerimg.png';
 // import wpIcon from '../assets/wp.png';
 // import gmailIcon from '../assets/gmail.png';
 // import linkedinIcon from '../assets/linkedin.png';

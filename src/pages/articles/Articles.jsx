@@ -1,12 +1,12 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
-import GlassyCircles from './../components/GlassyCircles';
+import Navbar from '../../components/layout/Navbar';
+import GlassyCircles from '../../components/ui/GlassyCircles';
 import "./Articles.css";
-import Arrow from '../components/Arrow';
-import Footer from '../components/Footer';
+import Arrow from '../../components/common/Arrow';
+import Footer from '../../components/layout/Footer';
 import { useNavigate } from "react-router-dom";
-import ArticleData from "../data/ArticleData";
-import SEO from './../components/SEO';
+import ArticleData from "../../data/ArticleData";
+import SEO from '../../components/common/SEO';
 
 
 const Articles = () => {

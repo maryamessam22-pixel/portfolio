@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './EducationSection.css';
-import TextParagraph from './TextParagraph';
-import { supabase } from '../Supabase';
+import TextParagraph from '../common/TextParagraph';
+import { supabase } from '../../config/Supabase';
 
 const EducationSection = () => {
   const [educationData, setEducationData] = useState(null);
@@ -31,5 +31,3 @@ const EducationSection = () => {
 };
 
 export default EducationSection;
-
-

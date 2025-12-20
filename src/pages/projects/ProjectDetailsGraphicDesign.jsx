@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link, useParams } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import GlassyCircles from "../components/GlassyCircles";
-import SEO from "../components/SEO";
-import graphicProjects from "../data/GraphicDesignData";
+import Navbar from "../../components/layout/Navbar";
+import Footer from "../../components/layout/Footer";
+import GlassyCircles from "../../components/ui/GlassyCircles";
+import SEO from "../../components/common/SEO";
+import graphicProjects from "../../data/GraphicDesignData";
 import "./ProjectDetailsGraphicDesign.css";
-import Arrow from './../components/Arrow';
+import Arrow from '../../components/common/Arrow';
 
 const ProjectDetailsGraphicDesign = () => {
   const { projectId } = useParams();
@@ -115,4 +115,3 @@ const ProjectDetailsGraphicDesign = () => {
 };
 
 export default ProjectDetailsGraphicDesign;
-

@@ -1,14 +1,12 @@
-// ProjectDetails3DModeling.jsx
-
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import GlassyCircles from "../components/GlassyCircles";
-import SEO from "../components/SEO";
-import modelingProjects from "../data/3DModelingData";
+import Navbar from "../../components/layout/Navbar";
+import Footer from "../../components/layout/Footer";
+import GlassyCircles from "../../components/ui/GlassyCircles";
+import SEO from "../../components/common/SEO";
+import modelingProjects from "../../data/3DModelingData";
 import "./ProjectDetails3DModeling.css";
-import Arrow from "../components/Arrow";
+import Arrow from "../../components/common/Arrow";
 
 const ProjectDetails3DModeling = () => {
   const { projectId } = useParams();

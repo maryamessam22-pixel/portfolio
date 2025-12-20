@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import React from 'react';
+import Navbar from '../../components/layout/Navbar';
+import Footer from '../../components/layout/Footer';
 import './UIUX.css';
-import '../components/ProjectCard.css';
-import SEO from '../components/SEO';
-import GlassyCircles from '../components/GlassyCircles';
-import BTN from '../components/BTN';
+import '../../components/projects/ProjectCard.css';
+import SEO from '../../components/common/SEO';
+import GlassyCircles from '../../components/ui/GlassyCircles';
+import BTN from '../../components/common/BTN';
 import { useNavigate } from 'react-router-dom';
-import uiuxProjects from '../data/uiuxProjects';
-import Arrow from '../components/Arrow';
+import uiuxProjects from '../../data/uiuxProjects';
+import Arrow from '../../components/common/Arrow';
 
 const UIUX = () => {
 	const projects = uiuxProjects;

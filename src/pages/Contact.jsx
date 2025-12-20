@@ -1,12 +1,12 @@
 import React from 'react';
-import Navbar from './../components/Navbar';
+import Navbar from '../components/layout/Navbar';
 import "./Contact.css";
-import Arrow from '../components/Arrow';
-import SEO from '../components/SEO';
-import ScrollingSkills from './../components/ScrollingSkills';
-import Formm from '../components/Formm';
-import Footer from '../components/Footer';
-import "../components/Formm.css"
+import Arrow from '../components/common/Arrow';
+import SEO from '../components/common/SEO';
+import ScrollingSkills from '../components/sections/ScrollingSkills';
+import ContactForm from '../components/forms/ContactForm'; // Renamed from Formm
+import Footer from '../components/layout/Footer';
+import "../components/forms/ContactForm.css"; // Renamed from Formm.css
 
 const Contact = () => {
   const skillsList = [
@@ -48,7 +48,7 @@ const Contact = () => {
                 <i className="fas fa-envelope"></i>
                 <div>
                   <h4>Email Me</h4>
-                  <a href="Mariam Essamm maryamessam22@gmail.com">maryamessam22@gmail.com</a>
+                  <a href="mailto:maryamessam22@gmail.com">maryamessam22@gmail.com</a>
                 </div>
               </div>
               
@@ -78,7 +78,7 @@ const Contact = () => {
           </div>
           
           <div className="contact-form-wrapper">
-            <Formm />
+            <ContactForm />
           </div>
         </div>
       </div>

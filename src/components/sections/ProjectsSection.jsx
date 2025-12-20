@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import "./ProjectsSection.css";
-// احتفظنا بصورة الباترن بس لأنها شكل جمالي ثابت
-import patternImage from '../assets/pattern.png';
+// Updated import path for the pattern image
+import patternImage from '../../assets/pattern.png';
 
 class ProjectsSection extends Component {
   constructor(props) {
@@ -97,6 +97,3 @@ class ProjectsSection extends Component {
 }
 
 export default ProjectsSection;
-
-
-

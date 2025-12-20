@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import './Formm.css';
-import {supabase} from "../Supabase";
+import './ContactForm.css';
+import {supabase} from "../../config/Supabase";
 
-const Formm = () => {
+const ContactForm = () => {
 
   const [title, setTitle] = useState("");
   const [email, setEmail] = useState("");
@@ -70,4 +70,4 @@ async  function sendMsg(){
   );
 };
 
-export default Formm;
+export default ContactForm;

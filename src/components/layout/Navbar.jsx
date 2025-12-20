@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
 import "./Navbar.css";
-import Logo from "../assets/LOGO.png";
+import Logo from "../../assets/LOGO.png";
 
 class Navbar extends Component {
   constructor(props) {

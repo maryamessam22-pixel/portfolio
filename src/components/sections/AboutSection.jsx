@@ -1,38 +1,38 @@
 import React, { useState, useEffect } from "react";
 import "./AboutSection.css";
-import TextParagraph from "./TextParagraph";
-import ScrollingSkills from "./ScrollingSkills";
-import { supabase } from "../Supabase";
+// Corrected Imports
+import TextParagraph from "../common/TextParagraph";
+import ScrollingSkills from "./ScrollingSkills"; // Same folder
+import { supabase } from "../../config/Supabase";
 
-  const AboutSection = () => {
+const AboutSection = () => {
   const [loading, setLoading] = useState(true);
   const [about, setAbout] = useState(null);
   const [skillsList, setSkillsList] = useState([]);
 
   useEffect(() => {
-  async function getAboutData() {
- 
-    const { data: aboutData } = await supabase
-      .from("about_sections")
-      .select("title, description, images")
-      .eq("id", 1)
-      .single();
+    async function getAboutData() {
+      // 1) Fetch About Section Data
+      const { data: aboutData } = await supabase
+        .from("about_sections")
+        .select("title, description, images")
+        .eq("id", 1)
+        .single();
 
-    setAbout(aboutData);
+      setAbout(aboutData);
 
-   
-    const { data: skillsData } = await supabase
-      .from("Skills")
-      .select("name")
-      .order("id", { ascending: true });
+      // 2) Fetch Skills Data
+      const { data: skillsData } = await supabase
+        .from("Skills")
+        .select("name")
+        .order("id", { ascending: true });
 
-    setSkillsList(skillsData ? skillsData.map(s => s.name) : []);
-    setLoading(false);
-  }
+      setSkillsList(skillsData ? skillsData.map(s => s.name) : []);
+      setLoading(false);
+    }
 
-  getAboutData();
-}, []);
-
+    getAboutData();
+  }, []);
 
   if (loading) {
     return (
@@ -72,11 +72,10 @@ import { supabase } from "../Supabase";
         </div>
       </div>
 
-    
+      {/* Skills Component */}
       <ScrollingSkills skills={skillsList} />
     </>
   );
 };
 
 export default AboutSection;
-
