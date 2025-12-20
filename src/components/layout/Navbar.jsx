@@ -76,7 +76,7 @@ class Navbar extends Component {
               className="projects-main nav-link"
               onClick={this.toggleDropdown}
             >
-              Projects <span className="arrow">{dropdownOpen ? '▲' : '▼'}</span>
+              Categories <span className="arrow">{dropdownOpen ? '▲' : '▼'}</span>
             </div>
 
             {dropdownOpen && (
