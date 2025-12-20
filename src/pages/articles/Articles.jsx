@@ -1,50 +1,94 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../../components/layout/Navbar';
 import GlassyCircles from '../../components/ui/GlassyCircles';
 import "./Articles.css";
 import Arrow from '../../components/common/Arrow';
 import Footer from '../../components/layout/Footer';
-import { useNavigate } from "react-router-dom";
-import ArticleData from "../../data/ArticleData";
+import { Link } from "react-router-dom";
 import SEO from '../../components/common/SEO';
-
+import { supabase } from '../../config/Supabase';
 
 const Articles = () => {
-    const navigate = useNavigate();
+    const [blogsData, setBlogsData] = useState([]);
+    const [pageInfo, setPageInfo] = useState({ title: 'BLOGS', subtitle: 'DIVE INTO MY WORLD OF DESIGN, CREATIVITY, AND INNOVATION.' });
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        async function fetchData() {
+            // Fetch Articles
+            // Since page_title and page_subtitle are columns in Blogs table,
+            // we can just fetch everything once and use the first row's info for the header.
+            const { data: articles, error: articlesError } = await supabase
+                .from("Blogs")
+                .select("*");
+
+            if (articlesError) {
+                console.error("Error fetching blogs:", articlesError);
+            } else {
+                setBlogsData(articles);
+
+                // If we have at least one article, use its page_title/subtitle
+                if (articles && articles.length > 0) {
+                    const infoSource = articles[0];
+                    // Assuming page_title and page_subtitle are present in the row
+                    setPageInfo({
+                        title: infoSource.page_title || 'BLOGS',
+                        subtitle: infoSource.page_subtitle || 'DIVE INTO MY WORLD OF DESIGN, CREATIVITY, AND INNOVATION.'
+                    });
+                }
+            }
+
+            setLoading(false);
+        }
+
+        fetchData();
+    }, []);
+
+
+    if (loading) {
+        return (
+            <div className="loading-center">
+                <p>Loading...</p>
+            </div>
+        );
+    }
 
     return (
         <>
-         <SEO
-    title="Mariam Farid – UI/UX Design Articles & Case Studies"
-    description="Read UI/UX articles by Mariam Farid covering user experience, user interface design, wireframes, prototypes, usability, case studies, UX research, personas, journey mapping, visual design, product design, and modern design practices. Keywords: UI UX designer, UX design, UI design, wireframes, prototypes, usability testing, design thinking."
-  />
+            <SEO
+                title="Mariam Farid – UI/UX Design Articles & Case Studies"
+                description="Read UI/UX articles by Mariam Farid covering user experience, user interface design, wireframes, prototypes, usability, case studies, UX research, personas, journey mapping, visual design, product design, and modern design practices. Keywords: UI UX designer, UX design, UI design, wireframes, prototypes, usability testing, design thinking."
+            />
 
-      
             <Navbar />
             <Arrow />
 
             <section className="articles-section">
-                <h1 className="articles-title">BLOGS</h1>
+                <h1 className="articles-title">{pageInfo.title}</h1>
                 <p className="articles-subtitle">
-                    DIVE INTO MY WORLD OF DESIGN, CREATIVITY, AND INNOVATION.
+                    {pageInfo.subtitle}
                 </p>
 
                 <div className="articles-container">
-                    {ArticleData.map((article) => (
+                    {blogsData.map((article) => (
                         <div className="article-card" key={article.id}>
-                            <img src={article.image} alt={article.title} className="article-image" />
+                            <img
+                                src={article.thumbnail_image}
+                                alt={article.blog_title}
+                                className="article-image"
+                            />
 
                             <div className="article-content">
                                 <h3 className="article-card-title">
-                                    {article.title}
+                                    {article.blog_title}
                                 </h3>
 
-                                <button 
+                                <Link
+                                    to={`/articles/${article.id}`}
                                     className="article-card-button"
-                                    onClick={() => navigate(`/articles/${article.id}`)}
                                 >
                                     View article details
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     ))}

@@ -1,6 +1,6 @@
-
 * {
-  box-sizing: border-box; 
+  box-sizing: border-box;
+  
 }
 
 .work-experience-section {
@@ -8,9 +8,9 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 0px 5%; 
+  padding: 0px 5%;
   background: linear-gradient(-90deg, #F0E8FB, #B58EE6);
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
 
 .work-experience-section .ABOUT {
@@ -62,11 +62,11 @@
 
 /* NEW CARD STYLE */
 .experience-card {
-  background:#e3cdff;
+  background: #e3cdff;
   border-radius: 16px;
   padding: 30px;
   backdrop-filter: blur(10px);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   transition: 0.3s ease;
 }
 
@@ -112,14 +112,14 @@
   width: 100%;
 }
 
-.BIGDIV  {
+.BIGDIV {
   width: 100%;
-padding: 60px 90px;
+  padding: 60px 90px;
 
 }
 
-.BIGDIV  .ABOUT {
-  
+.BIGDIV .ABOUT {
+
   text-align: left;
   margin-bottom: 30px;
   color: #1F0D37;
@@ -133,4 +133,53 @@ padding: 60px 90px;
   white-space: pre-line;
   max-width: 100%;
   width: 1100px;
+}
+
+@media (max-width: 768px) {
+  .BIGDIV .TXT {
+    font-size: 14px;
+    width: 100%;
+    padding: 0;
+    margin-top: 20px;
+  }
+
+  .BIGDIV {
+    padding: 40px 20px;
+  }
+
+  .experience-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .experience-card {
+    padding: 20px;
+  }
+
+  .work-experience-section {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .BIGDIV .TXT {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 393px) {
+  .BIGDIV .TXT {
+    font-size: 13px;
+    /* Slightly smaller for very narrow screens if needed, or keep 14px */
+  }
+
+  .BIGDIV {
+    padding: 30px 15px;
+    /* Tighter padding */
+  }
+
+  .work-experience-section {
+    padding: 0 15px;
+  }
 }

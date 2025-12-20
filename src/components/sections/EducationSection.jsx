@@ -20,6 +20,9 @@ const EducationSection = () => {
     getEducationData();
   }, []);
 
+
+
+  
   return (
     <div className="education-section">
       <TextParagraph 
