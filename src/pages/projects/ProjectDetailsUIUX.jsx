@@ -2,101 +2,150 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Navbar from '../../components/layout/Navbar';
 import Footer from '../../components/layout/Footer';
-import GlassyCircles from '../../components/ui/GlassyCircles';
 import SEO from '../../components/common/SEO';
 import uiuxProjects from '../../data/uiuxProjects';
+import Arrow from '../../components/common/Arrow'; // Assuming arrow component exists, or we can use text
 import './ProjectDetailsUIUX.css';
-import Arrow from '../../components/common/Arrow';
 
 const ProjectDetailsUIUX = () => {
 	const { projectId } = useParams();
-	const project = uiuxProjects.find(item => item.id === projectId);
+	const projectIndex = uiuxProjects.findIndex(item => item.id === projectId);
+	const project = uiuxProjects[projectIndex];
+
+	// Navigation Logic
+	const nextIndex = (projectIndex + 1) % uiuxProjects.length;
+	const prevIndex = (projectIndex - 1 + uiuxProjects.length) % uiuxProjects.length;
+
+	const nextProject = uiuxProjects[nextIndex];
+	const prevProject = uiuxProjects[prevIndex];
 
 	if (!project) {
 		return (
-			<>
-			<SEO 
-  title="Project Details | UI/UX Designs by Mariam Farid"
-  description="Explore detailed UI/UX design projects by Mariam Farid, including custom website interfaces, mobile app designs, user flows, wireframes, prototypes, and full product experiences. This section showcases my created websites and apps with a focus on usability, aesthetics, and design thinking."
-/>
-				{/* <SEO 
-					title="Project not found | Mariam Farid" 
-					description="The project you are looking for is not available." 
-				/> */}
+
+
+
+			<div className="project-not-found">
 				<Navbar />
-				<section className="project-details-empty">
+				<div className="empty-state">
 					<h1>Project not found</h1>
-					<Link to="/uiux">Back to UI/UX projects</Link>
-				</section>
-			</>
+					<Link to="/uiux" className="btn-back">Back to Projects</Link>
+				</div>
+			</div>
 		);
 	}
 
 	return (
-		<>
-			<SEO 
-				title={`${project.title}-UI/UX-Project`} 
-				description={project.cardDescription || 'Explore project details, process, and outcomes.'} 
+		<div className="portfolio-page-container">
+			<SEO
+				title={`${project.title} | Mariam Farid`}
+				description={project.cardDescription || "UI/UX Project Details"}
 			/>
-			<GlassyCircles count={10} />
-			<div className="project-details-foreground">
-				<Navbar />
-				<Arrow/>
-				<main className="project-details-wrapper">
-					<header className="project-details-header">
-						<Link to="/uiux" className="project-details-back">
-							<span aria-hidden="true">←</span> Back
-						</Link>
-						<h1>{project.title}</h1>
-					</header>
 
-					<div className="project-details-cover">
-						<img src={project.coverImage} alt={project.title} />
+			<Navbar /> {/* keeping main navbar */}
+			<Arrow />
+
+			<main className="portfolio-main">
+				{/* Top Navigation */}
+				<div className="portfolio-nav-header">
+					<Link to="/uiux" className="back-link">
+						<span className="arrow-left">←</span> Back to Gallery
+					</Link>
+
+					<div className="project-pagination">
+						<Link to={`/uiux/${prevProject.id}`} className="nav-btn prev-btn">
+							Previous
+						</Link>
+						<Link to={`/uiux/${nextProject.id}`} className="nav-btn next-btn">
+							Next Project
+						</Link>
+					</div>
+				</div>
+
+				<header className="project-header">
+					<h1 className="project-title-large">{project.title}</h1>
+					<div className="project-meta-header">
+						<span className="meta-category">UI/UX Designer Portfolio</span>
+						<span className="meta-type">{project.projectType}</span>
+						<span className="meta-year">{project.startDate?.split(' ')[1] || '2024'}</span>
+					</div>
+				</header>
+
+				<div className="portfolio-grid-layout">
+
+					{/* Column 1: Visuals (Left) */}
+					<div className="col-visuals">
+						<div className="project-mockup-container">
+							<img src={project.coverImage} alt={project.title} className="main-mockup" />
+							<img src={project.coverImage} alt={project.title} className="main-mockup" />
+							<img src={project.coverImage} alt={project.title} className="main-mockup" />
+						</div>
 					</div>
 
-					<section className="project-details-section">
-						<h2>Project overview</h2>
-						{project.overview?.map((paragraph, index) => (
-							<p key={index}>{paragraph}</p>
-						))}
-					</section>
+					{/* Column 2: Main Content (Center) */}
+					<div className="col-main-content">
 
-					<section className="project-details-meta-grid">
-						<div>
-							<h3>Project type:</h3>
-							<p>{project.projectType}</p>
+						<div className="content-block overview-block">
+							<h3>Project Overview</h3>
+							<div className="text-content">
+								{project.overview?.map((paragraph, index) => (
+									<p key={index}>{paragraph}</p>
+								))}
+							</div>
 						</div>
-						<div>
-							<h3>Start date:</h3>
-							<p>{project.startDate}</p>
-						</div>
-						<div>
-							<h3>End date:</h3>
-							<p>{project.endDate}</p>
-						</div>
-						<div>
-							<h3>Tools used:</h3>
-							<p>{project.toolsUsed?.join(', ')}</p>
-						</div>
-					</section>
 
-					{project.processSteps && project.processSteps.length > 0 && (
-						<section className="project-details-process">
-							<h2>The process</h2>
-							<div className="project-process-steps">
-								{project.processSteps.map((step, index) => (
-									<div key={step} className="project-process-step">
-										<div className="project-process-icon">{index + 1}</div>
-										<p>{step}</p>
+						<div className="content-block role-block">
+							<h3>Role & Responsibilities</h3>
+							<p>
+								UI/UX Design, User Research, Wireframing, Prototyping,
+								{project.toolsUsed?.includes('React') ? ' Frontend Development' : ' Visual Design'}
+							</p>
+						</div>
+
+						<div className="content-block tools-block">
+							<h3>Tools & Technologies</h3>
+							<div className="tools-grid">
+								{project.toolsUsed?.map(tool => (
+									<div key={tool} className="tool-item">
+										<span className="tool-icon">▪</span> {tool}
 									</div>
 								))}
 							</div>
-						</section>
-					)}
-				</main>
-				<Footer />
-			</div>
-		</>
+						</div>
+					</div>
+
+					{/* Column 3: Sidebar (Right) */}
+					<div className="col-sidebar">
+						<div className="sidebar-section process-section">
+							<h3>Process</h3>
+							<div className="process-timeline">
+								{project.processSteps?.map((step, index) => (
+									<div key={index} className="process-item">
+										<div className="process-icon-box">
+											<span className="icon-placeholder">{index + 1}</span>
+										</div>
+										<span className="process-label">{step}</span>
+									</div>
+								))}
+							</div>
+						</div>
+
+						<div className="sidebar-section outcome-section">
+							<h3>Final Outcome</h3>
+							<p className="outcome-text">
+								{project.cardDescription || "Delivered a comprehensive UI/UX solution designed to enhance user engagement and streamline usability."}
+							</p>
+							{/* Placeholder for stat if we had one */}
+							<p className="outcome-highlight">
+								"Enhanced user experience design"
+							</p>
+						</div>
+					</div>
+
+				</div>
+			</main>
+
+			<Footer />
+		</div>
 	);
 };
 
