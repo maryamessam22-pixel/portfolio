@@ -20,13 +20,13 @@ const UIUX = () => {
 			try {
 				const { data, error } = await supabase
 					.from('Projects')
-					.select('project_name_EN, Thumbnail, subtitle_out')
+					.select('id, slug, project_name_EN, Thumbnail, subtitle_out')
 					.order('id', { ascending: true });
 
 				if (error) {
 					console.error("Error fetching projects:", error);
 				} else {
-					// Map to component format
+				
 					const mappedProjects = data.map(p => ({
 						id: p.slug,
 						slug: p.slug,

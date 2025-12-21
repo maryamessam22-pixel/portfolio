@@ -12,23 +12,23 @@ const ProjectDetails3DModeling = () => {
   const [project, setProject] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
 
-  // Use local data as the source
+ 
   const allProjects = modelingProjects;
 
   useEffect(() => {
-    // Find the project matching the URL id/slug
+
     const index = allProjects.findIndex(p => p.id === projectId);
 
     if (index !== -1) {
       const rawProject = allProjects[index];
 
-      // Map to component format to match specific UI requirements
+ 
       const mappedProject = {
         id: rawProject.id,
         title: rawProject.title,
         cardDescription: rawProject.cardDescription || rawProject.description || '',
 
-        // Ensure overview is an array
+      
         overview: Array.isArray(rawProject.overview) ? rawProject.overview : (rawProject.overview ? [rawProject.overview] : []),
 
         projectType: rawProject.projectType,
@@ -38,15 +38,13 @@ const ProjectDetails3DModeling = () => {
         toolsUsed: rawProject.toolsUsed || [],
         processSteps: rawProject.processSteps || [],
 
-        // Handle images: User requested "3 images at left". 
-        // Data has coverImage and thumbnail. We will use them to form 3 items to match the visual request.
         images: [
           rawProject.coverImage,
           rawProject.thumbnail,
-          rawProject.coverImage // Repeating coverImage to fulfill the "3 images" visual requirement
+          rawProject.coverImage 
         ].filter(Boolean),
 
-        role: rawProject.role || "3D Modeler", // Default role for this section
+        role: rawProject.role || "3D Modeler", 
       };
 
       setProject(mappedProject);
@@ -68,7 +66,7 @@ const ProjectDetails3DModeling = () => {
     );
   }
 
-  // Navigation logic
+
   const nextIdx = (currentIndex + 1) % allProjects.length;
   const prevIdx = (currentIndex - 1 + allProjects.length) % allProjects.length;
 
@@ -86,7 +84,7 @@ const ProjectDetails3DModeling = () => {
       <Arrow />
 
       <main className="portfolio-main">
-        {/* Top Navigation */}
+       
         <div className="portfolio-nav-header">
           <Link to="/3dmodeling" className="back-link">
             <span className="arrow-left">←</span> Back to Gallery
