@@ -21,8 +21,10 @@ export const uiuxProjects = [
 		endDate: '12/02/2024',
 		toolsUsed: ['Figma', 'VS Code'],
 		processSteps: ['Empathize', 'Define', 'Ideate', 'Design', 'Test'],
-		coverImage: ui1,
-		thumbnail: ui8
+		image1: ui1,
+		thumbnail: ui8,
+		image2: ui1,
+		image3: ui1
 	},
 	{
 		id: 'horror-ar-website',
@@ -37,8 +39,10 @@ export const uiuxProjects = [
 		endDate: '28/03/2024',
 		toolsUsed: ['Figma', 'After Effects'],
 		processSteps: ['Research', 'Moodboard', 'Wireframe', 'Visual Design', 'Prototype'],
-		coverImage: ui2,
-		thumbnail: ui7
+		image1: ui2,
+		thumbnail: ui7,
+		image2: ui2,
+		image3: ui2
 	},
 	{
 		id: 'tv-operating-system',
@@ -53,8 +57,10 @@ export const uiuxProjects = [
 		endDate: '29/01/2024',
 		toolsUsed: ['Figma', 'Illustrator'],
 		processSteps: ['Audit', 'Information', 'Wireframe', 'Prototype', 'Design'],
-		coverImage: ui3,
-		thumbnail: ui3
+		image1: ui3,
+		thumbnail: ui3,
+		image2: ui3,
+		image3: ui3
 	},
 	{
 		id: 'go-ride-app',
@@ -69,8 +75,10 @@ export const uiuxProjects = [
 		endDate: '30/04/2024',
 		toolsUsed: ['Figma'],
 		processSteps: ['Empathize', 'Define', 'Ideate', 'Prototype', 'Usability Test'],
-		coverImage: ui4,
-		thumbnail: ui4
+		image1: ui4,
+		thumbnail: ui4,
+		image2: ui4,
+		image3: ui4
 	},
 	{
 		id: 'mini-cooper-smart-screen',
@@ -85,8 +93,10 @@ export const uiuxProjects = [
 		endDate: '20/05/2024',
 		toolsUsed: ['Figma'],
 		processSteps: ['Research', 'Journey Map', 'Wireframe', 'Visual Design', 'Prototype'],
-		coverImage: ui5,
-		thumbnail: ui5
+		image1: ui5,
+		thumbnail: ui5,
+		image2: ui5,
+		image3: ui5
 	},
 	{
 		id: 'event-planner-app',
@@ -101,8 +111,10 @@ export const uiuxProjects = [
 		endDate: '04/07/2024',
 		toolsUsed: ['Figma'],
 		processSteps: ['Discover', 'Define', 'Prototype', 'Iterate', 'Deliver'],
-		coverImage: ui6,
-		thumbnail: ui6
+		image1: ui6,
+		thumbnail: ui6,
+		image2: ui6,
+		image3: ui6
 	}
 ];
 

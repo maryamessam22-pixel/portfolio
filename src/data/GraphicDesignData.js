@@ -25,8 +25,10 @@ const graphicProjects = [
     endDate: "10/01/2024",
     toolsUsed: ["Photoshop", "Illustrator"],
     processSteps: ["Research", "Concept Sketching", "Color Study", "Final Design"],
-    coverImage: gd1,
-    thumbnail: gd11
+    image1: gd1,
+    thumbnail: gd11,
+    image2: gd1,
+    image3: gd1
   },
 
   {
@@ -42,8 +44,10 @@ const graphicProjects = [
     endDate: "14/02/2024",
     toolsUsed: ["Illustrator", "InDesign"],
     processSteps: ["Sketching", "Layout", "Color Tests", "Final Print"],
-    coverImage: gd2,
-    thumbnail: gd22
+    image1: gd2,
+    thumbnail: gd22,
+    image2: gd2,
+    image3: gd2
   },
 
   {
@@ -59,8 +63,10 @@ const graphicProjects = [
     endDate: "20/03/2024",
     toolsUsed: ["Illustrator"],
     processSteps: ["Research", "Sketches", "Vectoring", "Refinements"],
-    coverImage: gd3,
-    thumbnail: gd33
+    image1: gd3,
+    thumbnail: gd33,
+    image2: gd3,
+    image3: gd3
   },
 
   {
@@ -76,8 +82,10 @@ const graphicProjects = [
     endDate: "15/04/2024",
     toolsUsed: ["Photoshop", "Illustrator"],
     processSteps: ["Character study", "Vector tracing", "Shading", "Coloring"],
-    coverImage: gd4,
-    thumbnail: gd44
+    image1: gd4,
+    thumbnail: gd44,
+    image2: gd4,
+    image3: gd4
   },
 
   {
@@ -93,8 +101,10 @@ const graphicProjects = [
     endDate: "12/05/2024",
     toolsUsed: ["Illustrator"],
     processSteps: ["Shape Blocking", "Vector Paths", "Color Mapping", "Detailing"],
-    coverImage: gd5,
-    thumbnail: gd55
+    image1: gd5,
+    thumbnail: gd55,
+    image2: gd5,
+    image3: gd5
   }
 ];
 

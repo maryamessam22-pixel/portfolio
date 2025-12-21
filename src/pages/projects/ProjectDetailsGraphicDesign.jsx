@@ -1,116 +1,149 @@
 import React from 'react';
-import { Link, useParams } from "react-router-dom";
-import Navbar from "../../components/layout/Navbar";
-import Footer from "../../components/layout/Footer";
-import GlassyCircles from "../../components/ui/GlassyCircles";
-import SEO from "../../components/common/SEO";
-import graphicProjects from "../../data/GraphicDesignData";
-import "./ProjectDetailsGraphicDesign.css";
+import { Link, useParams } from 'react-router-dom';
+import Navbar from '../../components/layout/Navbar';
+import Footer from '../../components/layout/Footer';
+import SEO from '../../components/common/SEO';
+import graphicProjects from '../../data/GraphicDesignData';
 import Arrow from '../../components/common/Arrow';
+import './ProjectDetailsGraphicDesign.css';
 
 const ProjectDetailsGraphicDesign = () => {
   const { projectId } = useParams();
-  const project = graphicProjects.find((item) => item.id === projectId);
+  const projectIndex = graphicProjects.findIndex(item => item.id === projectId);
+  const project = graphicProjects[projectIndex];
+
+  // Navigation 
+  const nextIndex = (projectIndex + 1) % graphicProjects.length;
+  const prevIndex = (projectIndex - 1 + graphicProjects.length) % graphicProjects.length;
+
+  const nextProject = graphicProjects[nextIndex];
+  const prevProject = graphicProjects[prevIndex];
 
   if (!project) {
     return (
-      <>
-        <SEO
-          title="Graphic Design Project Not Found | Mariam Farid"
-          description="The graphic design project you are looking for is not available."
-        />
+      <div className="project-not-found">
         <Navbar />
-
-        <section className="project-details-empty">
+        <div className="empty-state">
           <h1>Project not found</h1>
-
-        
-          <Link to="/graphicdesign">Back to graphic design projects</Link>
-        </section>
-      </>
+          <Link to="/graphicdesign" className="btn-back">Back to Projects</Link>
+        </div>
+      </div>
     );
   }
 
   return (
-    <>
+    <div className="portfolio-page-container">
       <SEO
-        title={`${project.title} - Graphic Design Project`}
-        description={
-          project.cardDescription ||
-          "Explore details, concept, and design process."
-        }
+        title={`${project.title} | Mariam Farid`}
+        description={project.cardDescription || "Graphic Design Project Details"}
       />
 
-      <GlassyCircles count={10} />
+      <Navbar />
+      <Arrow />
 
-      <div className="project-details-foreground">
-        <Navbar />
-        <Arrow/>
+      <main className="portfolio-main">
+        {/* Top Navigation */}
+        <div className="portfolio-nav-header">
+          <Link to="/graphicdesign" className="back-link">
+            <span className="arrow-left">←</span> Back to Gallery
+          </Link>
 
-        <main className="project-details-wrapper">
-          <header className="project-details-header">
-
-          
-            <Link to="/graphicdesign" className="project-details-back">
-              <span aria-hidden="true">←</span> Back
+          <div className="project-pagination">
+            <Link to={`/graphicdesign/${prevProject.id}`} className="nav-btn prev-btn">
+              Previous
             </Link>
+            <Link to={`/graphicdesign/${nextProject.id}`} className="nav-btn next-btn">
+              Next Project
+            </Link>
+          </div>
+        </div>
 
-            <h1>{project.title}</h1>
-          </header>
+        <header className="project-header">
+          <h1 className="project-title-large">{project.title}</h1>
+          <div className="project-meta-header">
+            <span className="meta-category">Graphic Designer Portfolio</span>
+            <span className="meta-type">{project.projectType}</span>
+            <span className="meta-year">{project.startDate?.split(' ')[1] || '2024'}</span>
+          </div>
+        </header>
 
-          <div className="project-details-cover">
-            <img src={project.coverImage} alt={project.title} />
+        <div className="portfolio-grid-layout">
+
+          {/* Column 1: Visuals (Left) */}
+          <div className="col-visuals">
+            <div className="project-mockup-container">
+              <img src={project.coverImage} alt={project.title} className="main-mockup" />
+              <img src={project.coverImage} alt={project.title} className="main-mockup" />
+              <img src={project.coverImage} alt={project.title} className="main-mockup" />
+            </div>
           </div>
 
-          <section className="project-details-section">
-            <h2>Project overview</h2>
+          {/* Column 2: Main Content (Center) */}
+          <div className="col-main-content">
 
-            {project.overview?.map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
-          </section>
-
-          <section className="project-details-meta-grid">
-            <div>
-              <h3>Category:</h3>
-              <p>{project.projectType}</p>
+            <div className="content-block overview-block">
+              <h3>Project Overview</h3>
+              <div className="text-content">
+                {project.overview?.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+              </div>
             </div>
 
-            <div>
-              <h3>Start date:</h3>
-              <p>{project.startDate}</p>
+            {/* Role might not be in graphicProjects, so we use generic text or omit */}
+            <div className="content-block role-block">
+              <h3>Role & Responsibilities</h3>
+              <p>
+                Graphic Design, Visual Identity, Branding, Print Design,
+                {project.toolsUsed?.includes('After Effects') ? ' Motion Graphics' : ' Illustration'}
+              </p>
             </div>
 
-            <div>
-              <h3>End date:</h3>
-              <p>{project.endDate}</p>
-            </div>
-
-            <div>
-              <h3>Tools used:</h3>
-              <p>{project.toolsUsed?.join(", ")}</p>
-            </div>
-          </section>
-
-          {project.processSteps && project.processSteps.length > 0 && (
-            <section className="project-details-process">
-              <h2>The process</h2>
-
-              <div className="project-process-steps">
-                {project.processSteps.map((step, index) => (
-                  <div key={step} className="project-process-step">
-                    <div className="project-process-icon">{index + 1}</div>
-                    <p>{step}</p>
+            <div className="content-block tools-block">
+              <h3>Tools & Technologies</h3>
+              <div className="tools-grid">
+                {project.toolsUsed?.map(tool => (
+                  <div key={tool} className="tool-item">
+                    <span className="tool-icon">▪</span> {tool}
                   </div>
                 ))}
               </div>
-            </section>
-          )}
-        </main>
+            </div>
+          </div>
 
-        <Footer />
-      </div>
-    </>
+          {/* Column 3: Sidebar (Right) */}
+          <div className="col-sidebar">
+            <div className="sidebar-section process-section">
+              <h3>Process</h3>
+              <div className="process-timeline">
+                {project.processSteps?.map((step, index) => (
+                  <div key={index} className="process-item">
+                    <div className="process-icon-box">
+                      <span className="icon-placeholder">{index + 1}</span>
+                    </div>
+                    <span className="process-label">{step}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="sidebar-section outcome-section">
+              <h3>Final Outcome</h3>
+              <p className="outcome-text">
+                {project.cardDescription || "Delivered a comprehensive graphic design solution designed to communicate the brand identity effectively."}
+              </p>
+              {/* Placeholder for stat if we had one */}
+              <p className="outcome-highlight">
+                "Impactful visual storytelling"
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </main>
+
+      <Footer />
+    </div>
   );
 };
 

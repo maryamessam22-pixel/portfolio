@@ -4,7 +4,7 @@ import Navbar from '../../components/layout/Navbar';
 import Footer from '../../components/layout/Footer';
 import SEO from '../../components/common/SEO';
 import uiuxProjects from '../../data/uiuxProjects';
-import Arrow from '../../components/common/Arrow'; 
+import Arrow from '../../components/common/Arrow';
 import './ProjectDetailsUIUX.css';
 
 const ProjectDetailsUIUX = () => {
@@ -41,7 +41,7 @@ const ProjectDetailsUIUX = () => {
 				description={project.cardDescription || "UI/UX Project Details"}
 			/>
 
-			<Navbar /> 
+			<Navbar />
 			<Arrow />
 
 			<main className="portfolio-main">
@@ -75,9 +75,9 @@ const ProjectDetailsUIUX = () => {
 					{/* Column 1: Visuals (Left) */}
 					<div className="col-visuals">
 						<div className="project-mockup-container">
-							<img src={project.coverImage} alt={project.title} className="main-mockup" />
-							<img src={project.coverImage} alt={project.title} className="main-mockup" />
-							<img src={project.coverImage} alt={project.title} className="main-mockup" />
+							<img src={project.image1} alt={project.title} className="main-mockup" />
+							<img src={project.image2} alt={project.title} className="main-mockup" />
+							<img src={project.image3} alt={project.title} className="main-mockup" />
 						</div>
 					</div>
 
