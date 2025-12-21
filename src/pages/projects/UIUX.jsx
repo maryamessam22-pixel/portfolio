@@ -20,7 +20,7 @@ const UIUX = () => {
 			try {
 				const { data, error } = await supabase
 					.from('Projects')
-					.select('id, slug, project_name_EN, Thumbnail, subtitle_out, meta_dscription')
+					.select('project_name_EN, Thumbnail, subtitle_out')
 					.order('id', { ascending: true });
 
 				if (error) {
@@ -28,7 +28,7 @@ const UIUX = () => {
 				} else {
 					// Map to component format
 					const mappedProjects = data.map(p => ({
-						id: p.slug, // Use slug as the ID for navigation purposes in the local scope if strictly needed, but better to just use slug explicitly
+						id: p.slug,
 						slug: p.slug,
 						title: p.project_name_EN,
 						thumbnail: p.Thumbnail,
