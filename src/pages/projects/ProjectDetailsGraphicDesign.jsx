@@ -72,9 +72,9 @@ const ProjectDetailsGraphicDesign = () => {
           {/* Column 1: Visuals (Left) */}
           <div className="col-visuals">
             <div className="project-mockup-container">
-              <img src={project.coverImage} alt={project.title} className="main-mockup" />
-              <img src={project.coverImage} alt={project.title} className="main-mockup" />
-              <img src={project.coverImage} alt={project.title} className="main-mockup" />
+              <img src={project.image1} alt={project.title} className="main-mockup" />
+              <img src={project.image2} alt={project.title} className="main-mockup" />
+              <img src={project.image3} alt={project.title} className="main-mockup" />
             </div>
           </div>
 

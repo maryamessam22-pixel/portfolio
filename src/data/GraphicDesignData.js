@@ -10,6 +10,12 @@ import gd33 from "../assets/graphic3.png";
 import gd44 from "../assets/graphic4.png";
 import gd55 from "../assets/graphic5.png";
 
+import nadia from "../assets/nadia_loutfi.png";
+import nadia2 from "../assets/nadia2.png";
+import nadia3 from "../assets/nadia3.png";
+
+import image2 from "../assets/image2.png";
+import image3 from "../assets/image2.png";
 const graphicProjects = [
   {
     id: "rabso-rebranding",
@@ -27,8 +33,8 @@ const graphicProjects = [
     processSteps: ["Research", "Concept Sketching", "Color Study", "Final Design"],
     image1: gd1,
     thumbnail: gd11,
-    image2: gd1,
-    image3: gd1
+    image2: image2,
+    image3: image3
   },
 
   {
@@ -101,10 +107,10 @@ const graphicProjects = [
     endDate: "12/05/2024",
     toolsUsed: ["Illustrator"],
     processSteps: ["Shape Blocking", "Vector Paths", "Color Mapping", "Detailing"],
-    image1: gd5,
+    image1: nadia,
     thumbnail: gd55,
-    image2: gd5,
-    image3: gd5
+    image2: nadia3,
+    image3: nadia2
   }
 ];
 
