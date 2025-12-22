@@ -70,7 +70,6 @@ class Navbar extends Component {
           <Link to="/" onClick={this.handleLinkClick} className={this.isActive('/') ? 'active' : ''}>Home</Link>
           <Link to="/about" onClick={this.handleLinkClick} className={this.isActive('/about') ? 'active' : ''}>About</Link>
 
-          {/* PROJECTS DROPDOWN */}
           <div className={`projects-dropdown ${dropdownOpen ? 'open' : ''}`}>
             <div 
               className="projects-main nav-link"
@@ -93,7 +92,6 @@ class Navbar extends Component {
                   Graphic Design
                 </Link>
 
-                {/* FIXED — correct route */}
                 <Link to="/3dmodeling"
                   onClick={this.handleLinkClick}
                   className={this.isActive('/3dmodeling') ? 'active' : ''}>
