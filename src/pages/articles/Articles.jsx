@@ -15,9 +15,7 @@ const Articles = () => {
 
     useEffect(() => {
         async function fetchData() {
-            // Fetch Articles
-            // Since page_title and page_subtitle are columns in Blogs table,
-            // we can just fetch everything once and use the first row's info for the header.
+
             const { data: articles, error: articlesError } = await supabase
                 .from("Blogs")
                 .select("*");
@@ -27,10 +25,8 @@ const Articles = () => {
             } else {
                 setBlogsData(articles);
 
-                // If we have at least one article, use its page_title/subtitle
                 if (articles && articles.length > 0) {
                     const infoSource = articles[0];
-                    // Assuming page_title and page_subtitle are present in the row
                     setPageInfo({
                         title: infoSource.page_title || 'BLOGS',
                         subtitle: infoSource.page_subtitle || 'DIVE INTO MY WORLD OF DESIGN, CREATIVITY, AND INNOVATION.'
