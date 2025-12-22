@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { supabase } from "../config/Supabase"; // Corrected
+import { supabase } from "../config/Supabase"; 
 
 import Navbar from "../components/layout/Navbar";
 import Header from "../components/layout/Header";

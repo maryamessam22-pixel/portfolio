@@ -7,26 +7,25 @@ export default function Errorpage() {
   return (
     <div className="error-container">
 
-      {/* Language Button */}
+      
       <div className="header-actions">
         <a href="errorar" className="home-button small-btn">
           AR
         </a>
       </div>
 
-      {/* Image */}
       <img
         src={error}
         alt="Error"
         className="error-img"
       />
 
-      {/* Text */}
+      
       <p className="error-text error-margin">Error 404!</p>
 
       <h1 className="error-code">404</h1>
 
-      {/* Back Button using React Router */}
+ 
       <Link to="/" className="home-button">
         Back to Home
       </Link>
