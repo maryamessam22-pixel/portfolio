@@ -4,7 +4,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* MAIN CONTAINER */
+
 .error-container {
   width: 100%;
   height: 100vh;
@@ -18,7 +18,7 @@ body {
   position: relative;
 }
 
-/* HEADER BUTTON */
+
 .header-actions {
   position: absolute;
   top: 20px;
@@ -26,13 +26,13 @@ body {
   z-index: 100;
 }
 
-/* AR SMALL BUTTON */
+
 .small-btn {
   padding: 10px 12px !important;
   margin: 0 !important;
 }
 
-/* IMAGE */
+
 .error-img {
   width: 300px;
   height: auto;
@@ -41,7 +41,7 @@ body {
   z-index: 99;
 }
 
-/* TEXT */
+
 .error-text {
   color: white;
   font-size: 2em;
@@ -50,12 +50,10 @@ body {
   z-index: 20;
 }
 
-/* Pull text up */
+
 .error-margin {
   margin-top: -50px;
 }
-
-/* BIG 404 */
 .error-code {
   color: white;
   font-size: 400px;
@@ -66,7 +64,7 @@ body {
   text-align: center;
 }
 
-/* BUTTON STYLE */
+
 .home-button {
   padding: 12px 24px;
   background-color: #000000;
