@@ -36,11 +36,9 @@ const ArticleDetails = () => {
     if (loading) return <div className="loading-center"><p>Loading...</p></div>;
     if (!article) return <h1>Article not found</h1>;
 
-    // Helper to extract content safely
     const { content } = article;
     const introduction = content?.introduction;
     const conclusion = content?.conclusion;
-    // Handle mainSections vs sections (different naming in JSON)
     const sections = content?.mainSections || content?.sections || [];
     const tableOfContents = content?.tableOfContents || [];
 
@@ -69,14 +67,14 @@ const ArticleDetails = () => {
 
                 <main className="detail-main-content">
 
-                    {/* Table of Contents */}
+                    
                     {tableOfContents.length > 0 && (
                         <section className="detail-section">
                             <h2 className="detail-h2">Table of Contents</h2>
                             <ol className="detail-toc-list">
                                 {tableOfContents.map((item, index) => (
                                     <li key={index}>
-                                        {/* Handle if item is string or object */}
+                                        
                                         {typeof item === 'string' ? item : (item.text || item.title)}
                                     </li>
                                 ))}
@@ -84,7 +82,7 @@ const ArticleDetails = () => {
                         </section>
                     )}
 
-                    {/* Introduction */}
+                  
                     {introduction && (
                         <section className="detail-section">
                             {introduction.title && <h2 className="detail-h2">{introduction.title}</h2>}
@@ -92,7 +90,7 @@ const ArticleDetails = () => {
                         </section>
                     )}
 
-                    {/* Sections */}
+                    
                     {sections.length > 0 && (
                         <section className="detail-section">
                             {sections.map((section, index) => (
@@ -115,10 +113,10 @@ const ArticleDetails = () => {
                         </section>
                     )}
 
-                    {/* Conclusion */}
+                    
                     {conclusion && (
                         <section className="detail-section">
-                            {/* Check if conclusion is an object with title/text or just a string */}
+                            
                             <h2 className="detail-h2">{typeof conclusion === 'object' ? conclusion.title : 'Conclusion'}</h2>
                             <p>{typeof conclusion === 'object' ? conclusion.text : conclusion}</p>
                         </section>
