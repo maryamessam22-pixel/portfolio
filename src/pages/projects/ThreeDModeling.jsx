@@ -26,7 +26,7 @@ const ThreeDModeling = () => {
         <Navbar />
         <Arrow />
 
-        {/* HERO SECTION */}
+        
         <section className="modeling-hero">
           <div className="modeling-hero-content">
             <h1 className="modeling-title">3D Modeling</h1>
@@ -36,7 +36,7 @@ const ThreeDModeling = () => {
           </div>
         </section>
 
-        {/* PROJECTS SECTION */}
+        
         <section className="projects-section">
           <div className="projects-container">
             {modelingProjects.map((project) => (
