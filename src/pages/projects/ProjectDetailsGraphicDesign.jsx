@@ -42,7 +42,7 @@ const ProjectDetailsGraphicDesign = () => {
       <Arrow />
 
       <main className="portfolio-main">
-        {/* Top Navigation */}
+       
         <div className="portfolio-nav-header">
           <Link to="/graphicdesign" className="back-link">
             <span className="arrow-left">←</span> Back to Gallery
@@ -132,7 +132,7 @@ const ProjectDetailsGraphicDesign = () => {
               <p className="outcome-text">
                 {project.cardDescription || "Delivered a comprehensive graphic design solution designed to communicate the brand identity effectively."}
               </p>
-              {/* Placeholder for stat if we had one */}
+            
               <p className="outcome-highlight">
                 "Impactful visual storytelling"
               </p>
