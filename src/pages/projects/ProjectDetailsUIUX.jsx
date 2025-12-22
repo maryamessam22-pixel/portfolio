@@ -18,7 +18,7 @@ const ProjectDetailsUIUX = () => {
 		async function fetchProjects() {
 			setLoading(true);
 			try {
-				// Fetch specific columns as requested, plus extras needed for navigation/UI
+
 				const { data, error } = await supabase
 					.from('Projects')
 					.select('id, slug, project_name_EN, start_Date, projectType, description_EN, Role, tools, processSteps, images, subtitle_out, status, views, puplished_date, cover_image, category_outside')
@@ -29,38 +29,24 @@ const ProjectDetailsUIUX = () => {
 				} else {
 					setAllProjects(data || []);
 
-					// Find the project matching the URL slug (projectId)
+					
 					const index = data.findIndex(p => p.slug === projectId);
 					if (index !== -1) {
 						const rawProject = data[index];
 
-						// Map Supabase columns to app structure
+						
 						const mappedProject = {
 							id: rawProject.slug,
 							title: rawProject.project_name_EN,
-							// Use subtitle_out or meta_dscription as fallback for card description
 							cardDescription: rawProject.subtitle_out || rawProject.meta_dscription || '',
-
-							// Overview: description_EN is text, wrap in array for compatibility with map()
 							overview: rawProject.description_EN ? [rawProject.description_EN] : [],
-
-							// projectType is jsonb/string. Handle safely.
-							// projectType is text in DB
 							projectType: rawProject.projectType,
-
 							startDate: rawProject.start_Date,
 							endDate: rawProject.end_Date,
-
-							// JSONB arrays
 							toolsUsed: rawProject.tools || [],
 							processSteps: rawProject.processSteps || [],
-
-							// Images JSONB (Array)
 							images: rawProject.images || [],
-
 							role: rawProject.Role,
-
-							// User requested fields
 							status: rawProject.status,
 							views: rawProject.views,
 							published: rawProject.puplished_date,
@@ -130,7 +116,7 @@ const ProjectDetailsUIUX = () => {
 			<Arrow />
 
 			<main className="portfolio-main">
-				{/* Top Navigation */}
+				
 				<div className="portfolio-nav-header">
 					<Link to="/uiux" className="back-link">
 						<span className="arrow-left">←</span> Back to Gallery
@@ -155,7 +141,6 @@ const ProjectDetailsUIUX = () => {
 					<div className="project-meta-header">
 						<span className="meta-category">UI/UX Designer Portfolio</span>
 						<span className="meta-type">{project.projectType}</span>
-						{/* Format date to show year */}
 						<span className="meta-year">{project.startDate ? new Date(project.startDate).getFullYear() : '2024'}</span>
 					</div>
 				</header>
@@ -237,3 +222,16 @@ const ProjectDetailsUIUX = () => {
 };
 
 export default ProjectDetailsUIUX;
+							
+
+							
+
+
+							
+
+
+							
+
+							
+
+							
