@@ -4,9 +4,9 @@ import "./Contact.css";
 import Arrow from '../components/common/Arrow';
 import SEO from '../components/common/SEO';
 import ScrollingSkills from '../components/sections/ScrollingSkills';
-import ContactForm from '../components/forms/ContactForm'; // Renamed from Formm
+import ContactForm from '../components/forms/ContactForm'; 
 import Footer from '../components/layout/Footer';
-import "../components/forms/ContactForm.css"; // Renamed from Formm.css
+import "../components/forms/ContactForm.css"; 
 
 const Contact = () => {
   const skillsList = [
