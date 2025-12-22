@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./AboutSection.css";
-// Corrected Imports
 import TextParagraph from "../common/TextParagraph";
-import ScrollingSkills from "./ScrollingSkills"; // Same folder
+import ScrollingSkills from "./ScrollingSkills"; 
 import { supabase } from "../../config/Supabase";
 
 const AboutSection = () => {
@@ -12,7 +11,6 @@ const AboutSection = () => {
 
   useEffect(() => {
     async function getAboutData() {
-      // 1) Fetch About Section Data
       const { data: aboutData } = await supabase
         .from("about_sections")
         .select("title, description, images")
@@ -21,7 +19,6 @@ const AboutSection = () => {
 
       setAbout(aboutData);
 
-      // 2) Fetch Skills Data
       const { data: skillsData } = await supabase
         .from("Skills")
         .select("name")
