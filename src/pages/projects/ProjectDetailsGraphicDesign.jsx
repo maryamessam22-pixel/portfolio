@@ -1,23 +1,84 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Navbar from '../../components/layout/Navbar';
 import Footer from '../../components/layout/Footer';
 import SEO from '../../components/common/SEO';
-import graphicProjects from '../../data/GraphicDesignData';
+import { supabase } from '../../config/Supabase';
 import Arrow from '../../components/common/Arrow';
 import './ProjectDetailsGraphicDesign.css';
 
 const ProjectDetailsGraphicDesign = () => {
   const { projectId } = useParams();
-  const projectIndex = graphicProjects.findIndex(item => item.id === projectId);
-  const project = graphicProjects[projectIndex];
+  const [project, setProject] = useState(null);
+  const [allProjects, setAllProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [currentIndex, setCurrentIndex] = useState(-1);
 
-  // Navigation 
-  const nextIndex = (projectIndex + 1) % graphicProjects.length;
-  const prevIndex = (projectIndex - 1 + graphicProjects.length) % graphicProjects.length;
+  useEffect(() => {
+    async function fetchProjects() {
+      setLoading(true);
+      try {
+        const { data, error } = await supabase
+          .from('Projects')
+          // Selecting necessary fields
+          .select('id, slug, project_name_EN, start_Date, projectType, description_EN, Role, tools, processSteps, images, subtitle_out, status, views, puplished_date, cover_image, category_outside')
+          // Filter by category exactly as requested
+          .eq('category_outside', 'Graphic Design')
+          .order('id', { ascending: true });
 
-  const nextProject = graphicProjects[nextIndex];
-  const prevProject = graphicProjects[prevIndex];
+        if (error) {
+          console.error("Error fetching projects:", error);
+        } else {
+          setAllProjects(data || []);
+
+          // Find the current project by slug (projectId)
+          const index = data.findIndex(p => p.slug === projectId);
+          if (index !== -1) {
+            const rawProject = data[index];
+
+            const mappedProject = {
+              id: rawProject.slug,
+              title: rawProject.project_name_EN,
+              cardDescription: rawProject.subtitle_out || rawProject.meta_dscription || '',
+              // Ensure overview is an array
+              overview: rawProject.description_EN ? [rawProject.description_EN] : [],
+              projectType: rawProject.projectType,
+              startDate: rawProject.start_Date,
+              endDate: rawProject.end_Date,
+              toolsUsed: rawProject.tools || [],
+              processSteps: rawProject.processSteps || [],
+              // Use images array from Supabase
+              images: rawProject.images || [],
+              role: rawProject.Role,
+              status: rawProject.status,
+              views: rawProject.views,
+              published: rawProject.puplished_date,
+              coverImage: rawProject.cover_image,
+              category: rawProject.category_outside
+            };
+            setProject(mappedProject);
+            setCurrentIndex(index);
+          } else {
+            setProject(null);
+          }
+        }
+      } catch (err) {
+        console.error("Unexpected error:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchProjects();
+  }, [projectId]);
+
+  if (loading) {
+    return (
+      <div className="portfolio-page-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <p>Loading...</p>
+      </div>
+    );
+  }
 
   if (!project) {
     return (
@@ -30,6 +91,13 @@ const ProjectDetailsGraphicDesign = () => {
       </div>
     );
   }
+
+  // Navigation logic
+  const nextIdx = (currentIndex + 1) % allProjects.length;
+  const prevIdx = (currentIndex - 1 + allProjects.length) % allProjects.length;
+
+  const nextSlug = allProjects.length > 0 ? allProjects[nextIdx]?.slug : null;
+  const prevSlug = allProjects.length > 0 ? allProjects[prevIdx]?.slug : null;
 
   return (
     <div className="portfolio-page-container">
@@ -49,12 +117,16 @@ const ProjectDetailsGraphicDesign = () => {
           </Link>
 
           <div className="project-pagination">
-            <Link to={`/graphicdesign/${prevProject.id}`} className="nav-btn prev-btn">
-              Previous
-            </Link>
-            <Link to={`/graphicdesign/${nextProject.id}`} className="nav-btn next-btn">
-              Next Project
-            </Link>
+            {prevSlug && (
+              <Link to={`/graphicdesign/${prevSlug}`} className="nav-btn prev-btn">
+                Previous
+              </Link>
+            )}
+            {nextSlug && (
+              <Link to={`/graphicdesign/${nextSlug}`} className="nav-btn next-btn">
+                Next Project
+              </Link>
+            )}
           </div>
         </div>
 
@@ -63,7 +135,7 @@ const ProjectDetailsGraphicDesign = () => {
           <div className="project-meta-header">
             <span className="meta-category">Graphic Designer Portfolio</span>
             <span className="meta-type">{project.projectType}</span>
-            <span className="meta-year">{project.startDate?.split(' ')[1] || '2024'}</span>
+            <span className="meta-year">{project.startDate ? new Date(project.startDate).getFullYear() : '2024'}</span>
           </div>
         </header>
 
@@ -72,9 +144,13 @@ const ProjectDetailsGraphicDesign = () => {
           {/* Column 1: Visuals (Left) */}
           <div className="col-visuals">
             <div className="project-mockup-container">
-              <img src={project.image1} alt={project.title} className="main-mockup" />
-              <img src={project.image2} alt={project.title} className="main-mockup" />
-              <img src={project.image3} alt={project.title} className="main-mockup" />
+              {project.images && project.images.length > 0 ? (
+                project.images.map((img, index) => (
+                  <img key={index} src={img} alt={`${project.title} ${index + 1}`} className="main-mockup" />
+                ))
+              ) : (
+                <p style={{ textAlign: 'center', color: '#888' }}>No images available</p>
+              )}
             </div>
           </div>
 
@@ -90,20 +166,18 @@ const ProjectDetailsGraphicDesign = () => {
               </div>
             </div>
 
-            {/* Role might not be in graphicProjects, so we use generic text or omit */}
             <div className="content-block role-block">
               <h3>Role & Responsibilities</h3>
               <p>
-                Graphic Design, Visual Identity, Branding, Print Design,
-                {project.toolsUsed?.includes('After Effects') ? ' Motion Graphics' : ' Illustration'}
+                {project.role || "Graphic Design, Visual Identity, Branding, Print Design"}
               </p>
             </div>
 
             <div className="content-block tools-block">
               <h3>Tools & Technologies</h3>
               <div className="tools-grid">
-                {project.toolsUsed?.map(tool => (
-                  <div key={tool} className="tool-item">
+                {project.toolsUsed?.map((tool, i) => (
+                  <div key={i} className="tool-item">
                     <span className="tool-icon">▪</span> {tool}
                   </div>
                 ))}

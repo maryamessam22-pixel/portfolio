@@ -21,6 +21,7 @@ const UIUX = () => {
 				const { data, error } = await supabase
 					.from('Projects')
 					.select('id, slug, project_name_EN, Thumbnail, subtitle_out')
+					// .in('category_outside', ['UI/UX', 'uiux', 'Ui/Ux', 'UIUX', 'ui/ux'])
 					.eq('category_outside', 'UI/UX')
 					.order('id', { ascending: true });
 

@@ -22,6 +22,8 @@ const ProjectDetailsUIUX = () => {
 				const { data, error } = await supabase
 					.from('Projects')
 					.select('id, slug, project_name_EN, start_Date, projectType, description_EN, Role, tools, processSteps, images, subtitle_out, status, views, puplished_date, cover_image, category_outside')
+					// .in('category_outside', ['UI/UX', 'uiux', 'Ui/Ux', 'UIUX', 'ui/ux'])
+					.eq('category_outside', 'UI/UX')
 					.order('id', { ascending: true });
 
 				if (error) {
