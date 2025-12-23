@@ -12,7 +12,7 @@ const ProjectDetails3DModeling = () => {
   const [project, setProject] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
 
- 
+
   const allProjects = modelingProjects;
 
   useEffect(() => {
@@ -22,13 +22,13 @@ const ProjectDetails3DModeling = () => {
     if (index !== -1) {
       const rawProject = allProjects[index];
 
- 
+
       const mappedProject = {
         id: rawProject.id,
         title: rawProject.title,
         cardDescription: rawProject.cardDescription || rawProject.description || '',
 
-      
+
         overview: Array.isArray(rawProject.overview) ? rawProject.overview : (rawProject.overview ? [rawProject.overview] : []),
 
         projectType: rawProject.projectType,
@@ -41,10 +41,10 @@ const ProjectDetails3DModeling = () => {
         images: [
           rawProject.coverImage,
           rawProject.thumbnail,
-          rawProject.coverImage 
+          rawProject.coverImage
         ].filter(Boolean),
 
-        role: rawProject.role || "3D Modeler", 
+        role: rawProject.role || "3D Modeler",
       };
 
       setProject(mappedProject);
@@ -84,7 +84,7 @@ const ProjectDetails3DModeling = () => {
       <Arrow />
 
       <main className="portfolio-main">
-       
+
         <div className="portfolio-nav-header">
           <Link to="/3dmodeling" className="back-link">
             <span className="arrow-left">←</span> Back to Gallery

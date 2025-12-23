@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
 import "./GraphicDesign.css";
@@ -7,12 +7,45 @@ import SEO from "../../components/common/SEO";
 import GlassyCircles from "../../components/ui/GlassyCircles";
 import BTN from "../../components/common/BTN";
 import { useNavigate } from "react-router-dom";
-import graphicProjects from "../../data/GraphicDesignData";
+import { supabase } from '../../config/Supabase';
 import Arrow from '../../components/common/Arrow';
 
 const GraphicDesign = () => {
   const navigate = useNavigate();
-  const projects = graphicProjects;
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchProjects() {
+      try {
+        const { data, error } = await supabase
+          .from('Projects')
+          .select('id, slug, project_name_EN, Thumbnail, subtitle_out, category_outside')
+          // THIS LINE FILTERS FOR GRAPHIC DESIGN CATEGORY
+          .eq('category_outside', 'Graphic Design')
+          .order('id', { ascending: true });
+
+        if (error) {
+          console.error("Error fetching projects:", error);
+        } else {
+          const mappedProjects = data.map(p => ({
+            id: p.slug, // Using slug as ID
+            slug: p.slug,
+            title: p.project_name_EN,
+            thumbnail: p.Thumbnail,
+            cardDescription: p.subtitle_out || p.meta_dscription
+          }));
+          setProjects(mappedProjects);
+        }
+      } catch (err) {
+        console.error("Unexpected error:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchProjects();
+  }, []);
 
   return (
     <>
@@ -25,7 +58,7 @@ const GraphicDesign = () => {
 
       <div className="graphic-foreground">
         <Navbar />
-        <Arrow/>
+        <Arrow />
 
         <section className="graphic-hero">
           <div className="graphic-hero-content">
@@ -36,29 +69,34 @@ const GraphicDesign = () => {
 
         <section className="projects-section">
           <div className="projects-container">
-            {projects.map((project) => (
-              <div key={project.id} className="project-card">
-                <div className="project-image-container">
-                  <img
-                    src={project.thumbnail}
-                    alt={project.title}
-                    className="project-image"
-                  />
+            {loading ? (
+                <p style={{ color: 'white', textAlign: 'center' }}>Loading projects...</p>
+            ) : (
+                projects.map((project) => (
+                <div key={project.id} className="project-card">
+                    <div className="project-image-container">
+                    <img
+                        src={project.thumbnail}
+                        alt={project.title}
+                        className="project-image"
+                    />
+                    </div>
+
+                    <h3 className="project-title">{project.title}</h3>
+
+                    {project.cardDescription && (
+                    <p className="project-card-text">{project.cardDescription}</p>
+                    )}
+
+                    <BTN
+                    className="project-button"
+                    btn="View details"
+                    // Adjust this path if your route is effectively /graphicdesign/:slug
+                    onClick={() => navigate(`/graphicdesign/${project.slug}`)}
+                    />
                 </div>
-
-                <h3 className="project-title">{project.title}</h3>
-
-                {project.cardDescription && (
-                  <p className="project-card-text">{project.cardDescription}</p>
-                )}
-
-                <BTN
-                  className="project-button"
-                  btn="View details"
-                  onClick={() => navigate(`/graphicdesign/${project.id}`)}
-                />
-              </div>
-            ))}
+                ))
+            )}
           </div>
         </section>
 

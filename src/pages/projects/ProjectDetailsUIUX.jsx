@@ -29,12 +29,12 @@ const ProjectDetailsUIUX = () => {
 				} else {
 					setAllProjects(data || []);
 
-					
+
 					const index = data.findIndex(p => p.slug === projectId);
 					if (index !== -1) {
 						const rawProject = data[index];
 
-						
+
 						const mappedProject = {
 							id: rawProject.slug,
 							title: rawProject.project_name_EN,
@@ -116,7 +116,7 @@ const ProjectDetailsUIUX = () => {
 			<Arrow />
 
 			<main className="portfolio-main">
-				
+
 				<div className="portfolio-nav-header">
 					<Link to="/uiux" className="back-link">
 						<span className="arrow-left">←</span> Back to Gallery
@@ -222,16 +222,16 @@ const ProjectDetailsUIUX = () => {
 };
 
 export default ProjectDetailsUIUX;
-							
-
-							
 
 
-							
 
 
-							
 
-							
 
-							
+
+
+
+
+
+
+
