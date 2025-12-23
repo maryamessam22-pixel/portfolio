@@ -20,9 +20,7 @@ const ProjectDetailsGraphicDesign = () => {
       try {
         const { data, error } = await supabase
           .from('Projects')
-          // Selecting necessary fields
           .select('id, slug, project_name_EN, start_Date, projectType, description_EN, Role, tools, processSteps, images, subtitle_out, status, views, puplished_date, cover_image, category_outside')
-          // Filter by category exactly as requested
           .eq('category_outside', 'Graphic Design')
           .order('id', { ascending: true });
 
@@ -31,7 +29,6 @@ const ProjectDetailsGraphicDesign = () => {
         } else {
           setAllProjects(data || []);
 
-          // Find the current project by slug (projectId)
           const index = data.findIndex(p => p.slug === projectId);
           if (index !== -1) {
             const rawProject = data[index];
@@ -39,15 +36,13 @@ const ProjectDetailsGraphicDesign = () => {
             const mappedProject = {
               id: rawProject.slug,
               title: rawProject.project_name_EN,
-              cardDescription: rawProject.subtitle_out || rawProject.meta_dscription || '',
-              // Ensure overview is an array
+              cardDescription: rawProject.subtitle_out || rawProject.meta_dscription,
               overview: rawProject.description_EN ? [rawProject.description_EN] : [],
               projectType: rawProject.projectType,
               startDate: rawProject.start_Date,
               endDate: rawProject.end_Date,
               toolsUsed: rawProject.tools || [],
               processSteps: rawProject.processSteps || [],
-              // Use images array from Supabase
               images: rawProject.images || [],
               role: rawProject.Role,
               status: rawProject.status,
@@ -92,7 +87,7 @@ const ProjectDetailsGraphicDesign = () => {
     );
   }
 
-  // Navigation logic
+
   const nextIdx = (currentIndex + 1) % allProjects.length;
   const prevIdx = (currentIndex - 1 + allProjects.length) % allProjects.length;
 
