@@ -21,7 +21,6 @@ const GraphicDesign = () => {
         const { data, error } = await supabase
           .from('Projects')
           .select('id, slug, project_name_EN, Thumbnail, subtitle_out, category_outside')
-          // THIS LINE FILTERS FOR GRAPHIC DESIGN CATEGORY
           .eq('category_outside', 'Graphic Design')
           .order('id', { ascending: true });
 
@@ -29,7 +28,7 @@ const GraphicDesign = () => {
           console.error("Error fetching projects:", error);
         } else {
           const mappedProjects = data.map(p => ({
-            id: p.slug, // Using slug as ID
+            id: p.slug, 
             slug: p.slug,
             title: p.project_name_EN,
             thumbnail: p.Thumbnail,
@@ -91,7 +90,6 @@ const GraphicDesign = () => {
                     <BTN
                     className="project-button"
                     btn="View details"
-                    // Adjust this path if your route is effectively /graphicdesign/:slug
                     onClick={() => navigate(`/graphicdesign/${project.slug}`)}
                     />
                 </div>
