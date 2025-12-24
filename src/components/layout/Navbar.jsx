@@ -97,7 +97,7 @@ class Navbar extends Component {
                   className={this.isActive('/3dmodeling') ? 'active' : ''}>
                   3D Modeling
                 </Link>
-
+{/* 
                 <Link to="/ar" 
                   onClick={this.handleLinkClick}
                   className={this.isActive('/ar') ? 'active' : ''}>
@@ -114,7 +114,7 @@ class Navbar extends Component {
                   onClick={this.handleLinkClick}
                   className={this.isActive('/photography') ? 'active' : ''}>
                   Photography
-                </Link>
+                </Link> */}
               </div>
             )}
           </div>
