@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import "./Footer.css";
+import { Link } from 'react-router-dom';
 import footerImage from '../../assets/footerimg.png';
 // import wpIcon from '../assets/wp.png';
 // import gmailIcon from '../assets/gmail.png';
@@ -25,11 +26,11 @@ const Footer = () => {
         <p className="footer-subtitle">UI/UX Designer</p>
         
         <nav className="footer-nav">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#articles">Articles</a>
-          <a href="#contact">Contact</a>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/projects">Projects</Link>
+          <Link to="/articles">Articles</Link>
+          <Link to="/contact">Contact</Link>
         </nav>
         
         <h2 className="footer-social-heading">Let's Socialize</h2>
