@@ -93,7 +93,6 @@
     }
   }
 
-/* Responsive Design */
 @media (max-width: 1024px) {
   .hero-bubbles-bg {
     height: 80vh;

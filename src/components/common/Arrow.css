@@ -32,7 +32,6 @@
   transform: translateY(-1px);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .scroll-to-top {
     width: 45px;

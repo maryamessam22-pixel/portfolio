@@ -20,7 +20,7 @@ const ScrollingSkills = ({ skills }) => {
         }
 
         if (data && data.description) {
-          // Splitting by "•" to separate the items as seen in the screenshot
+
           const fetchedSkills = data.description
             .split('•')
             .map(item => item.trim())
