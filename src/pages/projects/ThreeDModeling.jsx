@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
 import "./ThreeDModeling.css";
@@ -7,11 +7,44 @@ import SEO from "../../components/common/SEO";
 import GlassyCircles from "../../components/ui/GlassyCircles";
 import BTN from "../../components/common/BTN";
 import { useNavigate } from "react-router-dom";
-import modelingProjects from "../../data/3DModelingData";
+import { supabase } from '../../config/Supabase';
 import Arrow from "../../components/common/Arrow";
 
 const ThreeDModeling = () => {
     const navigate = useNavigate();
+    const [projects, setProjects] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        async function fetchProjects() {
+            try {
+                const { data, error } = await supabase
+                    .from('Projects')
+                    .select('id, slug, project_name_EN, Thumbnail, subtitle_out, category_outside')
+                    .eq('category_outside', '3D Modeling') // Adjust category if needed matching DB
+                    .order('id', { ascending: true });
+
+                if (error) {
+                    console.error("Error fetching projects:", error);
+                } else {
+                    const mappedProjects = data.map(p => ({
+                        id: p.slug, // Navigate by slug
+                        slug: p.slug,
+                        title: p.project_name_EN,
+                        thumbnail: p.Thumbnail,
+                        cardDescription: p.subtitle_out || p.meta_dscription
+                    }));
+                    setProjects(mappedProjects);
+                }
+            } catch (err) {
+                console.error("Unexpected error:", err);
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        fetchProjects();
+    }, []);
 
     return (
         <>
@@ -26,7 +59,6 @@ const ThreeDModeling = () => {
                 <Navbar />
                 <Arrow />
 
-
                 <section className="modeling-hero">
                     <div className="modeling-hero-content">
                         <h1 className="modeling-title">3D Modeling</h1>
@@ -36,32 +68,37 @@ const ThreeDModeling = () => {
                     </div>
                 </section>
 
-
                 <section className="projects-section">
                     <div className="projects-container">
-                        {modelingProjects.map((project) => (
-                            <div key={project.id} className="project-card">
-                                <div className="project-image-container">
-                                    <img
-                                        src={project.thumbnail}
-                                        alt={project.title}
-                                        className="project-image"
+                        {loading ? (
+                            <p style={{ color: 'white', textAlign: 'center' }}>Loading projects...</p>
+                        ) : (
+                            projects.map((project) => (
+                                <div key={project.id} className="project-card">
+                                    <div className="project-image-container">
+                                        {project.thumbnail && (
+                                            <img
+                                                src={project.thumbnail}
+                                                alt={project.title}
+                                                className="project-image"
+                                            />
+                                        )}
+                                    </div>
+
+                                    <h3 className="project-title">{project.title}</h3>
+
+                                    {project.cardDescription && (
+                                        <p className="project-card-text">{project.cardDescription}</p>
+                                    )}
+
+                                    <BTN
+                                        className="project-button"
+                                        btn="View details"
+                                        onClick={() => navigate(`/3dmodeling/${project.slug}`)}
                                     />
                                 </div>
-
-                                <h3 className="project-title">{project.title}</h3>
-
-                                {project.cardDescription && (
-                                    <p className="project-card-text">{project.cardDescription}</p>
-                                )}
-
-                                <BTN
-                                    className="project-button"
-                                    btn="View details"
-                                    onClick={() => navigate(`/3dmodeling/${project.id}`)}
-                                />
-                            </div>
-                        ))}
+                            ))
+                        )}
                     </div>
                 </section>
 

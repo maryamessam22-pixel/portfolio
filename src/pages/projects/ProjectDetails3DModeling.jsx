@@ -3,56 +3,78 @@ import { Link, useParams } from 'react-router-dom';
 import Navbar from '../../components/layout/Navbar';
 import Footer from '../../components/layout/Footer';
 import SEO from '../../components/common/SEO';
+import { supabase } from '../../config/Supabase';
 import Arrow from '../../components/common/Arrow';
-import modelingProjects from "../../data/3DModelingData";
 import './ProjectDetails3DModeling.css';
 
 const ProjectDetails3DModeling = () => {
   const { projectId } = useParams();
   const [project, setProject] = useState(null);
+  const [allProjects, setAllProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(-1);
 
-
-  const allProjects = modelingProjects;
-
   useEffect(() => {
+    async function fetchProjects() {
+      setLoading(true);
+      try {
 
-    const index = allProjects.findIndex(p => p.id === projectId);
+        const { data, error } = await supabase
+          .from('Projects')
+          .select('id, slug, project_name_EN, start_Date, projectType, description_EN, Role, tools, processSteps, images, subtitle_out, status, views, puplished_date, cover_image, category_outside')
+          .eq('category_outside', '3D Modeling') // Use correct category
+          .order('id', { ascending: true });
 
-    if (index !== -1) {
-      const rawProject = allProjects[index];
+        if (error) {
+          console.error("Error fetching projects:", error);
+        } else {
+          setAllProjects(data || []);
 
+          const index = data.findIndex(p => p.slug === projectId);
+          if (index !== -1) {
+            const rawProject = data[index];
 
-      const mappedProject = {
-        id: rawProject.id,
-        title: rawProject.title,
-        cardDescription: rawProject.cardDescription || rawProject.description || '',
-
-
-        overview: Array.isArray(rawProject.overview) ? rawProject.overview : (rawProject.overview ? [rawProject.overview] : []),
-
-        projectType: rawProject.projectType,
-        startDate: rawProject.startDate,
-        endDate: rawProject.endDate,
-
-        toolsUsed: rawProject.toolsUsed || [],
-        processSteps: rawProject.processSteps || [],
-
-        images: [
-          rawProject.coverImage,
-          rawProject.thumbnail,
-          rawProject.coverImage
-        ].filter(Boolean),
-
-        role: rawProject.role || "3D Modeler",
-      };
-
-      setProject(mappedProject);
-      setCurrentIndex(index);
-    } else {
-      setProject(null);
+            const mappedProject = {
+              id: rawProject.slug,
+              title: rawProject.project_name_EN,
+              cardDescription: rawProject.subtitle_out || rawProject.meta_dscription || '',
+              overview: rawProject.description_EN ? [rawProject.description_EN] : [],
+              projectType: rawProject.projectType,
+              startDate: rawProject.start_Date,
+              endDate: rawProject.end_Date,
+              toolsUsed: rawProject.tools || [],
+              processSteps: rawProject.processSteps || [],
+              images: rawProject.images || [],
+              role: rawProject.Role,
+              status: rawProject.status,
+              views: rawProject.views,
+              published: rawProject.puplished_date,
+              coverImage: rawProject.cover_image,
+              category: rawProject.category_outside
+            };
+            setProject(mappedProject);
+            setCurrentIndex(index);
+          } else {
+            setProject(null);
+          }
+        }
+      } catch (err) {
+        console.error("Unexpected error:", err);
+      } finally {
+        setLoading(false);
+      }
     }
-  }, [projectId, allProjects]);
+
+    fetchProjects();
+  }, [projectId]);
+
+  if (loading) {
+    return (
+      <div className="portfolio-page-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <p>Loading...</p>
+      </div>
+    );
+  }
 
   if (!project) {
     return (
@@ -66,12 +88,13 @@ const ProjectDetails3DModeling = () => {
     );
   }
 
-
+  // Navigation logic
   const nextIdx = (currentIndex + 1) % allProjects.length;
   const prevIdx = (currentIndex - 1 + allProjects.length) % allProjects.length;
 
-  const nextId = allProjects.length > 0 ? allProjects[nextIdx]?.id : null;
-  const prevId = allProjects.length > 0 ? allProjects[prevIdx]?.id : null;
+  // Check if next/prev exist before accessing slug
+  const nextSlug = allProjects.length > 0 ? allProjects[nextIdx]?.slug : null;
+  const prevSlug = allProjects.length > 0 ? allProjects[prevIdx]?.slug : null;
 
   return (
     <div className="portfolio-page-container">
@@ -91,13 +114,13 @@ const ProjectDetails3DModeling = () => {
           </Link>
 
           <div className="project-pagination">
-            {prevId && (
-              <Link to={`/3dmodeling/${prevId}`} className="nav-btn prev-btn">
+            {prevSlug && (
+              <Link to={`/3dmodeling/${prevSlug}`} className="nav-btn prev-btn">
                 Previous
               </Link>
             )}
-            {nextId && (
-              <Link to={`/3dmodeling/${nextId}`} className="nav-btn next-btn">
+            {nextSlug && (
+              <Link to={`/3dmodeling/${nextSlug}`} className="nav-btn next-btn">
                 Next Project
               </Link>
             )}
@@ -109,7 +132,7 @@ const ProjectDetails3DModeling = () => {
           <div className="project-meta-header">
             <span className="meta-category">3D Modeling Portfolio</span>
             <span className="meta-type">{project.projectType}</span>
-            <span className="meta-year">{project.startDate}</span>
+            <span className="meta-year">{project.startDate ? new Date(project.startDate).getFullYear() : '2024'}</span>
           </div>
         </header>
 
@@ -117,9 +140,11 @@ const ProjectDetails3DModeling = () => {
           {/* Column 1: Visuals (Left) */}
           <div className="col-visuals">
             <div className="project-mockup-container">
-              {project.images.map((img, index) => (
-                <img key={index} src={img} alt={project.title} className="main-mockup" />
-              ))}
+              <div className="project-mockup-container">
+                {project.images && project.images.map((img, index) => (
+                  <img key={index} src={img} alt={project.title} className="main-mockup" />
+                ))}
+              </div>
             </div>
           </div>
 
@@ -128,7 +153,7 @@ const ProjectDetails3DModeling = () => {
             <div className="content-block overview-block">
               <h3>Project Overview</h3>
               <div className="text-content">
-                {project.overview.map((paragraph, index) => (
+                {project.overview?.map((paragraph, index) => (
                   <p key={index}>{paragraph}</p>
                 ))}
               </div>
@@ -137,14 +162,14 @@ const ProjectDetails3DModeling = () => {
             <div className="content-block role-block">
               <h3>Role & Responsibilities</h3>
               <p>
-                {project.role}
+                {project.role || "3D Modeling, Texturing, Lighting, Rendering"}
               </p>
             </div>
 
             <div className="content-block tools-block">
               <h3>Tools & Technologies</h3>
               <div className="tools-grid">
-                {project.toolsUsed.map((tool, i) => (
+                {project.toolsUsed?.map((tool, i) => (
                   <div key={i} className="tool-item">
                     <span className="tool-icon">▪</span> {tool}
                   </div>
@@ -158,7 +183,7 @@ const ProjectDetails3DModeling = () => {
             <div className="sidebar-section process-section">
               <h3>Process</h3>
               <div className="process-timeline">
-                {project.processSteps.map((step, index) => (
+                {project.processSteps?.map((step, index) => (
                   <div key={index} className="process-item">
                     <div className="process-icon-box">
                       <span className="icon-placeholder">{index + 1}</span>
@@ -172,7 +197,7 @@ const ProjectDetails3DModeling = () => {
             <div className="sidebar-section outcome-section">
               <h3>Final Outcome</h3>
               <p className="outcome-text">
-                {project.cardDescription || "High-fidelity 3D models and renders created with attention to detail and realism."}
+                {project.cardDescription || "Delivered high-quality 3D assets and renders."}
               </p>
               <p className="outcome-highlight">
                 "Immersive 3D Experience"
