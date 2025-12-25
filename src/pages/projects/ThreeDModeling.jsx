@@ -7,8 +7,8 @@ import SEO from "../../components/common/SEO";
 import GlassyCircles from "../../components/ui/GlassyCircles";
 import BTN from "../../components/common/BTN";
 import { useNavigate } from "react-router-dom";
-import { supabase } from '../../config/Supabase';
 import Arrow from "../../components/common/Arrow";
+import { supabase } from '../../config/Supabase';
 
 const ThreeDModeling = () => {
     const navigate = useNavigate();
