@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { supabase } from "../config/Supabase"; 
+import { supabase } from "../config/Supabase";
 
 import Navbar from "../components/layout/Navbar";
 import Header from "../components/layout/Header";
@@ -22,62 +22,62 @@ const Home = () => {
   const [skillsInfo, setSkillsInfo] = useState(null);
   const [skillsIcons, setSkillsIcons] = useState([]);
 
-  
- useEffect(() => {
-  async function getHomeData() {
-    try {
-      const { data: sections } = await supabase
-        .from("page_sections")
-        .select("*")
-        .eq("page", "home");
 
-      setHero(sections.find(s => s.section === "hero"));
-      setAbout(sections.find(s => s.section === "about_sec"));
-      setCategories(sections.find(s => s.section === "category_sec"));
-      setSkillsInfo(sections.find(s => s.section === "skills_sec"));
+  useEffect(() => {
+    async function getHomeData() {
+      try {
+        const { data: sections } = await supabase
+          .from("page_sections")
+          .select("*")
+          .in("page", ["home", "Global"]);
 
-      const { data: icons } = await supabase
-        .from("Skills")
-        .select("*");
+        setHero(sections.find(s => s.page === "Global"));
+        setAbout(sections.find(s => s.section === "about_sec" && s.page === "home"));
+        setCategories(sections.find(s => s.section === "category_sec"));
+        setSkillsInfo(sections.find(s => s.section === "skills_sec"));
 
-      setSkillsIcons(icons || []);
-    } catch (error) {
-      console.error("Home fetch error:", error);
-    } finally {
-      setLoading(false);
+        const { data: icons } = await supabase
+          .from("Skills")
+          .select("*");
+
+        setSkillsIcons(icons || []);
+      } catch (error) {
+        console.error("Home fetch error:", error);
+      } finally {
+        setLoading(false);
+      }
     }
+
+    getHomeData();
+  }, []);
+
+
+  if (loading) {
+    return (
+      <div className="loading-center">
+        <p>Loading...</p>
+      </div>
+    );
   }
-
-  getHomeData();
-}, []);
-
-
-if (loading) {
-  return (
-    <div className="loading-center">
-      <p>Loading...</p>
-    </div>
-  );
-}
 
   return (
     <>
       <Navbar />
 
-   
+
       <Header
         title={hero?.title}
-        subtitle={hero?.subtitle}
+        subtitle={hero?.subtitle || "Mariam Farid"}
       />
 
-   
+
       <section className="ALL">
         <div className="both">
           <TextParagraph title={about?.title} />
           <TextParagraph txt={about?.description} />
         </div>
 
-       
+
         {about?.images && about.images.length > 0 && (
           <img
             src={about.images[0]}
@@ -89,16 +89,16 @@ if (loading) {
 
 
       <div className="buttons">
-     
-            <BTN btn="Download my CV" />
-       
+
+        <BTN btn="Download my CV" />
+
 
         <Link to="/about">
           <BTN btn="Read more" />
         </Link>
       </div>
 
-    
+
       <div className="both2">
         <TextParagraph title={categories?.title} />
         <TextParagraph txt={categories?.description} />
