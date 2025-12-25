@@ -88,9 +88,7 @@ const Footer = () => {
             </a>
 
 
-
-          
-          <a href="https://www.behance.net/Mariam_Farid" target="_blank" rel="noopener noreferrer" className="social-icon behance">
+       <a href="https://www.behance.net/Mariam_Farid" target="_blank" rel="noopener noreferrer" className="social-icon behance">
             <svg viewBox="0 0 24 24" fill="currentColor">
               <path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-1.209 2.25-2.303 2.857-.877.5-1.9.714-3.073.714-1.173 0-2.196-.214-3.073-.714-1.094-.607-1.861-1.56-2.303-2.857H5.5c-.276 0-.5-.224-.5-.5v-1c0-.276.224-.5.5-.5h9.5c.276 0 .5.224.5.5v.5c0 .828.672 1.5 1.5 1.5s1.5-.672 1.5-1.5v-.5c0-.276.224-.5.5-.5h7c.276 0 .5.224.5.5v1c0 .276-.224.5-.5.5h-1.274zm-7.726-2.5c-1.104 0-2-.896-2-2s.896-2 2-2 2 .896 2 2-.896 2-2 2zm-2.5-4.5h-5c-.276 0-.5-.224-.5-.5v-1c0-.276.224-.5.5-.5h5c.276 0 .5.224.5.5v1c0 .276-.224.5-.5.5zm-1-3h-4c-.276 0-.5-.224-.5-.5v-1c0-.276.224-.5.5-.5h4c.276 0 .5.224.5.5v1c0 .276-.224.5-.5.5z"/>
 
