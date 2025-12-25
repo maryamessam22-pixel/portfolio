@@ -3,9 +3,9 @@ import { Link, useParams } from 'react-router-dom';
 import Navbar from '../../components/layout/Navbar';
 import Footer from '../../components/layout/Footer';
 import SEO from '../../components/common/SEO';
-import { supabase } from '../../config/Supabase';
 import Arrow from '../../components/common/Arrow';
 import './ProjectDetails3DModeling.css';
+import { supabase } from '../../config/Supabase';
 
 const ProjectDetails3DModeling = () => {
   const { projectId } = useParams();
@@ -22,7 +22,7 @@ const ProjectDetails3DModeling = () => {
         const { data, error } = await supabase
           .from('Projects')
           .select('id, slug, project_name_EN, start_Date, projectType, description_EN, Role, tools, processSteps, images, subtitle_out, status, views, puplished_date, cover_image, category_outside')
-          .eq('category_outside', '3D Modeling') // Use correct category
+          .eq('category_outside', '3D MODELING') 
           .order('id', { ascending: true });
 
         if (error) {
