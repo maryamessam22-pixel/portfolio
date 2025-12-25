@@ -20,15 +20,15 @@ const ThreeDModeling = () => {
             try {
                 const { data, error } = await supabase
                     .from('Projects')
-                    .select('id, slug, project_name_EN, Thumbnail, subtitle_out, category_outside')
-                    .eq('category_outside', '3D Modeling') // Adjust category if needed matching DB
+                     .select('*')
+                    .eq('category_outside', '3D MODELING') 
                     .order('id', { ascending: true });
 
                 if (error) {
                     console.error("Error fetching projects:", error);
                 } else {
                     const mappedProjects = data.map(p => ({
-                        id: p.slug, // Navigate by slug
+                        id: p.slug, 
                         slug: p.slug,
                         title: p.project_name_EN,
                         thumbnail: p.Thumbnail,
