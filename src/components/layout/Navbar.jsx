@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
 import "./Navbar.css";
-import Logo from "../../assets/LOGO.png";
+// import Logo from "../../assets/LOGO.png";
+import { supabase } from "../../config/Supabase";
 
 class Navbar extends Component {
   constructor(props) {
@@ -10,7 +11,8 @@ class Navbar extends Component {
     this.state = {
       isOpen: false,
       isScrolled: false,
-      dropdownOpen: false
+      dropdownOpen: false,
+      logoUrl: "" 
     };
   }
 
@@ -28,6 +30,44 @@ class Navbar extends Component {
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
+    this.fetchLogo();
+  }
+
+  fetchLogo = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('page_sections')
+        .select('*')
+        .eq('page', 'Global')
+        .single();
+        
+      if (error) {
+        console.error("Error fetching logo from Global section:", error);
+        return;
+      }
+
+      if (data && data.dark_logo) {
+        let url = data.dark_logo;
+        
+   
+        if (Array.isArray(url) && url.length > 0) {
+          url = url[0];
+        } 
+    
+        else if (typeof url === 'string' && url.trim().startsWith('[')) {
+          try {
+            const parsed = JSON.parse(url);
+            if (Array.isArray(parsed) && parsed.length > 0) {
+              url = parsed[0];
+            }
+          } catch (e) { }
+        }
+
+        this.setState({ logoUrl: url });
+      }
+    } catch (err) {
+      console.error("Unexpected error fetching logo:", err);
+    }
   }
 
   componentWillUnmount() {
@@ -55,14 +95,14 @@ class Navbar extends Component {
   }
 
   render() {
-    const { isOpen, isScrolled, dropdownOpen } = this.state;
+    const { isOpen, isScrolled, dropdownOpen, logoUrl } = this.state;
 
     return (
       <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
         
         <div className="logo">
           <Link to="/" onClick={this.handleLinkClick}>
-            <img src={Logo} alt="MyLogo" />
+            <img src={logoUrl} alt="MyLogo" />
           </Link>
         </div>
 
