@@ -19,6 +19,11 @@
   background-color:black ;
 }
 
+.social-icon.freelancer {
+  color: #29b2fe;
+   background-color: #ffffff;
+}
+
 
 .footer-background {
   position: absolute;
