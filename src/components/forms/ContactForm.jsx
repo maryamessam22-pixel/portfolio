@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './ContactForm.css';
-import {supabase} from "../../config/Supabase";
+import { supabase } from "../../config/Supabase";
 
 const ContactForm = () => {
 
@@ -8,9 +8,19 @@ const ContactForm = () => {
   const [email, setEmail] = useState("");
   const [msg, setMsg] = useState("");
 
-async  function sendMsg(){
-    const res = await supabase.from("contact_messages").insert({"name":title, "email":email, "message":msg});
+
+// async  function sendMsg(){
+//     const res = await supabase.from("contact_messages").insert({"name":title, "email":email, "message":msg});
     //          await supabase.form("contact_messages").insert({"full_name":title})
+
+
+  async function sendMsg() {
+    const res = await supabase.from("contact_messages").insert({ "name": title, "email": email, "message": msg });
+    if (!res.error) {
+      setTitle("");
+      setEmail("");
+      setMsg("");
+    }
   }
 
   return (
@@ -22,21 +32,21 @@ async  function sendMsg(){
 
       <form className="contact-form">
 
-     
+
         {/* <div className="form-group" onSubmit={sendMsg}> */}
 
-         <div className="form-group">
+        <div className="form-group">
           <label>Full Name</label>
           <input
             type="text"
             value={title}
             onChange={(i) => { setTitle(i.target.value) }}
             placeholder="Enter your name"
-            
+
           />
         </div>
-                     
-                 {/* <button onClick={()=>{console.log(title)}}>test value</button> */}
+
+        {/* <button onClick={()=>{console.log(title)}}>test value</button> */}
 
         <div className="form-group">
           <label>Email Address</label>
@@ -49,7 +59,7 @@ async  function sendMsg(){
           />
         </div>
 
-    
+
         <div className="form-group">
           <label>Your Message</label>
           <textarea
@@ -57,7 +67,7 @@ async  function sendMsg(){
             value={msg}
             onChange={(i) => { setMsg(i.target.value) }}
             placeholder="Type your message here..."
-           
+
           />
         </div>
 
