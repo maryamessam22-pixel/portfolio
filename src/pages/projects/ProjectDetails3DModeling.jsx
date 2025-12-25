@@ -88,11 +88,10 @@ const ProjectDetails3DModeling = () => {
     );
   }
 
-  // Navigation logic
+
   const nextIdx = (currentIndex + 1) % allProjects.length;
   const prevIdx = (currentIndex - 1 + allProjects.length) % allProjects.length;
 
-  // Check if next/prev exist before accessing slug
   const nextSlug = allProjects.length > 0 ? allProjects[nextIdx]?.slug : null;
   const prevSlug = allProjects.length > 0 ? allProjects[prevIdx]?.slug : null;
 
