@@ -4,6 +4,7 @@ import Navbar from '../../components/layout/Navbar';
 import Footer from '../../components/layout/Footer';
 import SEO from '../../components/common/SEO';
 import Arrow from '../../components/common/Arrow';
+import { stripHTML } from '../../utils/stripHTML';
 import './ProjectDetails3DModeling.css';
 import { supabase } from '../../config/Supabase';
 
@@ -153,7 +154,7 @@ const ProjectDetails3DModeling = () => {
               <h3>Project Overview</h3>
               <div className="text-content">
                 {project.overview?.map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
+                  <p key={index}>{stripHTML(paragraph)}</p>
                 ))}
               </div>
             </div>
@@ -161,7 +162,7 @@ const ProjectDetails3DModeling = () => {
             <div className="content-block role-block">
               <h3>Role & Responsibilities</h3>
               <p>
-                {project.role || "3D Modeling, Texturing, Lighting, Rendering"}
+                {stripHTML(project.role) || "3D Modeling, Texturing, Lighting, Rendering"}
               </p>
             </div>
 
@@ -196,7 +197,7 @@ const ProjectDetails3DModeling = () => {
             <div className="sidebar-section outcome-section">
               <h3>Final Outcome</h3>
               <p className="outcome-text">
-                {project.cardDescription || "Delivered high-quality 3D assets and renders."}
+                {stripHTML(project.cardDescription) || "Delivered high-quality 3D assets and renders."}
               </p>
               <p className="outcome-highlight">
                 "Immersive 3D Experience"

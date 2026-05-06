@@ -5,6 +5,7 @@ import Footer from '../../components/layout/Footer';
 import SEO from '../../components/common/SEO';
 import { supabase } from '../../config/Supabase';
 import Arrow from '../../components/common/Arrow';
+import { stripHTML } from '../../utils/stripHTML';
 import './ProjectDetailsGraphicDesign.css';
 
 const ProjectDetailsGraphicDesign = () => {
@@ -156,7 +157,7 @@ const ProjectDetailsGraphicDesign = () => {
               <h3>Project Overview</h3>
               <div className="text-content">
                 {project.overview?.map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
+                  <p key={index}>{stripHTML(paragraph)}</p>
                 ))}
               </div>
             </div>
@@ -164,7 +165,7 @@ const ProjectDetailsGraphicDesign = () => {
             <div className="content-block role-block">
               <h3>Role & Responsibilities</h3>
               <p>
-                {project.role || "Graphic Design, Visual Identity, Branding, Print Design"}
+                {stripHTML(project.role) || "Graphic Design, Visual Identity, Branding, Print Design"}
               </p>
             </div>
 
@@ -199,7 +200,7 @@ const ProjectDetailsGraphicDesign = () => {
             <div className="sidebar-section outcome-section">
               <h3>Final Outcome</h3>
               <p className="outcome-text">
-                {project.cardDescription || "Delivered a comprehensive graphic design solution designed to communicate the brand identity effectively."}
+                {stripHTML(project.cardDescription) || "Delivered a comprehensive graphic design solution designed to communicate the brand identity effectively."}
               </p>
 
               <p className="outcome-highlight">

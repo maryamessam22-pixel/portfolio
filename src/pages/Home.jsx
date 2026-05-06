@@ -59,7 +59,7 @@ const Home = () => {
       </div>
     );
   }
-
+ 
   return (
     <>
       <Navbar />

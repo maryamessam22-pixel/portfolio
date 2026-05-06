@@ -5,6 +5,7 @@ import Footer from '../../components/layout/Footer';
 import SEO from '../../components/common/SEO';
 import { supabase } from '../../config/Supabase';
 import Arrow from '../../components/common/Arrow';
+import { stripHTML } from '../../utils/stripHTML';
 import './ProjectDetailsUIUX.css';
 
 const ProjectDetailsUIUX = () => {
@@ -163,7 +164,7 @@ const ProjectDetailsUIUX = () => {
 							<h3>Project Overview</h3>
 							<div className="text-content">
 								{project.overview?.map((paragraph, index) => (
-									<p key={index}>{paragraph}</p>
+									<p key={index}>{stripHTML(paragraph)}</p>
 								))}
 							</div>
 						</div>
@@ -171,7 +172,7 @@ const ProjectDetailsUIUX = () => {
 						<div className="content-block role-block">
 							<h3>Role & Responsibilities</h3>
 							<p>
-								{project.role || "UI/UX Design, User Research, Wireframing, Prototyping"}
+								{stripHTML(project.role) || "UI/UX Design, User Research, Wireframing, Prototyping"}
 							</p>
 						</div>
 
@@ -206,7 +207,7 @@ const ProjectDetailsUIUX = () => {
 						<div className="sidebar-section outcome-section">
 							<h3>Final Outcome</h3>
 							<p className="outcome-text">
-								{project.cardDescription || "Delivered a comprehensive UI/UX solution designed to enhance user engagement and streamline usability."}
+									{stripHTML(project.cardDescription) || "Delivered a comprehensive UI/UX solution designed to enhance user engagement and streamline usability."}
 							</p>
 							<p className="outcome-highlight">
 								"Enhanced user experience design"
