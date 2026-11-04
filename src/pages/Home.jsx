@@ -15,6 +15,7 @@ import "./Home.css";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
+  const cvUrl = "/Mariam-CV.pdf";
 
   const [hero, setHero] = useState(null);
   const [about, setAbout] = useState(null);
@@ -90,7 +91,9 @@ const Home = () => {
 
       <div className="buttons">
 
-        <BTN btn="Download my CV" />
+        <a href={cvUrl} download>
+          <BTN btn="Download CV" />
+        </a>
 
 
         <Link to="/about">
