@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import "./Footer.css";
 import { Link } from 'react-router-dom';
 import footerImage from '../../assets/footerimg.png';
@@ -116,4 +115,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

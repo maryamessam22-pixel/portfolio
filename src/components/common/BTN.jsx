@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import "./BTN.css"
 const BTN = (props) => {
     const { btn, onClick, type = 'button', className = '' } = props;

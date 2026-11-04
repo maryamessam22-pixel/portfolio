@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import "./TextParagraph.css"
 import { stripHTML } from '../../utils/stripHTML';
 
@@ -13,7 +12,6 @@ const TextParagraph = (props) => {
 }
  
 export default TextParagraph;
-
 
 
 
