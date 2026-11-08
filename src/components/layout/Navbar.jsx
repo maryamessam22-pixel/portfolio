@@ -111,11 +111,23 @@ class Navbar extends Component {
           <Link to="/about" onClick={this.handleLinkClick} className={this.isActive('/about') ? 'active' : ''}>About</Link>
 
           <div className={`projects-dropdown ${dropdownOpen ? 'open' : ''}`}>
-            <div 
-              className="projects-main nav-link"
-              onClick={this.toggleDropdown}
-            >
-              Categories <span className="arrow">{dropdownOpen ? '▲' : '▼'}</span>
+            <div className="projects-main">
+              <Link
+                to="/projects"
+                onClick={this.handleLinkClick}
+                className={`nav-link ${this.isActive('/projects') ? 'active' : ''}`}
+              >
+                Categories
+              </Link>
+              <button
+                type="button"
+                className="category-dropdown-toggle"
+                onClick={this.toggleDropdown}
+                aria-label={dropdownOpen ? "Close project categories" : "Open project categories"}
+                aria-expanded={dropdownOpen}
+              >
+                <span className="arrow" aria-hidden="true">{dropdownOpen ? '▲' : '▼'}</span>
+              </button>
             </div>
 
             {dropdownOpen && (
@@ -261,7 +273,6 @@ export default Navbar;
 // }
 
 // export default Navbar;
-
 
 
 

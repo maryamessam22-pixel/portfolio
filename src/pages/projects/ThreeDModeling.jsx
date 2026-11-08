@@ -9,6 +9,7 @@ import BTN from "../../components/common/BTN";
 import { useNavigate } from "react-router-dom";
 import Arrow from "../../components/common/Arrow";
 import { supabase } from '../../config/Supabase';
+import ProjectBackLink from '../../components/projects/ProjectBackLink';
 
 const ThreeDModeling = () => {
     const navigate = useNavigate();
@@ -61,6 +62,7 @@ const ThreeDModeling = () => {
 
                 <section className="modeling-hero">
                     <div className="modeling-hero-content">
+                        <ProjectBackLink />
                         <h1 className="modeling-title">3D Modeling</h1>
                         <p className="modeling-subtitle">
                             3D Modeling Collection / Top Projects

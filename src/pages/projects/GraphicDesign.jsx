@@ -9,6 +9,7 @@ import BTN from "../../components/common/BTN";
 import { useNavigate } from "react-router-dom";
 import { supabase } from '../../config/Supabase';
 import Arrow from '../../components/common/Arrow';
+import ProjectBackLink from '../../components/projects/ProjectBackLink';
 
 const GraphicDesign = () => {
   const navigate = useNavigate();
@@ -61,6 +62,7 @@ const GraphicDesign = () => {
 
         <section className="graphic-hero">
           <div className="graphic-hero-content">
+            <ProjectBackLink />
             <h1 className="graphic-title">Graphic Designer</h1>
             <p className="graphic-subtitle">Branding / Posters / Illustration</p>
           </div>

@@ -17,7 +17,7 @@ const Contact = () => {
     "Branding",
     "Logo Design",
     "Video Editing",
-    "maryamessam22@gmail.com",
+    "maryamesam22@gmail.com",
     "Graphic Design",
     "UI/UX Design",
     "Branding",
@@ -48,7 +48,7 @@ const Contact = () => {
                   <i className="fas fa-envelope"></i>
                   <div>
                     <h4>Email Me</h4>
-                    <a href="mailto:contact.mariamfarid.com">contact.mariamfarid.com</a>
+                    <a href="mailto:maryamesam22@gmail.com">maryamesam22@gmail.com</a>
                   </div>
                 </div>
 

@@ -9,6 +9,7 @@ import BTN from '../../components/common/BTN';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../../config/Supabase';
 import Arrow from '../../components/common/Arrow';
+import ProjectBackLink from '../../components/projects/ProjectBackLink';
 
 const UIUX = () => {
 	const [projects, setProjects] = useState([]);
@@ -61,6 +62,7 @@ const UIUX = () => {
 
 				<section className='uiux-hero'>
 					<div className='uiux-hero-content'>
+						<ProjectBackLink />
 						<h1 className='uiux-title'>UI/UX Designer</h1>
 						<p className='uiux-subtitle'>UI/UX Collection/Top projects</p>
 					</div>

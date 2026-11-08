@@ -11,6 +11,7 @@ import Contact from './pages/Contact';
 import Errorpage from './pages/Errorpage'; 
 import Articles from './pages/articles/Articles';
 import ArticleDetails from './pages/ArticleDetails';
+import Projects from './pages/projects/Projects';
 import UIUX from './pages/projects/UIUX';
 import ProjectDetailsUIUX from './pages/projects/ProjectDetailsUIUX';
 import GraphicDesign from './pages/projects/GraphicDesign';
@@ -33,6 +34,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/projects" element={<Projects />} />
         <Route path="/uiux" element={<UIUX />} />
         <Route path="/uiux/:projectId" element={<ProjectDetailsUIUX />} />
         <Route path="/graphicdesign" element={<GraphicDesign />} />

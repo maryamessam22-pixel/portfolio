@@ -45,6 +45,29 @@
     font-weight: 700;
 }
 
+.projects-main {
+  display: flex;
+  align-items: stretch;
+}
+
+.projects-main .nav-link {
+  flex: 1;
+}
+
+.category-dropdown-toggle {
+  padding: 1rem 1.5rem 1rem 0;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  color: #1F0D37;
+  font: 500 1rem 'Roboto', sans-serif;
+  cursor: pointer;
+}
+
+.category-dropdown-toggle:hover {
+  color: #6B46C1;
+}
+
 
 
 
