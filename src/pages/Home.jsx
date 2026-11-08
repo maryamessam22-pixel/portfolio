@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { supabase } from "../config/Supabase";
+import { recordPortfolioEvent } from "../config/analytics";
 
 import Navbar from "../components/layout/Navbar";
 import Header from "../components/layout/Header";
@@ -15,6 +16,7 @@ import "./Home.css";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
+  const [cvTrackingError, setCvTrackingError] = useState(false);
   const cvUrl = "/Mariam-CV.pdf";
 
   const [hero, setHero] = useState(null);
@@ -23,6 +25,20 @@ const Home = () => {
   const [skillsInfo, setSkillsInfo] = useState(null);
   const [skillsIcons, setSkillsIcons] = useState([]);
 
+  const handleCvDownload = async (event) => {
+    event.preventDefault();
+    setCvTrackingError(false);
+
+    const tracked = await recordPortfolioEvent("cv_download");
+    setCvTrackingError(!tracked);
+
+    const downloadLink = document.createElement("a");
+    downloadLink.href = cvUrl;
+    downloadLink.download = "Mariam-CV.pdf";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    downloadLink.remove();
+  };
 
   useEffect(() => {
     async function getHomeData() {
@@ -91,9 +107,12 @@ const Home = () => {
 
       <div className="buttons">
 
-        <a href={cvUrl} download>
+        <a href={cvUrl} download onClick={handleCvDownload}>
           <BTN btn="Download CV" />
         </a>
+        {cvTrackingError && (
+          <p role="status">Your CV download started, but its analytics count could not be saved.</p>
+        )}
 
 
         <Link to="/about">
