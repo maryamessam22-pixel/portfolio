@@ -105,6 +105,9 @@ const ProjectDetailsUIUX = () => {
 	const prevIdx = (currentIndex - 1 + allProjects.length) % allProjects.length;
 	const nextSlug = allProjects.length > 0 ? allProjects[nextIdx]?.slug : null;
 	const prevSlug = allProjects.length > 0 ? allProjects[prevIdx]?.slug : null;
+	const projectYear = projectId === 'qlink-ux-structure'
+		? '2026'
+		: project.startDate ? new Date(project.startDate).getFullYear() : '2024';
 
 	return (
 		<div className="portfolio-page-container">
@@ -142,7 +145,7 @@ const ProjectDetailsUIUX = () => {
 					<div className="project-meta-header">
 						<span className="meta-category">UI/UX Designer Portfolio</span>
 						<span className="meta-type">{project.projectType}</span>
-						<span className="meta-year">{project.startDate ? new Date(project.startDate).getFullYear() : '2024'}</span>
+						<span className="meta-year">{projectYear}</span>
 					</div>
 				</header>
 
@@ -223,8 +226,6 @@ const ProjectDetailsUIUX = () => {
 };
 
 export default ProjectDetailsUIUX;
-
-
 
 
 
