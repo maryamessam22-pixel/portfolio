@@ -39,7 +39,9 @@ const categories = [
     number: "04",
     title: "Motion Graphics",
     description: "Showreels and visual stories brought to life through motion.",
-    href: "/motiongraphics"
+    image: "/images/motion-graphics-cover.png",
+    href: "/motiongraphics",
+    imageAlt: "Qlink showreel cover, One scan. Peace of mind."
   },
   {
     number: "05",
