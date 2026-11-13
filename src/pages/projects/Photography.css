@@ -1,0 +1,107 @@
+.photography-page {
+  position: relative;
+  z-index: 1;
+  min-height: 75vh;
+  padding: 140px 24px 80px;
+}
+
+.photography-heading {
+  max-width: 760px;
+  margin: 0 auto 38px;
+  color: #24113f;
+  text-align: center;
+}
+
+.photography-heading .project-back-link {
+  margin-bottom: 28px;
+}
+
+.photography-eyebrow {
+  margin-bottom: 10px;
+  color: #6b46c1;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.photography-heading h1 {
+  margin: 0 0 12px;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+}
+
+.photography-heading > p:last-child {
+  color: #4b2c78;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.photography-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  width: min(1200px, 100%);
+  margin: 0 auto;
+}
+
+.photography-card {
+  overflow: hidden;
+  border: 1px solid rgba(69, 37, 100, 0.14);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 12px 32px rgba(48, 24, 71, 0.12);
+  color: #260524;
+}
+
+.photography-card a {
+  display: block;
+  overflow: hidden;
+  background: #21172b;
+}
+
+.photography-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  transition: transform 220ms ease;
+}
+
+.photography-card a:hover img,
+.photography-card a:focus-visible img {
+  transform: scale(1.04);
+}
+
+.photography-card a:focus-visible {
+  outline: 3px solid #6b46c1;
+  outline-offset: -3px;
+}
+
+.photography-card figcaption {
+  padding: 14px 18px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .photography-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .photography-page {
+    padding: 115px 18px 56px;
+  }
+
+  .photography-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photography-card img {
+    transition: none;
+  }
+}

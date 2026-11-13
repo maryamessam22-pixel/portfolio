@@ -40,6 +40,14 @@ const categories = [
     title: "Motion Graphics",
     description: "Showreels and visual stories brought to life through motion.",
     href: "/motiongraphics"
+  },
+  {
+    number: "05",
+    title: "Photography",
+    description: "Photographs exploring light, movement, and everyday moments.",
+    image: "/images/photography/photography-005.jpg",
+    href: "/photography",
+    imageAlt: "Sunset over water"
   }
 ];
 
@@ -47,7 +55,7 @@ const Projects = () => (
   <>
     <SEO
       title="Projects | Mariam Farid"
-      description="Explore UI/UX, graphic design, 3D modeling, and motion graphics projects by Mariam Farid."
+      description="Explore UI/UX, graphic design, 3D modeling, motion graphics, and photography by Mariam Farid."
     />
     <GlassyCircles count={14} />
     <div className="projects-page">

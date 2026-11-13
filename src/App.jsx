@@ -19,6 +19,7 @@ import ProjectDetailsGraphicDesign from './pages/projects/ProjectDetailsGraphicD
 import ThreeDModeling from './pages/projects/ThreeDModeling';
 import ProjectDetails3DModeling from './pages/projects/ProjectDetails3DModeling';
 import MotionGraphics from './pages/projects/MotionGraphics';
+import Photography from './pages/projects/Photography';
 
 const App = () => {
   return (
@@ -43,6 +44,7 @@ const App = () => {
         <Route path="/3dmodeling" element={<ThreeDModeling />} />
         <Route path="/3dmodeling/:projectId" element={<ProjectDetails3DModeling />} />
         <Route path="/motiongraphics" element={<MotionGraphics />} />
+        <Route path="/photography" element={<Photography />} />
         <Route path="/articles" element={<Articles />} />
         <Route path="/articles/:articleId" element={<ArticleDetails />} />
         <Route path="*" element={<Errorpage />} />

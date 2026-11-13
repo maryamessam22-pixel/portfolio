@@ -155,6 +155,12 @@ class Navbar extends Component {
                   className={this.isActive('/motiongraphics') ? 'active' : ''}>
                   Motion Graphics
                 </Link>
+
+                <Link to="/photography"
+                  onClick={this.handleLinkClick}
+                  className={this.isActive('/photography') ? 'active' : ''}>
+                  Photography
+                </Link>
 {/* 
                 <Link to="/ar" 
                   onClick={this.handleLinkClick}
@@ -162,11 +168,7 @@ class Navbar extends Component {
                   AR
                 </Link>
 
-                <Link to="/photography"
-                  onClick={this.handleLinkClick}
-                  className={this.isActive('/photography') ? 'active' : ''}>
-                  Photography
-                </Link> */}
+                */}
               </div>
             )}
           </div>
