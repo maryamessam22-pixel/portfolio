@@ -66,7 +66,10 @@ const Articles = () => {
                 </p>
 
                 <div className="articles-container">
-                    {blogsData.map((article) => (
+                    {/* Keep the article in Supabase; hide only its card from this listing. */}
+                    {blogsData
+                        .filter((article) => article.blog_title?.trim().toLowerCase() !== "my creative friends")
+                        .map((article) => (
                         <div className="article-card" key={article.id}>
                             <img
                                 src={article.thumbnail_image}

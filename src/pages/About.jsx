@@ -5,6 +5,7 @@ import Footer from '../components/layout/Footer';
 import AboutSection from '../components/sections/AboutSection';
 import EducationSection from '../components/sections/EducationSection';
 import WorkExperienceSection from '../components/sections/WorkExperienceSection';
+import CertificatesSection from '../components/sections/CertificatesSection';
 import "./About.css";
 import SEO from '../components/common/SEO';
 
@@ -20,6 +21,7 @@ const About = () => {
       <Arrow />
       <EducationSection />
       <WorkExperienceSection />
+      <CertificatesSection />
       <Footer />
     </>
   );

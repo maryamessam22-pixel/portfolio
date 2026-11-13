@@ -120,7 +120,6 @@ const Home = () => {
         </Link>
       </div>
 
-
       <div className="both2">
         <TextParagraph title={categories?.title} />
         <TextParagraph txt={categories?.description} />
