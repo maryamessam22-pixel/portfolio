@@ -88,6 +88,29 @@
   inset: 0;
 }
 
+.project-category-art {
+  position: absolute;
+  z-index: -2;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 70% 25%, rgba(255, 190, 235, 0.35), transparent 24%),
+    radial-gradient(circle at 25% 80%, rgba(128, 93, 220, 0.6), transparent 32%),
+    linear-gradient(135deg, #25113f, #8348a6);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 4rem;
+  inset: 0;
+}
+
+.project-category-art::before {
+  position: absolute;
+  width: 110px;
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 50%;
+  content: "";
+}
+
 .project-category-card:hover > img,
 .project-category-card:focus-visible > img {
   transform: scale(1.05);

@@ -149,17 +149,17 @@ class Navbar extends Component {
                   className={this.isActive('/3dmodeling') ? 'active' : ''}>
                   3D Modeling
                 </Link>
+
+                <Link to="/motiongraphics"
+                  onClick={this.handleLinkClick}
+                  className={this.isActive('/motiongraphics') ? 'active' : ''}>
+                  Motion Graphics
+                </Link>
 {/* 
                 <Link to="/ar" 
                   onClick={this.handleLinkClick}
                   className={this.isActive('/ar') ? 'active' : ''}>
                   AR
-                </Link>
-
-                <Link to="/motion" 
-                  onClick={this.handleLinkClick}
-                  className={this.isActive('/motion') ? 'active' : ''}>
-                  Motion Graphics
                 </Link>
 
                 <Link to="/photography"

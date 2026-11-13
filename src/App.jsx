@@ -18,6 +18,7 @@ import GraphicDesign from './pages/projects/GraphicDesign';
 import ProjectDetailsGraphicDesign from './pages/projects/ProjectDetailsGraphicDesign';
 import ThreeDModeling from './pages/projects/ThreeDModeling';
 import ProjectDetails3DModeling from './pages/projects/ProjectDetails3DModeling';
+import MotionGraphics from './pages/projects/MotionGraphics';
 
 const App = () => {
   return (
@@ -41,6 +42,7 @@ const App = () => {
         <Route path="/graphicdesign/:projectId" element={<ProjectDetailsGraphicDesign />} />
         <Route path="/3dmodeling" element={<ThreeDModeling />} />
         <Route path="/3dmodeling/:projectId" element={<ProjectDetails3DModeling />} />
+        <Route path="/motiongraphics" element={<MotionGraphics />} />
         <Route path="/articles" element={<Articles />} />
         <Route path="/articles/:articleId" element={<ArticleDetails />} />
         <Route path="*" element={<Errorpage />} />

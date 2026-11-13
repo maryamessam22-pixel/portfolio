@@ -34,6 +34,12 @@ const categories = [
     image: modelingImage,
     href: "/3dmodeling",
     imageAlt: "3D modeling project preview"
+  },
+  {
+    number: "04",
+    title: "Motion Graphics",
+    description: "Showreels and visual stories brought to life through motion.",
+    href: "/motiongraphics"
   }
 ];
 
@@ -41,7 +47,7 @@ const Projects = () => (
   <>
     <SEO
       title="Projects | Mariam Farid"
-      description="Explore UI/UX, graphic design, and 3D modeling projects by Mariam Farid."
+      description="Explore UI/UX, graphic design, 3D modeling, and motion graphics projects by Mariam Farid."
     />
     <GlassyCircles count={14} />
     <div className="projects-page">
@@ -63,7 +69,11 @@ const Projects = () => (
               to={category.href}
               aria-label={`Explore ${category.title} projects`}
             >
-              <img src={category.image} alt={category.imageAlt} />
+              {category.image ? (
+                <img src={category.image} alt={category.imageAlt} />
+              ) : (
+                <span className="project-category-art" aria-hidden="true">▶</span>
+              )}
               <span className="project-category-number">{category.number}</span>
               <div className="project-category-content">
                 <h2>{category.title}</h2>
