@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Footer from "../../components/layout/Footer";
 import Arrow from "../../components/common/Arrow";
 import SEO from "../../components/common/SEO";
@@ -9,34 +9,15 @@ import "./MotionGraphics.css";
 const videos = [
   {
     title: "Graduation Project Showreel",
-    src: "/videos/motion-graphics/graduation-project-showreel.mp4",
-    mobileSrc: "/videos/motion-graphics/graduation-project-showreel-mobile.mp4"
+    src: "/videos/motion-graphics/graduation-project-showreel-mobile.mp4"
   },
   {
     title: "Portfolio Showreel",
-    src: "/videos/motion-graphics/portfolio-showreel.mp4",
-    mobileSrc: "/videos/motion-graphics/portfolio-showreel-mobile.mp4"
+    src: "/videos/motion-graphics/portfolio-showreel-mobile.mp4"
   }
 ];
 
 const MotionGraphics = () => {
-  const [isMobile, setIsMobile] = useState(() =>
-    window.matchMedia("(max-width: 768px)").matches
-  );
-
-  useEffect(() => {
-    const mobileQuery = window.matchMedia("(max-width: 768px)");
-    const updateIsMobile = (event) => setIsMobile(event.matches);
-
-    if (mobileQuery.addEventListener) {
-      mobileQuery.addEventListener("change", updateIsMobile);
-      return () => mobileQuery.removeEventListener("change", updateIsMobile);
-    }
-
-    mobileQuery.addListener(updateIsMobile);
-    return () => mobileQuery.removeListener(updateIsMobile);
-  }, []);
-
   return (
     <>
       <SEO
@@ -56,13 +37,10 @@ const MotionGraphics = () => {
 
         <section className="motion-graphics-grid" aria-label="Motion graphics videos">
           {videos.map((video) => {
-            const src = isMobile ? video.mobileSrc : video.src;
-
             return (
               <article className="motion-video-card" key={video.title}>
                 <video
-                  key={src}
-                  src={src}
+                  src={video.src}
                   controls
                   preload="metadata"
                   playsInline

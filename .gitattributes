@@ -1,1 +1,2 @@
 public/videos/motion-graphics/*.mp4 filter=lfs diff=lfs merge=lfs -text
+public/videos/motion-graphics/*-mobile.mp4 -filter -diff -merge -text
