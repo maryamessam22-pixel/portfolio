@@ -405,30 +405,6 @@ margin-top: 10%;
     height: 100px;
   }
 
-  .folder-image-top-left.moved-out {
-    transform: scale(0.75) translate(-110px, -82px) rotate(0deg);
-  }
-
-  .folder-image-mid-left.moved-out {
-    transform: scale(0.75) translate(-110px, 0) rotate(0deg);
-  }
-
-  .folder-image-bottom-left.moved-out {
-    transform: scale(0.75) translate(-110px, 82px) rotate(0deg);
-  }
-
-  .folder-image-top-right.moved-out {
-    transform: scale(0.75) translate(110px, -82px) rotate(0deg);
-  }
-
-  .folder-image-mid-right.moved-out {
-    transform: scale(0.75) translate(110px, 0) rotate(0deg);
-  }
-
-  .folder-image-bottom-right.moved-out {
-    transform: scale(0.75) translate(110px, 82px) rotate(0deg);
-  }
-
   .category-item {
     position: relative;
     top: auto;
@@ -501,30 +477,6 @@ margin-top: 10%;
     height: 80px;
   }
 
-  .folder-image-top-left.moved-out {
-    transform: scale(0.75) translate(-95px, -75px) rotate(0deg);
-  }
-
-  .folder-image-mid-left.moved-out {
-    transform: scale(0.75) translate(-95px, 0) rotate(0deg);
-  }
-
-  .folder-image-bottom-left.moved-out {
-    transform: scale(0.75) translate(-95px, 75px) rotate(0deg);
-  }
-
-  .folder-image-top-right.moved-out {
-    transform: scale(0.75) translate(95px, -75px) rotate(0deg);
-  }
-
-  .folder-image-mid-right.moved-out {
-    transform: scale(0.75) translate(95px, 0) rotate(0deg);
-  }
-
-  .folder-image-bottom-right.moved-out {
-    transform: scale(0.75) translate(95px, 75px) rotate(0deg);
-  }
-
   .category-item {
     position: relative;
     top: auto;
@@ -545,6 +497,59 @@ margin-top: 10%;
     margin: 6px auto;
     display: block;
     text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .central-folder {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: center;
+    gap: 12px;
+  }
+
+  .central-folder > a {
+    display: block;
+    min-width: 0;
+  }
+
+  .central-folder .folder-top {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .central-folder .folder-projects-text {
+    margin-top: 0;
+  }
+
+  .central-folder .folder-image {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: clamp(58px, 17vw, 88px);
+    margin: 0;
+    opacity: 1;
+    transform: none;
+    transition: none;
+    pointer-events: auto;
+    z-index: 1;
+  }
+
+  .central-folder .folder-image.moved-out {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    z-index: 1;
+  }
+
+  .central-folder .folder-pattern {
+    position: relative;
+    grid-column: 1 / -1;
+    grid-row: 4;
+    bottom: auto;
+    left: auto;
+    right: auto;
   }
 }
 
