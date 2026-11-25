@@ -19,22 +19,23 @@
   height: auto;
   max-height: 80vh;
   object-fit: cover;
+  transform: scale(1.02);
 }
 
 .project-gallery-arrow {
   position: absolute;
   top: 50%;
   display: grid;
-  width: 36px;
-  height: 36px;
+  width: 28px;
+  height: 28px;
   place-items: center;
   transform: translateY(-50%);
   border: 1px solid rgba(255, 255, 255, 0.75);
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.9);
   color: #2d1b4e;
-  box-shadow: 0 4px 16px rgba(31, 13, 55, 0.2);
-  font-size: 23px;
+  box-shadow: 0 3px 10px rgba(31, 13, 55, 0.18);
+  font-size: 20px;
   line-height: 1;
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
@@ -114,8 +115,8 @@
   }
 
   .project-gallery-arrow {
-    width: 32px;
-    height: 32px;
+    width: 26px;
+    height: 26px;
   }
 
   .project-gallery-previous {
