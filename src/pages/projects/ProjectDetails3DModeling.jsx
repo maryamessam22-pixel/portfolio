@@ -5,6 +5,7 @@ import Footer from '../../components/layout/Footer';
 import SEO from '../../components/common/SEO';
 import Arrow from '../../components/common/Arrow';
 import { stripHTML } from '../../utils/stripHTML';
+import ProjectImageGallery from '../../components/projects/ProjectImageGallery';
 import './ProjectDetails3DModeling.css';
 import { supabase } from '../../config/Supabase';
 
@@ -139,13 +140,12 @@ const ProjectDetails3DModeling = () => {
         <div className="portfolio-grid-layout">
           {/* Column 1: Visuals (Left) */}
           <div className="col-visuals">
-            <div className="project-mockup-container">
-              <div className="project-mockup-container">
-                {project.images && project.images.map((img, index) => (
-                  <img key={index} src={img} alt={project.title} className="main-mockup" />
-                ))}
-              </div>
-            </div>
+            <ProjectImageGallery
+              key={project.id}
+              title={project.title}
+              coverImage={project.coverImage}
+              images={project.images}
+            />
           </div>
 
           {/* Column 2: Main Content (Center) */}

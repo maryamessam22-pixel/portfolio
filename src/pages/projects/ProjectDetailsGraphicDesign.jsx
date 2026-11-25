@@ -6,6 +6,7 @@ import SEO from '../../components/common/SEO';
 import { supabase } from '../../config/Supabase';
 import Arrow from '../../components/common/Arrow';
 import { stripHTML } from '../../utils/stripHTML';
+import ProjectImageGallery from '../../components/projects/ProjectImageGallery';
 import './ProjectDetailsGraphicDesign.css';
 
 const ProjectDetailsGraphicDesign = () => {
@@ -139,15 +140,12 @@ const ProjectDetailsGraphicDesign = () => {
 
           {/* Column 1: Visuals (Left) */}
           <div className="col-visuals">
-            <div className="project-mockup-container">
-              {project.images && project.images.length > 0 ? (
-                project.images.map((img, index) => (
-                  <img key={index} src={img} alt={`${project.title} ${index + 1}`} className="main-mockup" />
-                ))
-              ) : (
-                <p style={{ textAlign: 'center', color: '#888' }}>No images available</p>
-              )}
-            </div>
+            <ProjectImageGallery
+              key={project.id}
+              title={project.title}
+              coverImage={project.coverImage}
+              images={project.images}
+            />
           </div>
 
           {/* Column 2: Main Content (Center) */}

@@ -1,0 +1,109 @@
+.project-image-gallery {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.project-gallery-feature {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #f3f0ff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.project-gallery-main-image {
+  display: block;
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: 16px;
+}
+
+.project-gallery-arrow {
+  position: absolute;
+  top: 50%;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  transform: translateY(-50%);
+  border: 0;
+  border-radius: 50%;
+  background: rgba(31, 13, 55, 0.72);
+  color: #fff;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.project-gallery-arrow:hover,
+.project-gallery-arrow:focus-visible {
+  background: #6b46c1;
+}
+
+.project-gallery-previous {
+  left: 12px;
+}
+
+.project-gallery-next {
+  right: 12px;
+}
+
+.project-gallery-thumbnails {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 2px 2px 8px;
+}
+
+.project-gallery-thumbnail {
+  flex: 0 0 76px;
+  height: 76px;
+  overflow: hidden;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background: #f3f0ff;
+  cursor: pointer;
+  opacity: 0.72;
+  transition: border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.project-gallery-thumbnail:hover,
+.project-gallery-thumbnail.is-active {
+  border-color: #6b46c1;
+  opacity: 1;
+}
+
+.project-gallery-thumbnail img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-gallery-empty {
+  margin: 0;
+  padding: 24px;
+  color: #888;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .project-gallery-main-image {
+    max-height: 60vh;
+  }
+
+  .project-gallery-thumbnail {
+    flex-basis: 64px;
+    height: 64px;
+  }
+
+  .project-gallery-arrow {
+    width: 36px;
+    height: 36px;
+  }
+}
